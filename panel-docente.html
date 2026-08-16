@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,14 +12,15 @@ content="width=device-width, initial-scale=1.0">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+href="https://fonts.gstatic.com"
+crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
-      rel="stylesheet">
+rel="stylesheet">
 
 
 <style>
@@ -47,6 +47,15 @@ body{
 
 }
 
+button,
+input,
+select,
+textarea{
+
+    font-family:inherit;
+
+}
+
 
 /* =====================================================
    HEADER
@@ -67,6 +76,10 @@ header{
     padding:35px 20px;
 
     text-align:center;
+
+    box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.15);
 
 }
 
@@ -95,9 +108,9 @@ header p{
 
 .contenedor{
 
-    max-width:1100px;
+    max-width:1150px;
 
-    margin:40px auto;
+    margin:35px auto;
 
     padding:0 20px;
 
@@ -117,8 +130,8 @@ header p{
     padding:30px;
 
     box-shadow:
-    0 10px 30px
-    rgba(15,23,42,.08);
+    0 8px 25px
+    rgba(15,23,42,.07);
 
     border:1px solid #e2e8f0;
 
@@ -142,7 +155,26 @@ header p{
 
     line-height:1.6;
 
-    margin-bottom:25px;
+    margin-bottom:22px;
+
+}
+
+
+/* =====================================================
+   USUARIO
+   ===================================================== */
+
+.usuario-box{
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
 
 }
 
@@ -153,7 +185,7 @@ header p{
 
 .campo{
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
 }
 
@@ -161,40 +193,46 @@ header p{
 
     display:block;
 
-    font-size:14px;
+    font-size:13px;
 
     font-weight:700;
 
-    margin-bottom:8px;
-
     color:#334155;
+
+    margin-bottom:7px;
 
 }
 
-.campo select,
 .campo input,
+.campo select,
 .campo textarea{
 
     width:100%;
 
-    padding:13px 14px;
+    padding:12px 13px;
 
     border:1px solid #cbd5e1;
 
     border-radius:8px;
 
-    font-family:inherit;
-
-    font-size:14px;
-
     background:#f8fafc;
 
     outline:none;
 
+    font-size:14px;
+
 }
 
-.campo select:focus,
+.campo textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+
+}
+
 .campo input:focus,
+.campo select:focus,
 .campo textarea:focus{
 
     border-color:#2563eb;
@@ -207,11 +245,19 @@ header p{
 
 }
 
-.campo textarea{
 
-    min-height:90px;
+/* =====================================================
+   GRID
+   ===================================================== */
 
-    resize:vertical;
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:18px;
 
 }
 
@@ -222,17 +268,11 @@ header p{
 
 .boton{
 
-    width:100%;
-
-    padding:13px 15px;
-
     border:none;
 
     border-radius:8px;
 
-    background:#2563eb;
-
-    color:white;
+    padding:12px 16px;
 
     font-size:14px;
 
@@ -246,27 +286,27 @@ header p{
 
 .boton:hover{
 
-    background:#1d4ed8;
-
     transform:translateY(-1px);
 
 }
 
-.boton:disabled{
+.boton-principal{
 
-    background:#94a3b8;
+    background:#2563eb;
 
-    cursor:wait;
+    color:white;
 
-    transform:none;
+    width:100%;
+
+}
+
+.boton-principal:hover{
+
+    background:#1d4ed8;
 
 }
 
 .boton-salir{
-
-    width:auto;
-
-    padding:10px 18px;
 
     background:#e2e8f0;
 
@@ -280,17 +320,11 @@ header p{
 
 }
 
-.boton-secundario{
+.boton-ver{
 
-    background:#e2e8f0;
+    background:#2563eb;
 
-    color:#334155;
-
-}
-
-.boton-secundario:hover{
-
-    background:#cbd5e1;
+    color:white;
 
 }
 
@@ -302,12 +336,6 @@ header p{
 
 }
 
-.boton-editar:hover{
-
-    background:#d97706;
-
-}
-
 .boton-eliminar{
 
     background:#dc2626;
@@ -316,9 +344,11 @@ header p{
 
 }
 
-.boton-eliminar:hover{
+.boton-cancelar{
 
-    background:#b91c1c;
+    background:#e2e8f0;
+
+    color:#334155;
 
 }
 
@@ -329,13 +359,18 @@ header p{
 
 .archivo-info{
 
-    margin-top:10px;
-
-    font-size:13px;
+    margin-top:8px;
 
     color:#64748b;
 
+    font-size:13px;
+
 }
+
+
+/* =====================================================
+   YOUTUBE
+   ===================================================== */
 
 .info-youtube{
 
@@ -359,7 +394,7 @@ header p{
 
 
 /* =====================================================
-   GRID FILTROS
+   FILTROS
    ===================================================== */
 
 .filtros{
@@ -367,9 +402,7 @@ header p{
     display:grid;
 
     grid-template-columns:
-    1fr
-    1fr
-    auto;
+    1fr 1fr auto;
 
     gap:15px;
 
@@ -377,20 +410,34 @@ header p{
 
 }
 
-.filtro{
+.filtro-boton{
 
-    margin-bottom:0;
+    height:44px;
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+.filtro-boton:hover{
+
+    background:#1e293b;
 
 }
 
 
 /* =====================================================
-   LISTA MATERIAL
+   LISTA DE MATERIALES
    ===================================================== */
 
 .lista-materiales{
 
-    margin-top:25px;
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
 
 }
 
@@ -398,11 +445,9 @@ header p{
 
     border:1px solid #e2e8f0;
 
-    border-radius:12px;
+    border-radius:14px;
 
     padding:20px;
-
-    margin-bottom:15px;
 
     background:#fff;
 
@@ -413,7 +458,7 @@ header p{
 .material:hover{
 
     box-shadow:
-    0 5px 15px
+    0 6px 18px
     rgba(15,23,42,.07);
 
 }
@@ -424,15 +469,9 @@ header p{
 
     justify-content:space-between;
 
-    gap:20px;
-
     align-items:flex-start;
 
-}
-
-.material-info{
-
-    flex:1;
+    gap:15px;
 
 }
 
@@ -442,19 +481,29 @@ header p{
 
     font-weight:800;
 
-    margin-bottom:8px;
+    margin-bottom:6px;
 
 }
 
 .material-meta{
 
-    display:flex;
+    color:#64748b;
 
-    gap:8px;
+    font-size:12px;
 
-    flex-wrap:wrap;
+    line-height:1.6;
 
-    margin-bottom:10px;
+}
+
+.material-descripcion{
+
+    margin-top:12px;
+
+    color:#475569;
+
+    font-size:14px;
+
+    line-height:1.5;
 
 }
 
@@ -474,67 +523,95 @@ header p{
 
     font-weight:800;
 
-}
-
-.etiqueta-video{
-
-    background:#fef2f2;
-
-    color:#dc2626;
-
-}
-
-.etiqueta-archivo{
-
-    background:#f1f5f9;
-
-    color:#475569;
-
-}
-
-.material-descripcion{
-
-    color:#64748b;
-
-    font-size:13px;
-
-    line-height:1.5;
-
-}
-
-.material-ruta{
-
     margin-top:10px;
 
-    padding:9px;
+}
+
+.acciones{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:17px;
+
+}
+
+
+/* =====================================================
+   CONTRASEÑAS
+   ===================================================== */
+
+.password-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+.password-card{
+
+    border:1px solid #e2e8f0;
+
+    border-radius:12px;
+
+    padding:16px;
 
     background:#f8fafc;
 
-    border-radius:6px;
+}
 
-    font-size:11px;
+.password-materia{
 
-    color:#64748b;
+    font-size:14px;
 
-    word-break:break-all;
+    font-weight:800;
+
+    margin-bottom:8px;
 
 }
 
-.material-acciones{
+.password-valor{
 
     display:flex;
 
     gap:8px;
 
-    flex-wrap:wrap;
+}
+
+.password-valor input{
+
+    flex:1;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:7px;
+
+    padding:9px;
+
+    background:white;
 
 }
 
-.material-acciones .boton{
+.password-mostrar{
 
-    width:auto;
+    background:#0f172a;
 
-    padding:9px 12px;
+    color:white;
+
+    border:none;
+
+    border-radius:7px;
+
+    padding:8px 12px;
+
+    cursor:pointer;
 
 }
 
@@ -560,7 +637,7 @@ header p{
 
     padding:20px;
 
-    z-index:1000;
+    z-index:9999;
 
 }
 
@@ -572,15 +649,15 @@ header p{
 
 .modal-contenido{
 
-    background:white;
-
     width:100%;
 
     max-width:600px;
 
+    background:white;
+
     border-radius:18px;
 
-    padding:30px;
+    padding:28px;
 
     box-shadow:
     0 20px 60px
@@ -596,19 +673,15 @@ header p{
 
 }
 
-.modal-botones{
+.modal-acciones{
 
     display:flex;
+
+    justify-content:flex-end;
 
     gap:10px;
 
     margin-top:20px;
-
-}
-
-.modal-botones .boton{
-
-    flex:1;
 
 }
 
@@ -621,17 +694,15 @@ header p{
 
     display:none;
 
-    margin-top:20px;
-
     padding:14px;
 
-    border-radius:8px;
+    border-radius:9px;
+
+    margin-top:15px;
 
     font-size:14px;
 
-    font-weight:600;
-
-    line-height:1.5;
+    font-weight:700;
 
 }
 
@@ -657,33 +728,6 @@ header p{
 
 
 /* =====================================================
-   PROGRESO
-   ===================================================== */
-
-.progreso{
-
-    display:none;
-
-    margin-top:20px;
-
-    padding:15px;
-
-    background:#eff6ff;
-
-    border-radius:8px;
-
-    color:#1d4ed8;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    text-align:center;
-
-}
-
-
-/* =====================================================
    CARGANDO
    ===================================================== */
 
@@ -700,6 +744,30 @@ header p{
     color:#64748b;
 
 }
+
+
+/* =====================================================
+   SIN MATERIAL
+   ===================================================== */
+
+.sin-material{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+}
+
+
+/* =====================================================
+   ERROR ACCESO
+   ===================================================== */
 
 .error-acceso{
 
@@ -725,31 +793,24 @@ header p{
 
 
 /* =====================================================
-   SIN RESULTADOS
-   ===================================================== */
-
-.sin-resultados{
-
-    text-align:center;
-
-    padding:40px;
-
-    color:#64748b;
-
-    border:1px dashed #cbd5e1;
-
-    border-radius:12px;
-
-}
-
-
-/* =====================================================
    RESPONSIVE
    ===================================================== */
 
 @media(max-width:750px){
 
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
     .filtros{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .password-grid{
 
         grid-template-columns:1fr;
 
@@ -761,17 +822,15 @@ header p{
 
     }
 
-    .material-acciones{
+    .acciones{
 
         width:100%;
 
     }
 
-    .material-acciones .boton{
+    .acciones .boton{
 
         flex:1;
-
-        text-align:center;
 
     }
 
@@ -799,9 +858,7 @@ Panel de administración docente
 
 
 <div id="cargando">
-
 Verificando acceso...
-
 </div>
 
 
@@ -823,12 +880,15 @@ style="display:none;">
 
 <p class="descripcion">
 
-Desde aquí puedes subir, editar, filtrar y eliminar
-el material educativo de tus materias.
+Administra todo el material educativo desde un
+solo lugar.
 
 </p>
 
-<div id="usuario"></div>
+<div
+id="usuario"
+class="usuario-box">
+</div>
 
 <button
 id="cerrarSesion"
@@ -854,8 +914,8 @@ Cerrar sesión
 
 <p class="descripcion">
 
-Puedes subir documentos e imágenes a Supabase Storage
-o publicar directamente enlaces de YouTube.
+Puedes subir documentos e imágenes o publicar
+directamente enlaces de YouTube.
 
 </p>
 
@@ -863,14 +923,13 @@ o publicar directamente enlaces de YouTube.
 <form id="formulario">
 
 
-<!-- MATERIA -->
+<div class="grid">
+
 
 <div class="campo">
 
-<label for="materia">
-
+<label>
 Materia
-
 </label>
 
 <select
@@ -966,14 +1025,10 @@ Diagramas — Vehículos Eléctricos
 </div>
 
 
-<!-- UNIDAD -->
-
 <div class="campo">
 
-<label for="unidad">
-
+<label>
 Unidad / Sección
-
 </label>
 
 <select
@@ -1016,15 +1071,14 @@ Material complementario
 
 </div>
 
+</div>
 
-<!-- TITULO -->
+
 
 <div class="campo">
 
-<label for="titulo">
-
+<label>
 Título del material
-
 </label>
 
 <input
@@ -1036,14 +1090,11 @@ required>
 </div>
 
 
-<!-- DESCRIPCIÓN -->
 
 <div class="campo">
 
-<label for="descripcion">
-
+<label>
 Descripción
-
 </label>
 
 <textarea
@@ -1053,14 +1104,11 @@ placeholder="Descripción breve del material..."></textarea>
 </div>
 
 
-<!-- TIPO -->
 
 <div class="campo">
 
-<label for="tipo">
-
+<label>
 Tipo de material
-
 </label>
 
 <select
@@ -1092,16 +1140,13 @@ Selecciona el tipo
 </div>
 
 
-<!-- ARCHIVO -->
 
 <div
-class="campo"
-id="campoArchivo">
+id="campoArchivo"
+class="campo">
 
-<label for="archivo">
-
+<label>
 Archivo
-
 </label>
 
 <input
@@ -1119,40 +1164,36 @@ Selecciona un archivo.
 </div>
 
 
-<!-- YOUTUBE -->
 
 <div
-class="campo"
 id="campoYoutube"
+class="campo"
 style="display:none;">
 
-<label for="youtube">
-
+<label>
 🔗 Enlace de YouTube
-
 </label>
 
 <input
 type="url"
 id="youtube"
-placeholder="https://www.youtube.com/watch?v=XXXXXXXXXXX">
+placeholder="https://www.youtube.com/watch?v=...">
 
 <div class="info-youtube">
 
-<strong>🎥 Importante:</strong><br>
-
-Puedes utilizar un video público o un video
-configurado como <strong>No listado</strong>.
+Los videos no se almacenan en Supabase.
+Solo se guarda el enlace de YouTube.
 
 </div>
 
 </div>
+
 
 
 <button
 type="submit"
 id="botonSubir"
-class="boton">
+class="boton boton-principal">
 
 📤 PUBLICAR MATERIAL
 
@@ -1161,9 +1202,7 @@ class="boton">
 
 <div
 id="progreso"
-class="progreso">
-
-Procesando...
+class="mensaje">
 
 </div>
 
@@ -1193,8 +1232,8 @@ class="mensaje">
 
 <p class="descripcion">
 
-Filtra los materiales publicados por materia o unidad.
-Desde aquí puedes editar o eliminar cualquier material.
+Filtra por materia o unidad y administra los
+materiales publicados.
 
 </p>
 
@@ -1202,98 +1241,17 @@ Desde aquí puedes editar o eliminar cualquier material.
 <div class="filtros">
 
 
-<div class="campo filtro">
+<div class="campo">
 
-<label for="filtroMateria">
-
-🔎 Filtrar por materia
-
+<label>
+Materia
 </label>
 
-<select id="filtroMateria">
+<select
+id="filtroMateria">
 
 <option value="">
 Todas las materias
-</option>
-
-<option value="electronica-digital">
-Electrónica Digital — Automotriz
-</option>
-
-<option value="programacion">
-Programación — Automotriz
-</option>
-
-<option value="inyeccion-electronica">
-Sistemas de Inyección Electrónica
-</option>
-
-<option value="sistemas-encendido">
-Sistemas de Encendido
-</option>
-
-<option value="ecus">
-ECUS
-</option>
-
-<option value="tableros-electronicos">
-Tableros Electrónicos
-</option>
-
-<option value="diagramas-electricos">
-Diagramas Eléctricos
-</option>
-
-<option value="electronica-digital-ingenieria">
-Electrónica Digital — Ingeniería
-</option>
-
-<option value="electromagnetismo">
-Electromagnetismo
-</option>
-
-<option value="electronica-analogica">
-Electrónica Analógica
-</option>
-
-<option value="circuitos-electricos">
-Circuitos Eléctricos
-</option>
-
-<option value="robotica">
-Robótica
-</option>
-
-<option value="sistemas-control">
-Sistemas de Control
-</option>
-
-<option value="fisica-3">
-Física 3
-</option>
-
-<option value="programacion-java">
-Programación en Java
-</option>
-
-<option value="microcontroladores">
-Programación de Microcontroladores
-</option>
-
-<option value="iot">
-IoT
-</option>
-
-<option value="sistemas-vehiculos-electricos">
-Sistemas — Vehículos Eléctricos
-</option>
-
-<option value="electricidad-vehiculos-electricos">
-Electricidad — Vehículos Eléctricos
-</option>
-
-<option value="diagramas-vehiculos-electricos">
-Diagramas — Vehículos Eléctricos
 </option>
 
 </select>
@@ -1301,15 +1259,14 @@ Diagramas — Vehículos Eléctricos
 </div>
 
 
-<div class="campo filtro">
+<div class="campo">
 
-<label for="filtroUnidad">
-
-📂 Filtrar por unidad
-
+<label>
+Unidad
 </label>
 
-<select id="filtroUnidad">
+<select
+id="filtroUnidad">
 
 <option value="">
 Todas las unidades
@@ -1348,29 +1305,13 @@ Material complementario
 </div>
 
 
-<div class="campo filtro">
-
 <button
-type="button"
-id="actualizar"
-class="boton">
+id="btnFiltrar"
+class="boton filtro-boton">
 
-🔄 Actualizar
+🔎 Filtrar
 
 </button>
-
-</div>
-
-</div>
-
-
-<div
-id="contador"
-style="
-margin-top:20px;
-color:#64748b;
-font-size:13px;
-font-weight:600;">
 
 </div>
 
@@ -1379,7 +1320,7 @@ font-weight:600;">
 id="listaMateriales"
 class="lista-materiales">
 
-<div class="cargando">
+<div class="sin-material">
 
 📚 Cargando materiales...
 
@@ -1388,6 +1329,40 @@ class="lista-materiales">
 </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     CONTRASEÑAS
+     ===================================================== -->
+
+<section class="tarjeta">
+
+<h2>
+🔐 Contraseñas de las materias
+</h2>
+
+<p class="descripcion">
+
+Aquí puedes consultar las contraseñas utilizadas
+para acceder a cada materia.
+
+</p>
+
+<div
+id="listaPasswords"
+class="password-grid">
+
+<div class="sin-material">
+
+🔐 Cargando contraseñas...
+
+</div>
+
+</div>
+
+</section>
+
 
 </main>
 
@@ -1407,7 +1382,6 @@ class="modal">
 ✏️ Editar material
 </h2>
 
-
 <input
 type="hidden"
 id="editarId">
@@ -1421,8 +1395,7 @@ Título
 
 <input
 type="text"
-id="editarTitulo"
-required>
+id="editarTitulo">
 
 </div>
 
@@ -1439,31 +1412,23 @@ id="editarDescripcion"></textarea>
 </div>
 
 
-<div class="modal-botones">
+<div class="modal-acciones">
 
 <button
-type="button"
-id="cancelarEdicion"
-class="boton boton-secundario">
+id="cancelarEditar"
+class="boton boton-cancelar">
 
 Cancelar
 
 </button>
 
 <button
-type="button"
-id="guardarEdicion"
-class="boton">
+id="guardarEditar"
+class="boton boton-principal">
 
 💾 Guardar cambios
 
 </button>
-
-</div>
-
-<div
-id="mensajeEdicion"
-class="mensaje">
 
 </div>
 
@@ -1475,7 +1440,6 @@ class="mensaje">
 
 <script>
 
-
 /* =====================================================
    CONFIGURACIÓN SUPABASE
    ===================================================== */
@@ -1486,19 +1450,99 @@ const SUPABASE_URL =
 const SUPABASE_ANON_KEY =
 "sb_publishable_7IIh-dLRxW6pN-gggGbI5A_VIuww2Sd";
 
+const supabaseClient =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+
+/* =====================================================
+   CONFIGURACIÓN
+   ===================================================== */
 
 const BUCKET =
 "material-educativo";
 
 
-const supabaseClient =
-supabase.createClient(
+/*
+   TABLA DE CONTRASEÑAS
 
-    SUPABASE_URL,
+   Si tu tabla tiene otro nombre,
+   cambia solamente esta constante.
+*/
 
-    SUPABASE_ANON_KEY
+const TABLA_PASSWORDS =
+"accesos_materias";
 
-);
+
+/* =====================================================
+   MATERIAS
+   ===================================================== */
+
+const materias = {
+
+    "electronica-digital":
+    "Electrónica Digital — Automotriz",
+
+    "programacion":
+    "Programación — Automotriz",
+
+    "inyeccion-electronica":
+    "Sistemas de Inyección Electrónica",
+
+    "sistemas-encendido":
+    "Sistemas de Encendido",
+
+    "ecus":
+    "ECUS",
+
+    "tableros-electronicos":
+    "Tableros Electrónicos",
+
+    "diagramas-electricos":
+    "Diagramas Eléctricos",
+
+    "electronica-digital-ingenieria":
+    "Electrónica Digital — Ingeniería",
+
+    "electromagnetismo":
+    "Electromagnetismo",
+
+    "electronica-analogica":
+    "Electrónica Analógica",
+
+    "circuitos-electricos":
+    "Circuitos Eléctricos",
+
+    "robotica":
+    "Robótica",
+
+    "sistemas-control":
+    "Sistemas de Control",
+
+    "fisica-3":
+    "Física 3",
+
+    "programacion-java":
+    "Programación en Java",
+
+    "microcontroladores":
+    "Programación de Microcontroladores",
+
+    "iot":
+    "IoT",
+
+    "sistemas-vehiculos-electricos":
+    "Sistemas — Vehículos Eléctricos",
+
+    "electricidad-vehiculos-electricos":
+    "Electricidad — Vehículos Eléctricos",
+
+    "diagramas-vehiculos-electricos":
+    "Diagramas — Vehículos Eléctricos"
+
+};
 
 
 /* =====================================================
@@ -1565,14 +1609,14 @@ document.getElementById("filtroMateria");
 const filtroUnidad =
 document.getElementById("filtroUnidad");
 
-const actualizar =
-document.getElementById("actualizar");
+const btnFiltrar =
+document.getElementById("btnFiltrar");
 
 const listaMateriales =
 document.getElementById("listaMateriales");
 
-const contador =
-document.getElementById("contador");
+const listaPasswords =
+document.getElementById("listaPasswords");
 
 const modalEditar =
 document.getElementById("modalEditar");
@@ -1586,168 +1630,110 @@ document.getElementById("editarTitulo");
 const editarDescripcion =
 document.getElementById("editarDescripcion");
 
-const cancelarEdicion =
-document.getElementById("cancelarEdicion");
+const cancelarEditar =
+document.getElementById("cancelarEditar");
 
-const guardarEdicion =
-document.getElementById("guardarEdicion");
-
-const mensajeEdicion =
-document.getElementById("mensajeEdicion");
+const guardarEditar =
+document.getElementById("guardarEditar");
 
 
 /* =====================================================
-   NOMBRES DE MATERIAS
+   LLENAR FILTRO DE MATERIAS
    ===================================================== */
 
-const nombresMaterias = {
+Object.entries(materias).forEach(
+    ([id,nombre]) => {
 
-    "electronica-digital":
-    "Electrónica Digital — Automotriz",
+        const option =
+        document.createElement("option");
 
-    "programacion":
-    "Programación — Automotriz",
+        option.value = id;
 
-    "inyeccion-electronica":
-    "Sistemas de Inyección Electrónica",
+        option.textContent = nombre;
 
-    "sistemas-encendido":
-    "Sistemas de Encendido",
+        filtroMateria.appendChild(option);
 
-    "ecus":
-    "ECUS",
-
-    "tableros-electronicos":
-    "Tableros Electrónicos",
-
-    "diagramas-electricos":
-    "Diagramas Eléctricos",
-
-    "electronica-digital-ingenieria":
-    "Electrónica Digital — Ingeniería",
-
-    "electromagnetismo":
-    "Electromagnetismo",
-
-    "electronica-analogica":
-    "Electrónica Analógica",
-
-    "circuitos-electricos":
-    "Circuitos Eléctricos",
-
-    "robotica":
-    "Robótica",
-
-    "sistemas-control":
-    "Sistemas de Control",
-
-    "fisica-3":
-    "Física 3",
-
-    "programacion-java":
-    "Programación en Java",
-
-    "microcontroladores":
-    "Programación de Microcontroladores",
-
-    "iot":
-    "IoT",
-
-    "sistemas-vehiculos-electricos":
-    "Sistemas — Vehículos Eléctricos",
-
-    "electricidad-vehiculos-electricos":
-    "Electricidad — Vehículos Eléctricos",
-
-    "diagramas-vehiculos-electricos":
-    "Diagramas — Vehículos Eléctricos"
-
-};
+    }
+);
 
 
 /* =====================================================
-   NOMBRES UNIDADES
-   ===================================================== */
-
-const nombresUnidades = {
-
-    "unidad-1":
-    "Unidad 1",
-
-    "unidad-2":
-    "Unidad 2",
-
-    "unidad-3":
-    "Unidad 3",
-
-    "unidad-4":
-    "Unidad 4",
-
-    "unidad-5":
-    "Unidad 5",
-
-    "practicas":
-    "Prácticas",
-
-    "material-complementario":
-    "Material complementario"
-
-};
-
-
-/* =====================================================
-   CAMBIAR TIPO DE MATERIAL
+   CAMBIAR TIPO
    ===================================================== */
 
 tipo.addEventListener(
-"change",
-function(){
+    "change",
+    function(){
 
-    if(tipo.value === "video"){
+        if(tipo.value === "video"){
 
-        campoArchivo.style.display =
-        "none";
+            campoArchivo.style.display =
+            "none";
 
-        campoYoutube.style.display =
-        "block";
+            campoYoutube.style.display =
+            "block";
 
-        archivo.required =
-        false;
+            archivo.required =
+            false;
 
-        youtube.required =
-        true;
+            youtube.required =
+            true;
 
-        archivo.value =
-        "";
+            archivo.value = "";
 
-        archivoInfo.textContent =
-        "Los videos utilizan enlaces de YouTube.";
+        }
+
+        else{
+
+            campoArchivo.style.display =
+            "block";
+
+            campoYoutube.style.display =
+            "none";
+
+            archivo.required =
+            true;
+
+            youtube.required =
+            false;
+
+            youtube.value = "";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   VERIFICAR YOUTUBE
+   ===================================================== */
+
+function esYoutube(url){
+
+    try{
+
+        const u =
+        new URL(url);
+
+        return (
+
+            u.hostname === "youtube.com" ||
+            u.hostname === "www.youtube.com" ||
+            u.hostname === "youtu.be" ||
+            u.hostname === "www.youtu.be"
+
+        );
 
     }
 
-    else{
+    catch{
 
-        campoArchivo.style.display =
-        "block";
-
-        campoYoutube.style.display =
-        "none";
-
-        archivo.required =
-        true;
-
-        youtube.required =
-        false;
-
-        youtube.value =
-        "";
-
-        archivoInfo.textContent =
-        "Selecciona un archivo.";
+        return false;
 
     }
 
-});
+}
 
 
 /* =====================================================
@@ -1759,7 +1745,6 @@ async function verificarUsuario(){
     try{
 
         const {
-
             data:
             sessionData,
 
@@ -1772,11 +1757,8 @@ async function verificarUsuario(){
         .getSession();
 
 
-        if(sessionError){
-
+        if(sessionError)
             throw sessionError;
-
-        }
 
 
         const session =
@@ -1798,7 +1780,6 @@ async function verificarUsuario(){
 
 
         const {
-
             data:
             administrador,
 
@@ -1807,21 +1788,14 @@ async function verificarUsuario(){
 
         } =
         await supabaseClient
-
         .from("administradores")
-
         .select("id,nombre,activo")
-
         .eq("id",user.id)
-
         .maybeSingle();
 
 
-        if(adminError){
-
+        if(adminError)
             throw adminError;
-
-        }
 
 
         if(!administrador){
@@ -1852,20 +1826,19 @@ async function verificarUsuario(){
 
         usuario.innerHTML = `
 
-            <p style="
-            color:#64748b;
-            font-size:14px;
-            margin-bottom:12px;">
-
-            Sesión iniciada como:
-
-            <strong style="color:#0f172a;">
-
-            ${escaparHTML(administrador.nombre)}
-
+            <strong>
+            👤 ${escaparHTML(administrador.nombre)}
             </strong>
 
-            </p>
+            <br>
+
+            <span style="
+            color:#64748b;
+            font-size:12px;">
+
+            Administrador autorizado
+
+            </span>
 
         `;
 
@@ -1877,7 +1850,9 @@ async function verificarUsuario(){
         "block";
 
 
-        cargarMateriales();
+        await cargarMateriales();
+
+        await cargarPasswords();
 
     }
 
@@ -1890,7 +1865,7 @@ async function verificarUsuario(){
             <div class="error-acceso">
 
             <strong>
-            ❌ Error al verificar el acceso
+            ❌ Error al verificar acceso
             </strong>
 
             <br><br>
@@ -1900,9 +1875,7 @@ async function verificarUsuario(){
             <br><br>
 
             <a href="login-docente.html">
-
             ← Volver al acceso docente
-
             </a>
 
             </div>
@@ -1914,7 +1887,23 @@ async function verificarUsuario(){
 }
 
 
-verificarUsuario();
+/* =====================================================
+   CERRAR SESIÓN
+   ===================================================== */
+
+cerrarSesion.addEventListener(
+    "click",
+    async function(){
+
+        await supabaseClient
+        .auth
+        .signOut();
+
+        window.location.href =
+        "login-docente.html";
+
+    }
+);
 
 
 /* =====================================================
@@ -1922,105 +1911,31 @@ verificarUsuario();
    ===================================================== */
 
 archivo.addEventListener(
-"change",
-function(){
+    "change",
+    function(){
 
-    if(
-        archivo.files &&
-        archivo.files.length > 0
-    ){
+        if(
+            archivo.files &&
+            archivo.files.length
+        ){
 
-        const file =
-        archivo.files[0];
+            const file =
+            archivo.files[0];
 
-        const tamaño =
-        (
-            file.size /
-            1024 /
-            1024
-        ).toFixed(2);
+            const tamaño =
+            (
+                file.size /
+                1024 /
+                1024
+            ).toFixed(2);
 
-        archivoInfo.textContent =
-        file.name
-        +
-        " — "
-        +
-        tamaño
-        +
-        " MB";
+            archivoInfo.textContent =
+            `${file.name} — ${tamaño} MB`;
+
+        }
 
     }
-
-    else{
-
-        archivoInfo.textContent =
-        "Selecciona un archivo.";
-
-    }
-
-});
-
-
-/* =====================================================
-   CERRAR SESIÓN
-   ===================================================== */
-
-cerrarSesion.addEventListener(
-"click",
-async function(){
-
-    await supabaseClient
-    .auth
-    .signOut();
-
-    window.location.href =
-    "login-docente.html";
-
-});
-
-
-/* =====================================================
-   VALIDAR YOUTUBE
-   ===================================================== */
-
-function esYoutube(url){
-
-    try{
-
-        const direccion =
-        new URL(url);
-
-        return (
-
-            direccion.hostname ===
-            "www.youtube.com"
-
-            ||
-
-            direccion.hostname ===
-            "youtube.com"
-
-            ||
-
-            direccion.hostname ===
-            "youtu.be"
-
-            ||
-
-            direccion.hostname ===
-            "www.youtu.be"
-
-        );
-
-    }
-
-    catch{
-
-        return false;
-
-    }
-
-}
+);
 
 
 /* =====================================================
@@ -2028,109 +1943,220 @@ function esYoutube(url){
    ===================================================== */
 
 formulario.addEventListener(
-"submit",
-async function(event){
+    "submit",
+    async function(event){
 
-    event.preventDefault();
-
-
-    const materiaValor =
-    materia.value;
-
-    const unidadValor =
-    unidad.value;
-
-    const tituloValor =
-    titulo.value.trim();
-
-    const descripcionValor =
-    descripcion.value.trim();
-
-    const tipoValor =
-    tipo.value;
-
-    const youtubeValor =
-    youtube.value.trim();
+        event.preventDefault();
 
 
-    if(tipoValor === "video"){
+        const materiaValor =
+        materia.value;
 
-        if(!youtubeValor){
+        const unidadValor =
+        unidad.value;
 
-            mostrarMensaje(
-                "Pega el enlace de YouTube.",
-                false
-            );
+        const tituloValor =
+        titulo.value.trim();
 
-            return;
+        const descripcionValor =
+        descripcion.value.trim();
 
-        }
-
-
-        if(!esYoutube(youtubeValor)){
-
-            mostrarMensaje(
-                "El enlace no parece ser válido de YouTube.",
-                false
-            );
-
-            return;
-
-        }
-
-    }
+        const tipoValor =
+        tipo.value;
 
 
-    if(tipoValor !== "video"){
+        try{
 
-        if(
-            !archivo.files ||
-            archivo.files.length === 0
-        ){
+            botonSubir.disabled =
+            true;
 
-            mostrarMensaje(
-                "Selecciona un archivo.",
-                false
-            );
+            mensaje.style.display =
+            "none";
 
-            return;
-
-        }
-
-    }
+            progreso.style.display =
+            "block";
 
 
-    try{
+            /* =========================================
+               YOUTUBE
+               ========================================= */
 
-        botonSubir.disabled =
-        true;
+            if(tipoValor === "video"){
 
-        progreso.style.display =
-        "block";
-
-        mensaje.style.display =
-        "none";
+                const youtubeValor =
+                youtube.value.trim();
 
 
-        /* =================================================
-           YOUTUBE
-           ================================================= */
+                if(!esYoutube(youtubeValor)){
 
-        if(tipoValor === "video"){
+                    throw new Error(
+                        "El enlace de YouTube no es válido."
+                    );
+
+                }
+
+
+                progreso.textContent =
+                "Guardando enlace de YouTube...";
+
+
+                const {
+                    error
+                } =
+                await supabaseClient
+                .from("materiales")
+                .insert({
+
+                    materia_id:
+                    materiaValor,
+
+                    unidad:
+                    unidadValor,
+
+                    titulo:
+                    tituloValor,
+
+                    tipo:
+                    "video",
+
+                    nombre_archivo:
+                    "Video de YouTube",
+
+                    ruta_archivo:
+                    youtubeValor,
+
+                    descripcion:
+                    descripcionValor,
+
+                    publicado:
+                    true
+
+                });
+
+
+                if(error)
+                    throw error;
+
+
+                mostrarMensaje(
+                    "✅ Video de YouTube publicado correctamente.",
+                    true
+                );
+
+
+                formulario.reset();
+
+                restaurarFormulario();
+
+
+                await cargarMateriales();
+
+                return;
+
+            }
+
+
+            /* =========================================
+               ARCHIVO
+               ========================================= */
+
+            if(
+                !archivo.files ||
+                !archivo.files.length
+            ){
+
+                throw new Error(
+                    "Selecciona un archivo."
+                );
+
+            }
+
+
+            const file =
+            archivo.files[0];
+
 
             progreso.textContent =
-            "Guardando enlace de YouTube...";
+            "Preparando archivo...";
+
+
+            const extension =
+            file.name
+            .split(".")
+            .pop();
+
+
+            const nombreBase =
+            file.name
+            .replace(
+                /\.[^/.]+$/,
+                ""
+            )
+            .replace(
+                /[^a-zA-Z0-9-_]/g,
+                "-"
+            );
+
+
+            const nombreArchivo =
+            Date.now()
+            +
+            "-"
+            +
+            nombreBase
+            +
+            "."
+            +
+            extension;
+
+
+            const ruta =
+            materiaValor
+            +
+            "/"
+            +
+            unidadValor
+            +
+            "/"
+            +
+            nombreArchivo;
+
+
+            progreso.textContent =
+            "Subiendo archivo...";
 
 
             const {
-
-                error
-
+                error:
+                errorStorage
             } =
             await supabaseClient
+            .storage
+            .from(BUCKET)
+            .upload(
+                ruta,
+                file,
+                {
+                    cacheControl:"3600",
+                    upsert:false
+                }
+            );
 
+
+            if(errorStorage)
+                throw errorStorage;
+
+
+            progreso.textContent =
+            "Guardando información...";
+
+
+            const {
+                error:
+                errorBD
+            } =
+            await supabaseClient
             .from("materiales")
-
             .insert({
 
                 materia_id:
@@ -2143,13 +2169,13 @@ async function(event){
                 tituloValor,
 
                 tipo:
-                "video",
+                tipoValor,
 
                 nombre_archivo:
-                "Video de YouTube",
+                file.name,
 
                 ruta_archivo:
-                youtubeValor,
+                ruta,
 
                 descripcion:
                 descripcionValor,
@@ -2160,236 +2186,84 @@ async function(event){
             });
 
 
-            if(error){
+            if(errorBD){
 
-                throw error;
+                await supabaseClient
+                .storage
+                .from(BUCKET)
+                .remove([ruta]);
+
+                throw errorBD;
 
             }
 
 
             mostrarMensaje(
-                "✅ Video publicado correctamente.",
+                "✅ Material publicado correctamente.",
                 true
             );
 
 
             formulario.reset();
 
-            campoYoutube.style.display =
+            restaurarFormulario();
+
+            await cargarMateriales();
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Error:",
+                error
+            );
+
+            mostrarMensaje(
+                "❌ No se pudo publicar: "
+                +
+                error.message,
+                false
+            );
+
+        }
+
+        finally{
+
+            progreso.style.display =
             "none";
 
-            campoArchivo.style.display =
-            "block";
-
-            archivo.required =
-            true;
-
-            youtube.required =
+            botonSubir.disabled =
             false;
 
-            archivoInfo.textContent =
-            "Selecciona un archivo.";
-
-
-            cargarMateriales();
-
-            return;
-
         }
 
-
-        /* =================================================
-           ARCHIVO
-           ================================================= */
-
-        const file =
-        archivo.files[0];
-
-
-        progreso.textContent =
-        "Subiendo archivo...";
-
-
-        const extension =
-        file.name
-        .split(".")
-        .pop();
-
-
-        const nombreBase =
-        file.name
-
-        .replace(
-            /\.[^/.]+$/,
-            ""
-        )
-
-        .replace(
-            /[^a-zA-Z0-9-_]/g,
-            "-"
-        );
-
-
-        const nombreArchivo =
-        Date.now()
-        +
-        "-"
-        +
-        nombreBase
-        +
-        "."
-        +
-        extension;
-
-
-        const ruta =
-        materiaValor
-        +
-        "/"
-        +
-        unidadValor
-        +
-        "/"
-        +
-        nombreArchivo;
-
-
-        const {
-
-            error:
-            errorStorage
-
-        } =
-        await supabaseClient
-
-        .storage
-
-        .from(BUCKET)
-
-        .upload(
-            ruta,
-            file,
-            {
-                cacheControl:"3600",
-                upsert:false
-            }
-        );
-
-
-        if(errorStorage){
-
-            throw errorStorage;
-
-        }
-
-
-        progreso.textContent =
-        "Guardando información...";
-
-
-        const {
-
-            error:
-            errorBD
-
-        } =
-        await supabaseClient
-
-        .from("materiales")
-
-        .insert({
-
-            materia_id:
-            materiaValor,
-
-            unidad:
-            unidadValor,
-
-            titulo:
-            tituloValor,
-
-            tipo:
-            tipoValor,
-
-            nombre_archivo:
-            file.name,
-
-            ruta_archivo:
-            ruta,
-
-            descripcion:
-            descripcionValor,
-
-            publicado:
-            true
-
-        });
-
-
-        if(errorBD){
-
-            await supabaseClient
-            .storage
-            .from(BUCKET)
-            .remove([ruta]);
-
-            throw errorBD;
-
-        }
-
-
-        mostrarMensaje(
-            "✅ Material subido correctamente.",
-            true
-        );
-
-
-        formulario.reset();
-
-        campoYoutube.style.display =
-        "none";
-
-        campoArchivo.style.display =
-        "block";
-
-        archivo.required =
-        true;
-
-        youtube.required =
-        false;
-
-        archivoInfo.textContent =
-        "Selecciona un archivo.";
-
-
-        cargarMateriales();
-
     }
+);
 
-    catch(error){
 
-        console.error(error);
+/* =====================================================
+   RESTAURAR FORMULARIO
+   ===================================================== */
 
-        mostrarMensaje(
-            "❌ No se pudo publicar el material: "
-            +
-            error.message,
-            false
-        );
+function restaurarFormulario(){
 
-    }
+    campoYoutube.style.display =
+    "none";
 
-    finally{
+    campoArchivo.style.display =
+    "block";
 
-        progreso.style.display =
-        "none";
+    archivo.required =
+    true;
 
-        botonSubir.disabled =
-        false;
+    youtube.required =
+    false;
 
-    }
+    archivoInfo.textContent =
+    "Selecciona un archivo.";
 
-});
+}
 
 
 /* =====================================================
@@ -2398,32 +2272,23 @@ async function(event){
 
 async function cargarMateriales(){
 
-    listaMateriales.innerHTML = `
-
-        <div class="cargando">
-
-            📚 Cargando materiales...
-
-        </div>
-
-    `;
-
-
     try{
+
+        listaMateriales.innerHTML = `
+
+            <div class="sin-material">
+            📚 Cargando materiales...
+            </div>
+
+        `;
+
 
         let consulta =
         supabaseClient
-
         .from("materiales")
-
         .select("*")
-
-        .order(
-            "unidad",
-            {
-                ascending:true
-            }
-        );
+        .order("unidad",{ascending:true})
+        .order("id",{ascending:false});
 
 
         if(filtroMateria.value){
@@ -2449,333 +2314,297 @@ async function cargarMateriales(){
 
 
         const {
-
             data,
             error
-
         } =
         await consulta;
 
 
-        if(error){
-
+        if(error)
             throw error;
 
-        }
 
+        if(!data || !data.length){
 
-        contador.textContent =
-        data.length
-        +
-        (
-            data.length === 1
-            ?
-            " material encontrado"
-            :
-            " materiales encontrados"
-        );
+            listaMateriales.innerHTML = `
 
+                <div class="sin-material">
 
-        mostrarListaMateriales(
-            data || []
-        );
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Error cargando materiales:",
-            error
-        );
-
-
-        listaMateriales.innerHTML = `
-
-            <div class="error">
-
-                ❌ <strong>
-                No se pudieron cargar los materiales.
-                </strong>
-
-                <br><br>
-
-                ${escaparHTML(error.message)}
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =====================================================
-   MOSTRAR LISTA
-   ===================================================== */
-
-function mostrarListaMateriales(
-    materiales
-){
-
-    if(materiales.length === 0){
-
-        listaMateriales.innerHTML = `
-
-            <div class="sin-resultados">
-
-                📚
-
-                <br><br>
-
-                No hay materiales que coincidan
-                con los filtros seleccionados.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    let html = "";
-
-
-    materiales.forEach(
-    function(material){
-
-        const icono =
-        obtenerIcono(material.tipo);
-
-
-        const nombreMateria =
-        nombresMaterias[
-            material.materia_id
-        ]
-        ||
-        material.materia_id;
-
-
-        const nombreUnidad =
-        nombresUnidades[
-            material.unidad
-        ]
-        ||
-        material.unidad;
-
-
-        const esVideo =
-        material.tipo === "video";
-
-
-        html += `
-
-            <article class="material">
-
-                <div class="material-superior">
-
-                    <div class="material-info">
-
-                        <div class="material-titulo">
-
-                            ${icono}
-
-                            ${escaparHTML(
-                                material.titulo
-                            )}
-
-                        </div>
-
-
-                        <div class="material-meta">
-
-                            <span class="etiqueta">
-
-                                ${escaparHTML(
-                                    nombreMateria
-                                )}
-
-                            </span>
-
-
-                            <span class="etiqueta">
-
-                                ${escaparHTML(
-                                    nombreUnidad
-                                )}
-
-                            </span>
-
-
-                            <span class="
-                                etiqueta
-                                ${
-                                    esVideo
-                                    ?
-                                    "etiqueta-video"
-                                    :
-                                    "etiqueta-archivo"
-                                }
-                            ">
-
-                                ${escaparHTML(
-                                    material.tipo
-                                ).toUpperCase()}
-
-                            </span>
-
-                        </div>
-
-
-                        <div class="material-descripcion">
-
-                            ${
-                                material.descripcion
-                                ?
-                                escaparHTML(
-                                    material.descripcion
-                                )
-                                :
-                                "Sin descripción."
-                            }
-
-                        </div>
-
-
-                        <div class="material-ruta">
-
-                            ${
-                                esVideo
-                                ?
-                                "🔗 "
-                                +
-                                escaparHTML(
-                                    material.ruta_archivo
-                                )
-                                :
-                                "📁 "
-                                +
-                                escaparHTML(
-                                    material.ruta_archivo
-                                )
-                            }
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="material-acciones">
-
-                        <button
-                        type="button"
-                        class="boton boton-editar"
-                        onclick="abrirEditar('${material.id}')">
-
-                        ✏️ Editar
-
-                        </button>
-
-
-                        <button
-                        type="button"
-                        class="boton boton-eliminar"
-                        onclick="eliminarMaterial('${material.id}')">
-
-                        🗑️ Eliminar
-
-                        </button>
-
-                    </div>
+                📚 No hay materiales
+                para el filtro seleccionado.
 
                 </div>
 
-            </article>
-
-        `;
-
-    });
-
-
-    listaMateriales.innerHTML =
-    html;
-
-}
-
-
-/* =====================================================
-   EDITAR MATERIAL
-   ===================================================== */
-
-let materialesActuales = [];
-
-
-/*
-   Volvemos a cargar los datos cuando
-   abrimos el editor.
-*/
-
-async function abrirEditar(id){
-
-    try{
-
-        const {
-
-            data,
-            error
-
-        } =
-        await supabaseClient
-
-        .from("materiales")
-
-        .select(
-            "id,titulo,descripcion"
-        )
-
-        .eq(
-            "id",
-            id
-        )
-
-        .maybeSingle();
-
-
-        if(error){
-
-            throw error;
-
-        }
-
-
-        if(!data){
-
-            alert(
-                "El material ya no existe."
-            );
-
-            cargarMateriales();
+            `;
 
             return;
 
         }
 
 
+        listaMateriales.innerHTML =
+        data.map(
+            crearTarjetaMaterial
+        ).join("");
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        listaMateriales.innerHTML = `
+
+            <div class="error">
+
+            ❌ Error cargando materiales:
+
+            ${escaparHTML(error.message)}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   TARJETA MATERIAL
+   ===================================================== */
+
+function crearTarjetaMaterial(material){
+
+    const nombreMateria =
+    materias[material.materia_id]
+    ||
+    material.materia_id;
+
+
+    const icono =
+    obtenerIcono(material.tipo);
+
+
+    return `
+
+        <article class="material">
+
+            <div class="material-superior">
+
+                <div>
+
+                    <div class="material-titulo">
+
+                        ${icono}
+
+                        ${escaparHTML(
+                            material.titulo
+                        )}
+
+                    </div>
+
+
+                    <div class="material-meta">
+
+                        📚 ${escaparHTML(nombreMateria)}
+
+                        <br>
+
+                        📂 ${escaparHTML(
+                            formatearUnidad(
+                                material.unidad
+                            )
+                        )}
+
+                        <br>
+
+                        📎 ${
+                            material.tipo
+                            ?
+                            material.tipo.toUpperCase()
+                            :
+                            "MATERIAL"
+                        }
+
+                    </div>
+
+                    <span class="etiqueta">
+
+                        ${material.publicado
+                        ? "PUBLICADO"
+                        : "NO PUBLICADO"}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="material-descripcion">
+
+                ${
+                    material.descripcion
+                    ?
+                    escaparHTML(
+                        material.descripcion
+                    )
+                    :
+                    "Sin descripción."
+                }
+
+            </div>
+
+
+            <div class="acciones">
+
+                <button
+                class="boton boton-ver"
+                onclick="verMaterial(${material.id})">
+
+                👁️ Ver
+
+                </button>
+
+
+                <button
+                class="boton boton-editar"
+                onclick="abrirEditar(${material.id})">
+
+                ✏️ Editar
+
+                </button>
+
+
+                <button
+                class="boton boton-eliminar"
+                onclick="eliminarMaterial(${material.id})">
+
+                🗑️ Eliminar
+
+                </button>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =====================================================
+   VER MATERIAL
+   ===================================================== */
+
+async function verMaterial(id){
+
+    try{
+
+        const {
+            data:
+            material,
+            error
+        } =
+        await supabaseClient
+        .from("materiales")
+        .select("*")
+        .eq("id",id)
+        .single();
+
+
+        if(error)
+            throw error;
+
+
+        /* VIDEO */
+
+        if(material.tipo === "video"){
+
+            window.open(
+                material.ruta_archivo,
+                "_blank"
+            );
+
+            return;
+
+        }
+
+
+        /* ARCHIVO */
+
+        const {
+            data:
+            signedData,
+            error:
+            signedError
+        } =
+        await supabaseClient
+        .storage
+        .from(BUCKET)
+        .createSignedUrl(
+            material.ruta_archivo,
+            3600
+        );
+
+
+        if(signedError)
+            throw signedError;
+
+
+        window.open(
+            signedData.signedUrl,
+            "_blank"
+        );
+
+    }
+
+    catch(error){
+
+        alert(
+            "No se pudo abrir el material:\n\n"
+            +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ABRIR EDITAR
+   ===================================================== */
+
+async function abrirEditar(id){
+
+    try{
+
+        const {
+            data:
+            material,
+            error
+        } =
+        await supabaseClient
+        .from("materiales")
+        .select("*")
+        .eq("id",id)
+        .single();
+
+
+        if(error)
+            throw error;
+
+
         editarId.value =
-        data.id;
+        material.id;
 
         editarTitulo.value =
-        data.titulo || "";
+        material.titulo || "";
 
         editarDescripcion.value =
-        data.descripcion || "";
-
-
-        mensajeEdicion.style.display =
-        "none";
+        material.descripcion || "";
 
 
         modalEditar.classList.add(
@@ -2787,7 +2616,7 @@ async function abrirEditar(id){
     catch(error){
 
         alert(
-            "No se pudo abrir el material: "
+            "No se pudo cargar el material:\n\n"
             +
             error.message
         );
@@ -2797,121 +2626,117 @@ async function abrirEditar(id){
 }
 
 
-cancelarEdicion.addEventListener(
-"click",
-function(){
+/* =====================================================
+   CANCELAR EDITAR
+   ===================================================== */
 
-    modalEditar.classList.remove(
-        "activo"
-    );
-
-});
-
-
-guardarEdicion.addEventListener(
-"click",
-async function(){
-
-    const id =
-    editarId.value;
-
-    const nuevoTitulo =
-    editarTitulo.value.trim();
-
-    const nuevaDescripcion =
-    editarDescripcion.value.trim();
-
-
-    if(!nuevoTitulo){
-
-        mostrarMensajeEdicion(
-            "El título no puede estar vacío.",
-            false
-        );
-
-        return;
-
-    }
-
-
-    try{
-
-        guardarEdicion.disabled =
-        true;
-
-
-        const {
-
-            error
-
-        } =
-        await supabaseClient
-
-        .from("materiales")
-
-        .update({
-
-            titulo:
-            nuevoTitulo,
-
-            descripcion:
-            nuevaDescripcion
-
-        })
-
-        .eq(
-            "id",
-            id
-        );
-
-
-        if(error){
-
-            throw error;
-
-        }
-
+cancelarEditar.addEventListener(
+    "click",
+    function(){
 
         modalEditar.classList.remove(
             "activo"
         );
 
+    }
+);
 
-        cargarMateriales();
+
+/* =====================================================
+   GUARDAR EDICIÓN
+   ===================================================== */
+
+guardarEditar.addEventListener(
+    "click",
+    async function(){
+
+        const id =
+        editarId.value;
 
 
-        mostrarMensaje(
-            "✅ Material actualizado correctamente.",
-            true
-        );
+        const nuevoTitulo =
+        editarTitulo.value.trim();
+
+
+        const nuevaDescripcion =
+        editarDescripcion.value.trim();
+
+
+        if(!nuevoTitulo){
+
+            alert(
+                "El título no puede estar vacío."
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            guardarEditar.disabled =
+            true;
+
+
+            const {
+                error
+            } =
+            await supabaseClient
+            .from("materiales")
+            .update({
+
+                titulo:
+                nuevoTitulo,
+
+                descripcion:
+                nuevaDescripcion
+
+            })
+            .eq(
+                "id",
+                id
+            );
+
+
+            if(error)
+                throw error;
+
+
+            modalEditar.classList.remove(
+                "activo"
+            );
+
+
+            await cargarMateriales();
+
+
+            mostrarMensaje(
+                "✅ Material actualizado correctamente.",
+                true
+            );
+
+        }
+
+        catch(error){
+
+            alert(
+                "No se pudo editar:\n\n"
+                +
+                error.message
+            );
+
+        }
+
+        finally{
+
+            guardarEditar.disabled =
+            false;
+
+        }
 
     }
-
-    catch(error){
-
-        console.error(
-            "Error editando:",
-            error
-        );
-
-
-        mostrarMensajeEdicion(
-            "❌ No se pudo guardar: "
-            +
-            error.message,
-            false
-        );
-
-    }
-
-    finally{
-
-        guardarEdicion.disabled =
-        false;
-
-    }
-
-});
+);
 
 
 /* =====================================================
@@ -2923,123 +2748,93 @@ async function eliminarMaterial(id){
     const confirmar =
     confirm(
 
-        "⚠️ ¿Estás seguro de eliminar este material?\n\n"
+        "⚠️ ¿Seguro que deseas eliminar este material?\n\n"
         +
-        "Esta acción eliminará el registro de la base de datos."
+        "El registro será eliminado de la tabla "
         +
-        "\n\n"
+        "'materiales'.\n\n"
         +
-        "Si el material es un PDF, imagen u otro archivo, "
+        "Si es un archivo, también se eliminará "
         +
-        "también se intentará eliminar del Storage."
+        "del Storage.\n\n"
+        +
+        "Esta acción no se puede deshacer."
 
     );
 
 
-    if(!confirmar){
-
+    if(!confirmar)
         return;
-
-    }
 
 
     try{
 
-        /* =================================================
-           OBTENER DATOS DEL MATERIAL
-           ================================================= */
+        console.log(
+            "Eliminando material:",
+            id
+        );
+
+
+        /* =============================================
+           OBTENER MATERIAL
+           ============================================= */
 
         const {
-
             data:
             material,
-            
             error:
-            errorConsulta
-
+            errorBuscar
         } =
         await supabaseClient
-
         .from("materiales")
-
-        .select(
-            "id,tipo,ruta_archivo"
-        )
-
-        .eq(
-            "id",
-            id
-        )
-
-        .maybeSingle();
+        .select("*")
+        .eq("id",id)
+        .single();
 
 
-        if(errorConsulta){
-
-            throw errorConsulta;
-
-        }
+        if(errorBuscar)
+            throw errorBuscar;
 
 
-        if(!material){
-
-            mostrarMensaje(
-                "⚠️ El material ya no existe en la tabla.",
-                false
-            );
-
-            cargarMateriales();
-
-            return;
-
-        }
-
-
-        /* =================================================
-           ELIMINAR ARCHIVO DE STORAGE
-           ================================================= */
-
-        let errorStorage =
-        null;
-
+        /* =============================================
+           ELIMINAR STORAGE
+           SOLO SI NO ES YOUTUBE
+           ============================================= */
 
         if(
+
             material.tipo !== "video"
+
             &&
+
             material.ruta_archivo
+
         ){
 
-            const resultadoStorage =
+            console.log(
+                "Eliminando Storage:",
+                material.ruta_archivo
+            );
+
+
+            const {
+                error:
+                errorStorage
+            } =
             await supabaseClient
-
             .storage
-
             .from(BUCKET)
-
             .remove([
                 material.ruta_archivo
             ]);
 
 
-            errorStorage =
-            resultadoStorage.error;
-
-
-            /*
-               IMPORTANTE:
-
-               Aunque Storage indique que el archivo
-               no existe, CONTINUAMOS.
-
-               El objetivo principal es que la fila
-               de materiales también desaparezca.
-            */
-
             if(errorStorage){
 
-                console.warn(
-                    "Storage:",
-                    errorStorage
+                throw new Error(
+                    "No se pudo eliminar el archivo del Storage: "
+                    +
+                    errorStorage.message
                 );
 
             }
@@ -3047,97 +2842,60 @@ async function eliminarMaterial(id){
         }
 
 
-        /* =================================================
+        /* =============================================
            ELIMINAR REGISTRO DE LA TABLA
-           ================================================= */
+           ============================================= */
 
-        const {
-
-            error:
-            errorBD
-
-        } =
-        await supabaseClient
-
-        .from("materiales")
-
-        .delete()
-
-        .eq(
-            "id",
-            id
+        console.log(
+            "Eliminando registro de materiales:",
+            material.id
         );
 
 
-        /* =================================================
-           ERROR BD
-           ================================================= */
+        const {
+            error:
+            errorBD
+        } =
+        await supabaseClient
+        .from("materiales")
+        .delete()
+        .eq(
+            "id",
+            material.id
+        );
+
 
         if(errorBD){
 
-            console.error(
-                "Error eliminando BD:",
-                errorBD
-            );
-
-
-            /*
-               Si Storage se eliminó correctamente pero
-               la BD no permite DELETE, mostramos el
-               problema real.
-            */
-
             throw new Error(
-
-                "El archivo pudo eliminarse de Storage, "
+                "El archivo fue eliminado del Storage, "
                 +
-                "pero no se pudo eliminar el registro de la tabla 'materiales'. "
+                "pero no se pudo eliminar el registro "
                 +
-                "Supabase respondió: "
+                "de la tabla materiales: "
                 +
                 errorBD.message
-
             );
 
         }
 
 
-        /* =================================================
+        /* =============================================
            ÉXITO
-           ================================================= */
+           ============================================= */
 
-        if(errorStorage){
-
-            mostrarMensaje(
-
-                "⚠️ Registro eliminado correctamente de la tabla. "
-                +
-                "El archivo no estaba disponible en Storage o no pudo eliminarse.",
-
-                true
-
-            );
-
-        }
-
-        else{
-
-            mostrarMensaje(
-
-                "✅ Material eliminado correctamente.",
-
-                true
-
-            );
-
-        }
+        console.log(
+            "Material eliminado completamente."
+        );
 
 
-        /* =================================================
-           ACTUALIZAR LISTA
-           ================================================= */
+        mostrarMensaje(
+            "✅ Material eliminado correctamente.",
+            true
+        );
 
-        cargarMateriales();
+
+        await cargarMateriales();
 
     }
 
@@ -3151,7 +2909,7 @@ async function eliminarMaterial(id){
 
         mostrarMensaje(
 
-            "❌ No se pudo eliminar el material: "
+            "❌ No se pudo completar la eliminación: "
             +
             error.message,
 
@@ -3165,88 +2923,227 @@ async function eliminarMaterial(id){
 
 
 /* =====================================================
-   FILTROS
+   CARGAR CONTRASEÑAS
    ===================================================== */
 
-filtroMateria.addEventListener(
-"change",
-cargarMateriales
-);
+async function cargarPasswords(){
+
+    try{
+
+        /*
+           IMPORTANTE:
+
+           Se intenta consultar:
+
+           accesos_materias
+
+           columnas:
+
+           materia_id
+           password
+        */
 
 
-filtroUnidad.addEventListener(
-"change",
-cargarMateriales
-);
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+        .from(TABLA_PASSWORDS)
+        .select("*");
 
 
-actualizar.addEventListener(
-"click",
-cargarMateriales
-);
+        if(error)
+            throw error;
 
 
-/* =====================================================
-   MENSAJE GENERAL
-   ===================================================== */
+        if(!data || !data.length){
 
-function mostrarMensaje(
-texto,
-correcto
-){
+            listaPasswords.innerHTML = `
 
-    mensaje.textContent =
-    texto;
+                <div class="sin-material">
 
+                🔐 No se encontraron contraseñas.
 
-    mensaje.className =
-    correcto
-    ?
-    "mensaje exito"
-    :
-    "mensaje error";
+                </div>
+
+            `;
+
+            return;
+
+        }
 
 
-    mensaje.style.display =
-    "block";
+        listaPasswords.innerHTML =
+        data.map(
+            password => {
+
+                const materiaID =
+                password.materia_id;
 
 
-    setTimeout(
-    function(){
+                const nombre =
+                materias[materiaID]
+                ||
+                materiaID;
 
-        mensaje.style.display =
-        "none";
 
-    },
-    5000
-    );
+                const valor =
+                password.password
+                ||
+                "";
+
+
+                return `
+
+                    <div class="password-card">
+
+                        <div class="password-materia">
+
+                            🔐
+                            ${escaparHTML(nombre)}
+
+                        </div>
+
+
+                        <div class="password-valor">
+
+                            <input
+                            type="password"
+                            value="${escaparHTML(valor)}"
+                            readonly>
+
+
+                            <button
+                            class="password-mostrar"
+                            onclick="mostrarPassword(this)">
+
+                            👁
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Error contraseñas:",
+            error
+        );
+
+
+        listaPasswords.innerHTML = `
+
+            <div class="error">
+
+            ❌ No se pudieron cargar
+            las contraseñas.
+
+            <br><br>
+
+            ${escaparHTML(error.message)}
+
+            </div>
+
+        `;
+
+    }
 
 }
 
 
 /* =====================================================
-   MENSAJE EDICIÓN
+   MOSTRAR PASSWORD
    ===================================================== */
 
-function mostrarMensajeEdicion(
-texto,
-correcto
-){
+function mostrarPassword(boton){
 
-    mensajeEdicion.textContent =
-    texto;
+    const input =
+    boton.parentElement
+    .querySelector("input");
 
 
-    mensajeEdicion.className =
-    correcto
-    ?
-    "mensaje exito"
-    :
-    "mensaje error";
+    if(
+        input.type === "password"
+    ){
+
+        input.type =
+        "text";
+
+        boton.textContent =
+        "🙈";
+
+    }
+
+    else{
+
+        input.type =
+        "password";
+
+        boton.textContent =
+        "👁";
+
+    }
+
+}
 
 
-    mensajeEdicion.style.display =
-    "block";
+/* =====================================================
+   FILTRAR
+   ===================================================== */
+
+btnFiltrar.addEventListener(
+    "click",
+    cargarMateriales
+);
+
+
+/* =====================================================
+   FORMATEAR UNIDAD
+   ===================================================== */
+
+function formatearUnidad(unidad){
+
+    const nombres = {
+
+        "unidad-1":
+        "Unidad 1",
+
+        "unidad-2":
+        "Unidad 2",
+
+        "unidad-3":
+        "Unidad 3",
+
+        "unidad-4":
+        "Unidad 4",
+
+        "unidad-5":
+        "Unidad 5",
+
+        "practicas":
+        "Prácticas",
+
+        "material-complementario":
+        "Material complementario"
+
+    };
+
+
+    return nombres[unidad]
+    ||
+    unidad
+    ||
+    "";
 
 }
 
@@ -3255,9 +3152,7 @@ correcto
    ICONOS
    ===================================================== */
 
-function obtenerIcono(
-tipo
-){
+function obtenerIcono(tipo){
 
     const iconos = {
 
@@ -3283,9 +3178,7 @@ tipo
    ESCAPAR HTML
    ===================================================== */
 
-function escaparHTML(
-texto
-){
+function escaparHTML(texto){
 
     if(
         texto === null ||
@@ -3326,10 +3219,51 @@ texto
 
 }
 
-</script>
 
+/* =====================================================
+   MENSAJE
+   ===================================================== */
+
+function mostrarMensaje(
+    texto,
+    correcto
+){
+
+    mensaje.textContent =
+    texto;
+
+    mensaje.className =
+    correcto
+    ?
+    "mensaje exito"
+    :
+    "mensaje error";
+
+    mensaje.style.display =
+    "block";
+
+
+    setTimeout(
+        function(){
+
+            mensaje.style.display =
+            "none";
+
+        },
+        5000
+    );
+
+}
+
+
+/* =====================================================
+   INICIAR
+   ===================================================== */
+
+verificarUsuario();
+
+</script>
 
 </body>
 
 </html>
-```
