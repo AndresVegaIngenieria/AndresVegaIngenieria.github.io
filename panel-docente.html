@@ -11,8 +11,12 @@ content="width=device-width, initial-scale=1.0">
 <title>Panel Docente | Andres Vega Ingeniería</title>
 
 
+<!-- SUPABASE -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
+<!-- FUENTES -->
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
@@ -27,11 +31,20 @@ rel="stylesheet">
 
 <style>
 
+/* =====================================================
+   GENERAL
+   ===================================================== */
+
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
+
 
 body{
 
@@ -42,6 +55,7 @@ body{
     color:#0f172a;
 
     min-height:100vh;
+
 }
 
 
@@ -64,7 +78,9 @@ header{
     padding:35px 20px;
 
     text-align:center;
+
 }
+
 
 header h1{
 
@@ -73,13 +89,16 @@ header h1{
     font-size:32px;
 
     margin-bottom:8px;
+
 }
+
 
 header p{
 
     color:#dbeafe;
 
     font-size:14px;
+
 }
 
 
@@ -94,11 +113,12 @@ header p{
     margin:40px auto;
 
     padding:0 20px;
+
 }
 
 
 /* =====================================================
-   TARJETA
+   TARJETAS
    ===================================================== */
 
 .tarjeta{
@@ -116,6 +136,7 @@ header p{
     border:1px solid #e2e8f0;
 
     margin-bottom:25px;
+
 }
 
 
@@ -124,7 +145,9 @@ header p{
     font-family:'Poppins',sans-serif;
 
     margin-bottom:8px;
+
 }
+
 
 .descripcion{
 
@@ -132,18 +155,23 @@ header p{
 
     font-size:14px;
 
+    line-height:1.6;
+
     margin-bottom:25px;
+
 }
 
 
 /* =====================================================
-   FORMULARIOS
+   CAMPOS
    ===================================================== */
 
 .campo{
 
     margin-bottom:20px;
+
 }
+
 
 .campo label{
 
@@ -156,7 +184,9 @@ header p{
     margin-bottom:8px;
 
     color:#334155;
+
 }
+
 
 .campo select,
 .campo input,
@@ -177,7 +207,9 @@ header p{
     background:#f8fafc;
 
     outline:none;
+
 }
+
 
 .campo select:focus,
 .campo input:focus,
@@ -190,18 +222,21 @@ header p{
     box-shadow:
     0 0 0 3px
     rgba(37,99,235,.12);
+
 }
+
 
 .campo textarea{
 
     min-height:90px;
 
     resize:vertical;
+
 }
 
 
 /* =====================================================
-   BOTÓN
+   BOTONES
    ===================================================== */
 
 .boton{
@@ -225,14 +260,18 @@ header p{
     cursor:pointer;
 
     transition:.3s;
+
 }
+
 
 .boton:hover{
 
     background:#1d4ed8;
 
     transform:translateY(-2px);
+
 }
+
 
 .boton:disabled{
 
@@ -241,6 +280,44 @@ header p{
     cursor:wait;
 
     transform:none;
+
+}
+
+
+.boton-salir{
+
+    width:auto;
+
+    padding:10px 18px;
+
+    background:#e2e8f0;
+
+    color:#334155;
+
+    margin-top:5px;
+
+}
+
+
+.boton-salir:hover{
+
+    background:#cbd5e1;
+
+}
+
+
+/* =====================================================
+   ARCHIVO
+   ===================================================== */
+
+.archivo-info{
+
+    margin-top:10px;
+
+    font-size:13px;
+
+    color:#64748b;
+
 }
 
 
@@ -267,6 +344,7 @@ header p{
     font-weight:600;
 
     text-align:center;
+
 }
 
 
@@ -276,68 +354,42 @@ header p{
 
 .mensaje{
 
+    display:none;
+
     margin-top:20px;
 
     padding:14px;
 
     border-radius:8px;
 
-    display:none;
-
     font-size:14px;
 
     font-weight:600;
+
+    line-height:1.5;
+
 }
 
+
 .exito{
+
+    display:block;
 
     background:#dcfce7;
 
     color:#166534;
+
 }
 
+
 .error{
+
+    display:block;
 
     background:#fee2e2;
 
     color:#991b1b;
-}
 
-
-/* =====================================================
-   INFORMACIÓN DEL ARCHIVO
-   ===================================================== */
-
-.archivo-info{
-
-    margin-top:10px;
-
-    font-size:13px;
-
-    color:#64748b;
-}
-
-
-/* =====================================================
-   CERRAR SESIÓN
-   ===================================================== */
-
-.boton-salir{
-
-    background:#e2e8f0;
-
-    color:#334155;
-
-    width:auto;
-
-    padding:10px 18px;
-
-    margin-top:15px;
-}
-
-.boton-salir:hover{
-
-    background:#cbd5e1;
 }
 
 
@@ -347,11 +399,44 @@ header p{
 
 #cargando{
 
+    max-width:600px;
+
+    margin:70px auto;
+
+    padding:30px;
+
     text-align:center;
 
-    padding:60px 20px;
-
     color:#64748b;
+
+}
+
+
+/* =====================================================
+   ERROR DE ACCESO
+   ===================================================== */
+
+.error-acceso{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    line-height:1.6;
+
+}
+
+
+.error-acceso a{
+
+    color:#1d4ed8;
+
+    font-weight:bold;
+
 }
 
 
@@ -364,11 +449,14 @@ header p{
     .tarjeta{
 
         padding:25px 20px;
+
     }
+
 
     header h1{
 
         font-size:26px;
+
     }
 
 }
@@ -380,6 +468,10 @@ header p{
 
 <body>
 
+
+<!-- =====================================================
+     ENCABEZADO
+     ===================================================== -->
 
 <header>
 
@@ -395,6 +487,10 @@ Panel de administración docente
 
 
 
+<!-- =====================================================
+     MENSAJE DE CARGA
+     ===================================================== -->
+
 <div id="cargando">
 
 Verificando acceso...
@@ -403,14 +499,19 @@ Verificando acceso...
 
 
 
+<!-- =====================================================
+     PANEL
+     ===================================================== -->
+
 <main
 id="panel"
 class="contenedor"
 style="display:none;">
 
 
+
 <!-- =====================================================
-     INFORMACIÓN
+     INFORMACIÓN DEL DOCENTE
      ===================================================== -->
 
 <section class="tarjeta">
@@ -418,6 +519,7 @@ style="display:none;">
 <h2>
 👨‍🏫 Panel Docente
 </h2>
+
 
 <p class="descripcion">
 
@@ -427,9 +529,7 @@ el material educativo de tus materias.
 </p>
 
 
-<div id="usuario">
-
-</div>
+<div id="usuario"></div>
 
 
 <button
@@ -454,6 +554,7 @@ Cerrar sesión
 📤 Subir material
 </h2>
 
+
 <p class="descripcion">
 
 Selecciona la materia, unidad y archivo
@@ -465,7 +566,10 @@ que deseas publicar.
 <form id="formulario">
 
 
-<!-- MATERIA -->
+
+<!-- ===================================================
+     MATERIA
+     =================================================== -->
 
 <div class="campo">
 
@@ -632,7 +736,9 @@ Diagramas — Vehículos Eléctricos
 
 
 
-<!-- UNIDAD -->
+<!-- ===================================================
+     UNIDAD
+     =================================================== -->
 
 <div class="campo">
 
@@ -653,29 +759,36 @@ Selecciona una unidad
 
 </option>
 
+
 <option value="unidad-1">
 Unidad 1
 </option>
+
 
 <option value="unidad-2">
 Unidad 2
 </option>
 
+
 <option value="unidad-3">
 Unidad 3
 </option>
+
 
 <option value="unidad-4">
 Unidad 4
 </option>
 
+
 <option value="unidad-5">
 Unidad 5
 </option>
 
+
 <option value="practicas">
 Prácticas
 </option>
+
 
 <option value="material-complementario">
 Material complementario
@@ -687,7 +800,9 @@ Material complementario
 
 
 
-<!-- TÍTULO -->
+<!-- ===================================================
+     TÍTULO
+     =================================================== -->
 
 <div class="campo">
 
@@ -708,7 +823,9 @@ required>
 
 
 
-<!-- DESCRIPCIÓN -->
+<!-- ===================================================
+     DESCRIPCIÓN
+     =================================================== -->
 
 <div class="campo">
 
@@ -721,14 +838,15 @@ Descripción
 
 <textarea
 id="descripcion"
-placeholder="Descripción breve del material...">
-</textarea>
+placeholder="Descripción breve del material..."></textarea>
 
 </div>
 
 
 
-<!-- TIPO -->
+<!-- ===================================================
+     TIPO
+     =================================================== -->
 
 <div class="campo">
 
@@ -749,17 +867,21 @@ Selecciona el tipo
 
 </option>
 
+
 <option value="pdf">
 📄 PDF
 </option>
+
 
 <option value="video">
 🎥 Video
 </option>
 
+
 <option value="imagen">
 🖼️ Imagen
 </option>
+
 
 <option value="otro">
 📎 Otro
@@ -771,7 +893,9 @@ Selecciona el tipo
 
 
 
-<!-- ARCHIVO -->
+<!-- ===================================================
+     ARCHIVO
+     =================================================== -->
 
 <div class="campo">
 
@@ -800,7 +924,9 @@ Selecciona un archivo.
 
 
 
-<!-- BOTÓN -->
+<!-- ===================================================
+     SUBIR
+     =================================================== -->
 
 <button
 type="submit"
@@ -840,9 +966,22 @@ class="mensaje">
 <script>
 
 
-/* =========================================================
+/* =====================================================
    CONFIGURACIÓN SUPABASE
-   ========================================================= */
+   ===================================================== */
+
+
+/*
+   IMPORTANTE:
+
+   Coloca aquí tus datos reales.
+
+   Project URL:
+   Supabase → Settings → API
+
+   Anon public key:
+   Supabase → Settings → API
+*/
 
 
 const SUPABASE_URL =
@@ -850,67 +989,80 @@ const SUPABASE_URL =
 
 
 const SUPABASE_ANON_KEY =
-"sb_publishable_7IIh-dLRxW6pN-gggGbI5A_VIuww2Sd
-";
+"sb_publishable_7IIh-dLRxW6pN-gggGbI5A_VIuww2Sd";
 
+
+/* =====================================================
+   CREAR CLIENTE SUPABASE
+   ===================================================== */
 
 const supabaseClient =
 supabase.createClient(
+
     SUPABASE_URL,
+
     SUPABASE_ANON_KEY
+
 );
 
 
-
-/* =========================================================
+/* =====================================================
    ELEMENTOS
-   ========================================================= */
-
+   ===================================================== */
 
 const cargando =
 document.getElementById(
     "cargando"
 );
 
+
 const panel =
 document.getElementById(
     "panel"
 );
+
 
 const usuario =
 document.getElementById(
     "usuario"
 );
 
+
 const cerrarSesion =
 document.getElementById(
     "cerrarSesion"
 );
+
 
 const formulario =
 document.getElementById(
     "formulario"
 );
 
+
 const archivo =
 document.getElementById(
     "archivo"
 );
+
 
 const archivoInfo =
 document.getElementById(
     "archivoInfo"
 );
 
+
 const botonSubir =
 document.getElementById(
     "botonSubir"
 );
 
+
 const progreso =
 document.getElementById(
     "progreso"
 );
+
 
 const mensaje =
 document.getElementById(
@@ -919,420 +1071,500 @@ document.getElementById(
 
 
 
-/* =========================================================
-   VERIFICAR USUARIO
-   ========================================================= */
-
+/* =====================================================
+   VERIFICAR SESIÓN Y ADMINISTRADOR
+   ===================================================== */
 
 async function verificarUsuario(){
 
     try{
 
+        console.log(
+            "Iniciando verificación..."
+        );
+
+
+        /* =============================================
+           OBTENER SESIÓN
+           ============================================= */
+
         const {
-            data: {
-                user
-            }
+
+            data:
+            sessionData,
+
+            error:
+            sessionError
+
         } =
+
         await supabaseClient
+
         .auth
-        .getUser();
+
+        .getSession();
 
 
-        /* -----------------------------------------------
-           No hay sesión
-           ----------------------------------------------- */
+        console.log(
+            "Sesión:",
+            sessionData
+        );
 
-        if(!user){
+
+        if(sessionError){
+
+            throw sessionError;
+
+        }
+
+
+        const session =
+        sessionData.session;
+
+
+        /* =============================================
+           NO EXISTE SESIÓN
+           ============================================= */
+
+        if(!session){
+
+            console.log(
+                "No existe sesión."
+            );
+
 
             window.location.href =
             "login-docente.html";
+
 
             return;
 
         }
 
 
-        /* -----------------------------------------------
-           Comprobar administrador
-           ----------------------------------------------- */
+        /* =============================================
+           USUARIO
+           ============================================= */
+
+        const user =
+        session.user;
+
+
+        console.log(
+            "Usuario:",
+            user.id
+        );
+
+
+        /* =============================================
+           COMPROBAR ADMINISTRADOR
+           ============================================= */
 
         const {
-            data,
-            error
+
+            data:
+            administrador,
+
+            error:
+            adminError
+
         } =
+
         await supabaseClient
 
-        .from("administradores")
+        .from(
+            "administradores"
+        )
 
-        .select("id,nombre,activo")
+        .select(
+            "id,nombre,activo"
+        )
 
         .eq(
             "id",
             user.id
         )
 
-        .eq(
-            "activo",
-            true
-        )
-
         .maybeSingle();
 
 
-        if(error){
+        console.log(
+            "Administrador:",
+            administrador
+        );
 
-            throw error;
+
+        if(adminError){
+
+            throw adminError;
 
         }
 
 
-        if(!data){
+        /* =============================================
+           NO ES ADMINISTRADOR
+           ============================================= */
+
+        if(!administrador){
 
             await supabaseClient
+
             .auth
+
             .signOut();
 
 
-            window.location.href =
-            "login-docente.html";
+            throw new Error(
 
-            return;
+                "Tu usuario inició sesión, pero no aparece en la tabla administradores."
+
+            );
 
         }
 
 
-        /* -----------------------------------------------
-           Mostrar panel
-           ----------------------------------------------- */
+        /* =============================================
+           ADMINISTRADOR DESACTIVADO
+           ============================================= */
 
-        usuario.innerHTML =
+        if(
+            administrador.activo !== true
+        ){
 
-        `
-        <p style="
-        color:#64748b;
-        font-size:14px;
-        margin-bottom:10px;">
+            await supabaseClient
 
-        Sesión iniciada como:
+            .auth
 
-        <strong style="color:#0f172a;">
+            .signOut();
 
-        ${data.nombre}
 
-        </strong>
+            throw new Error(
 
-        </p>
+                "Tu cuenta de administrador está desactivada."
+
+            );
+
+        }
+
+
+        /* =============================================
+           MOSTRAR PANEL
+           ============================================= */
+
+        usuario.innerHTML = `
+
+            <p style="
+            color:#64748b;
+            font-size:14px;
+            margin-bottom:12px;">
+
+            Sesión iniciada como:
+
+            <strong style="color:#0f172a;">
+
+            ${administrador.nombre}
+
+            </strong>
+
+            </p>
+
         `;
 
 
         cargando.style.display =
         "none";
 
+
         panel.style.display =
         "block";
+
+
+        console.log(
+            "Panel mostrado correctamente."
+        );
+
 
     }
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Error:",
+            error
+        );
 
-        cargando.innerHTML =
-        "Error al verificar el acceso.";
+
+        cargando.innerHTML = `
+
+            <div class="error-acceso">
+
+            <strong>
+            ❌ Error al verificar el acceso
+            </strong>
+
+            <br><br>
+
+            ${error.message}
+
+            <br><br>
+
+            <a href="login-docente.html">
+
+            ← Volver al acceso docente
+
+            </a>
+
+            </div>
+
+        `;
 
     }
 
 }
 
 
+/* =====================================================
+   EJECUTAR VERIFICACIÓN
+   ===================================================== */
 
 verificarUsuario();
 
 
 
-/* =========================================================
-   MOSTRAR ARCHIVO SELECCIONADO
-   ========================================================= */
-
+/* =====================================================
+   MOSTRAR ARCHIVO
+   ===================================================== */
 
 archivo.addEventListener(
-"change",
-function(){
+    "change",
+    function(){
 
-    if(
-        archivo.files &&
-        archivo.files.length > 0
-    ){
+        if(
+            archivo.files &&
+            archivo.files.length > 0
+        ){
+
+            const file =
+            archivo.files[0];
+
+
+            const tamaño =
+            (
+                file.size /
+                1024 /
+                1024
+            ).toFixed(2);
+
+
+            archivoInfo.textContent =
+
+            file.name
+            +
+            " — "
+            +
+            tamaño
+            +
+            " MB";
+
+        }
+
+        else{
+
+            archivoInfo.textContent =
+            "Selecciona un archivo.";
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   CERRAR SESIÓN
+   ===================================================== */
+
+cerrarSesion.addEventListener(
+    "click",
+    async function(){
+
+        await supabaseClient
+        .auth
+        .signOut();
+
+
+        window.location.href =
+        "login-docente.html";
+
+    }
+);
+
+
+
+/* =====================================================
+   SUBIR MATERIAL
+   ===================================================== */
+
+formulario.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const materia =
+        document.getElementById(
+            "materia"
+        ).value;
+
+
+        const unidad =
+        document.getElementById(
+            "unidad"
+        ).value;
+
+
+        const titulo =
+        document.getElementById(
+            "titulo"
+        ).value.trim();
+
+
+        const descripcion =
+        document.getElementById(
+            "descripcion"
+        ).value.trim();
+
+
+        const tipo =
+        document.getElementById(
+            "tipo"
+        ).value;
+
+
+        /* =============================================
+           COMPROBAR ARCHIVO
+           ============================================= */
+
+        if(
+            !archivo.files ||
+            archivo.files.length === 0
+        ){
+
+            mostrarMensaje(
+                "Selecciona un archivo.",
+                false
+            );
+
+
+            return;
+
+        }
+
 
         const file =
         archivo.files[0];
 
 
-        const tamaño =
-        (
-            file.size /
-            1024 /
-            1024
-        ).toFixed(2);
+        try{
 
 
-        archivoInfo.textContent =
-        `${file.name} — ${tamaño} MB`;
+            /* =========================================
+               DESACTIVAR BOTÓN
+               ========================================= */
 
-    }
+            botonSubir.disabled =
+            true;
 
-    else{
 
-        archivoInfo.textContent =
-        "Selecciona un archivo.";
+            progreso.style.display =
+            "block";
 
-    }
 
-});
+            progreso.textContent =
+            "Subiendo archivo...";
 
 
+            mensaje.style.display =
+            "none";
 
-/* =========================================================
-   CERRAR SESIÓN
-   ========================================================= */
 
+            /* =========================================
+               EXTENSIÓN
+               ========================================= */
 
-cerrarSesion.addEventListener(
-"click",
-async function(){
+            const extension =
 
-    await supabaseClient
-    .auth
-    .signOut();
+            file.name
+            .split(".")
+            .pop();
 
-    window.location.href =
-    "login-docente.html";
 
-});
+            /* =========================================
+               NOMBRE SEGURO
+               ========================================= */
 
+            const nombreBase =
 
+            file.name
 
-/* =========================================================
-   SUBIR MATERIAL
-   ========================================================= */
+            .replace(
+                /\.[^/.]+$/,
+                ""
+            )
 
+            .replace(
+                /[^a-zA-Z0-9-_]/g,
+                "-"
+            );
 
-formulario.addEventListener(
-"submit",
-async function(event){
 
-    event.preventDefault();
+            const nombreArchivo =
 
+            Date.now()
+            +
+            "-"
+            +
+            nombreBase
+            +
+            "."
+            +
+            extension;
 
-    const materia =
-    document.getElementById(
-        "materia"
-    ).value;
 
+            /* =========================================
+               RUTA
+               ========================================= */
 
-    const unidad =
-    document.getElementById(
-        "unidad"
-    ).value;
+            const ruta =
 
+            materia
+            +
+            "/"
+            +
+            unidad
+            +
+            "/"
+            +
+            nombreArchivo;
 
-    const titulo =
-    document.getElementById(
-        "titulo"
-    ).value.trim();
 
+            console.log(
+                "Ruta:",
+                ruta
+            );
 
-    const descripcion =
-    document.getElementById(
-        "descripcion"
-    ).value.trim();
 
+            /* =========================================
+               SUBIR STORAGE
+               ========================================= */
 
-    const tipo =
-    document.getElementById(
-        "tipo"
-    ).value;
+            const {
 
+                error:
+                errorStorage
 
-    if(
-        !archivo.files ||
-        archivo.files.length === 0
-    ){
-
-        mostrarMensaje(
-            "Selecciona un archivo.",
-            false
-        );
-
-        return;
-
-    }
-
-
-    const file =
-    archivo.files[0];
-
-
-    /* -----------------------------------------------------
-       Crear nombre seguro
-       ----------------------------------------------------- */
-
-
-    const extension =
-    file.name
-    .split(".")
-    .pop();
-
-
-    const nombreBase =
-    file.name
-    .replace(
-        /\.[^/.]+$/,
-        ""
-    )
-    .replace(
-        /[^a-zA-Z0-9-_]/g,
-        "-"
-    );
-
-
-    const nombreArchivo =
-
-    Date.now()
-    + "-"
-    + nombreBase
-    + "."
-    + extension;
-
-
-    /* -----------------------------------------------------
-       Ruta
-       ----------------------------------------------------- */
-
-
-    const ruta =
-
-    materia
-    + "/"
-    + unidad
-    + "/"
-    + nombreArchivo;
-
-
-
-    try{
-
-
-        botonSubir.disabled =
-        true;
-
-
-        progreso.style.display =
-        "block";
-
-
-        progreso.textContent =
-        "Subiendo archivo...";
-
-
-        mensaje.style.display =
-        "none";
-
-
-
-        /* =================================================
-           SUBIR A STORAGE
-           ================================================= */
-
-
-        const {
-            error:
-            errorStorage
-        } =
-
-        await supabaseClient
-
-        .storage
-
-        .from(
-            "material-educativo"
-        )
-
-        .upload(
-            ruta,
-            file,
-            {
-                cacheControl:
-                    "3600",
-
-                upsert:
-                    false
-            }
-        );
-
-
-        if(errorStorage){
-
-            throw errorStorage;
-
-        }
-
-
-
-        progreso.textContent =
-        "Guardando información del material...";
-
-
-
-        /* =================================================
-           GUARDAR INFORMACIÓN EN LA TABLA
-           ================================================= */
-
-
-        const {
-            error:
-            errorBD
-        } =
-
-        await supabaseClient
-
-        .from("materiales")
-
-        .insert({
-
-            materia_id:
-                materia,
-
-            unidad:
-                unidad,
-
-            titulo:
-                titulo,
-
-            tipo:
-                tipo,
-
-            nombre_archivo:
-                file.name,
-
-            ruta_archivo:
-                ruta,
-
-            descripcion:
-                descripcion,
-
-            publicado:
-                true
-
-        });
-
-
-        if(errorBD){
-
-            /*
-               Si la BD falla, intentamos eliminar
-               el archivo que acabamos de subir.
-            */
+            } =
 
             await supabaseClient
 
@@ -1342,74 +1574,166 @@ async function(event){
                 "material-educativo"
             )
 
-            .remove([
-                ruta
-            ]);
+            .upload(
+                ruta,
+                file,
+                {
+
+                    cacheControl:
+                    "3600",
+
+                    upsert:
+                    false
+
+                }
+            );
 
 
-            throw errorBD;
+            if(errorStorage){
+
+                throw errorStorage;
+
+            }
+
+
+            /* =========================================
+               GUARDAR EN TABLA
+               ========================================= */
+
+            progreso.textContent =
+
+            "Guardando información...";
+
+
+            const {
+
+                error:
+                errorBD
+
+            } =
+
+            await supabaseClient
+
+            .from(
+                "materiales"
+            )
+
+            .insert({
+
+                materia_id:
+                materia,
+
+                unidad:
+                unidad,
+
+                titulo:
+                titulo,
+
+                tipo:
+                tipo,
+
+                nombre_archivo:
+                file.name,
+
+                ruta_archivo:
+                ruta,
+
+                descripcion:
+                descripcion,
+
+                publicado:
+                true
+
+            });
+
+
+            /* =========================================
+               SI FALLA LA BD
+               ========================================= */
+
+            if(errorBD){
+
+                await supabaseClient
+
+                .storage
+
+                .from(
+                    "material-educativo"
+                )
+
+                .remove([
+                    ruta
+                ]);
+
+
+                throw errorBD;
+
+            }
+
+
+            /* =========================================
+               ÉXITO
+               ========================================= */
+
+            progreso.style.display =
+            "none";
+
+
+            mostrarMensaje(
+                "✅ Material subido correctamente.",
+                true
+            );
+
+
+            formulario.reset();
+
+
+            archivoInfo.textContent =
+            "Selecciona un archivo.";
+
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Error subiendo:",
+                error
+            );
+
+
+            progreso.style.display =
+            "none";
+
+
+            mostrarMensaje(
+
+                "❌ No se pudo subir el material: "
+                +
+                error.message,
+
+                false
+
+            );
 
         }
 
 
+        finally{
 
-        /* =================================================
-           ÉXITO
-           ================================================= */
+            botonSubir.disabled =
+            false;
 
-
-        progreso.style.display =
-        "none";
-
-
-        mostrarMensaje(
-            "Material subido correctamente.",
-            true
-        );
-
-
-        formulario.reset();
-
-
-        archivoInfo.textContent =
-        "Selecciona un archivo.";
-
+        }
 
     }
-
-    catch(error){
-
-        console.error(error);
-
-
-        progreso.style.display =
-        "none";
-
-
-        mostrarMensaje(
-            "No se pudo subir el material: "
-            + error.message,
-            false
-        );
-
-    }
-
-
-    finally{
-
-        botonSubir.disabled =
-        false;
-
-    }
-
-});
+);
 
 
 
-/* =========================================================
-   MENSAJES
-   ========================================================= */
-
+/* =====================================================
+   MOSTRAR MENSAJES
+   ===================================================== */
 
 function mostrarMensaje(
     texto,
@@ -1419,10 +1743,14 @@ function mostrarMensaje(
     mensaje.textContent =
     texto;
 
+
     mensaje.className =
     correcto
-    ? "mensaje exito"
-    : "mensaje error";
+    ?
+    "mensaje exito"
+    :
+    "mensaje error";
+
 
     mensaje.style.display =
     "block";
