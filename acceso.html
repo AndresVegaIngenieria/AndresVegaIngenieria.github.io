@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acceso | Andres Vega Ingeniería</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: 'Inter', sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e3a8a,
+                    #2563eb
+                );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+        }
+
+
+        .contenedor {
+
+            width: 100%;
+
+            max-width: 470px;
+
+            background: white;
+
+            border-radius: 22px;
+
+            padding: 45px 40px;
+
+            text-align: center;
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.30);
+        }
+
+
+        .icono {
+
+            width: 85px;
+
+            height: 85px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #eff6ff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 42px;
+        }
+
+
+        h1 {
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 29px;
+
+            color: #0f172a;
+
+            margin-bottom: 10px;
+        }
+
+
+        .subtitulo {
+
+            color: #64748b;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+
+        .separador {
+
+            width: 60px;
+
+            height: 4px;
+
+            background: #2563eb;
+
+            border-radius: 10px;
+
+            margin: 0 auto 30px;
+        }
+
+
+        .campo {
+
+            text-align: left;
+
+            margin-bottom: 20px;
+        }
+
+
+        .campo label {
+
+            display: block;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            color: #334155;
+
+            margin-bottom: 8px;
+        }
+
+
+        .campo input {
+
+            width: 100%;
+
+            padding: 14px 16px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 9px;
+
+            background: #f8fafc;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+
+        .campo input:focus {
+
+            border-color: #2563eb;
+
+            background: white;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.12);
+        }
+
+
+        .boton {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .boton:hover {
+
+            background: #1d4ed8;
+
+            transform: translateY(-2px);
+        }
+
+
+        .mensaje {
+
+            min-height: 22px;
+
+            margin-top: 18px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .error {
+
+            color: #dc2626;
+        }
+
+
+        .exito {
+
+            color: #16a34a;
+        }
+
+
+        .volver {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: #64748b;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .volver:hover {
+
+            color: #2563eb;
+        }
+
+
+        .informacion {
+
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #e2e8f0;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+
+        @media(max-width:500px) {
+
+            .contenedor {
+
+                padding: 35px 25px;
+            }
+
+
+            h1 {
+
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="contenedor">
+
+
+    <div class="icono">
+        🔐
+    </div>
+
+
+    <h1 id="tituloMateria">
+        Acceso
+    </h1>
+
+
+    <div class="separador"></div>
+
+
+    <p class="subtitulo">
+
+        Material educativo para ingeniería
+        electrónica y tecnología automotriz.
+
+        <br><br>
+
+        Ingresa la contraseña para acceder
+        al contenido de esta materia.
+
+    </p>
+
+
+    <form id="formulario">
+
+
+        <div class="campo">
+
+            <label for="password">
+
+                Contraseña
+
+            </label>
+
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Ingresa la contraseña"
+                required
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="boton">
+
+            INGRESAR
+
+        </button>
+
+
+    </form>
+
+
+    <div
+        id="mensaje"
+        class="mensaje">
+    </div>
+
+
+    <a
+        href="#"
+        id="volver"
+        class="volver">
+
+        ← Volver
+
+    </a>
+
+
+    <div class="informacion">
+
+        Andres Vega Ingeniería<br>
+
+        Material educativo
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================
+   MATERIAS
+   ========================================= */
+
+
+const materias = {
+
+    "electronica-digital":
+    {
+        nombre: "Electrónica Digital",
+
+        area:
+        "Electricidad y Electrónica Automotriz",
+
+        pagina:
+        "electricidad-electronica-automotriz.html"
+    },
+
+
+    "programacion":
+    {
+        nombre: "Programación",
+
+        area:
+        "Electricidad y Electrónica Automotriz",
+
+        pagina:
+        "electricidad-electronica-automotriz.html"
+    },
+
+
+    "inyeccion-electronica":
+    {
+        nombre:
+        "Sistemas de Inyección Electrónica",
+
+        area:
+        "Electricidad y Electrónica Automotriz",
+
+        pagina:
+        "electricidad-electronica-automotriz.html"
+    },
+
+
+    "sistemas-encendido":
+    {
+        nombre:
+        "Sistemas de Encendido",
+
+        area:
+        "Electricidad y Electrónica Automotriz",
+
+        pagina:
+        "electricidad-electronica-automotriz.html"
+    },
+
+
+    "ecus":
+    {
+        nombre: "ECUS",
+
+        area:
+        "Electricidad y Electrónica Automotriz",
+
+        pagina:
+        "electricidad-electronica-automotriz.html"
+    },
+
+
+    "tableros-electronicos":
+    {
+        nombre:
+        "Tableros Electrónicos",
+
+        area:
+        "Electricidad y Electrónica Automotriz",
+
+        pagina:
+        "electricidad-electronica-automotriz.html"
+    },
+
+
+    "diagramas-electricos":
+    {
+        nombre:
+        "Diagramas Eléctricos",
+
+        area:
+        "Electricidad y Electrónica Automotriz",
+
+        pagina:
+        "electricidad-electronica-automotriz.html"
+    }
+
+};
+
+
+/* =========================================
+   OBTENER MATERIA
+   ========================================= */
+
+
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const materiaID =
+    parametros.get("materia");
+
+
+const materia =
+    materias[materiaID];
+
+
+const titulo =
+    document.getElementById(
+        "tituloMateria"
+    );
+
+
+const volver =
+    document.getElementById(
+        "volver"
+    );
+
+
+/* =========================================
+   MOSTRAR INFORMACIÓN
+   ========================================= */
+
+
+if (materia) {
+
+    titulo.textContent =
+        materia.nombre;
+
+
+    volver.href =
+        materia.pagina;
+
+}
+
+else {
+
+    titulo.textContent =
+        "Materia no encontrada";
+
+}
+
+
+/* =========================================
+   FORMULARIO
+   ========================================= */
+
+
+document
+.getElementById("formulario")
+.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const password =
+            document
+            .getElementById("password")
+            .value;
+
+
+        const mensaje =
+            document
+            .getElementById("mensaje");
+
+
+        mensaje.className =
+            "mensaje";
+
+
+        mensaje.textContent =
+            "El sistema de acceso se conectará con Supabase en el siguiente paso.";
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
