@@ -10,17 +10,7 @@
 
 <title>Material | Andres Vega Ingeniería</title>
 
-
-<!-- =====================================================
-     SUPABASE
-     ===================================================== -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-<!-- =====================================================
-     FUENTES
-     ===================================================== -->
 
 <link rel="preconnect"
       href="https://fonts.googleapis.com">
@@ -36,15 +26,10 @@
 <style>
 
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
 }
-
 
 body{
 
@@ -126,7 +111,7 @@ header p{
 
 
 /* =====================================================
-   INFORMACIÓN DE LA MATERIA
+   CABECERA MATERIA
    ===================================================== */
 
 .cabecera-materia{
@@ -338,6 +323,10 @@ header p{
     font-weight:700;
 
     transition:.2s;
+
+    cursor:pointer;
+
+    border:none;
 
 }
 
@@ -584,10 +573,6 @@ footer strong{
 <body>
 
 
-<!-- =====================================================
-     ENCABEZADO
-     ===================================================== -->
-
 <header>
 
 <h1>
@@ -602,17 +587,9 @@ Electrónica y Tecnología Automotriz
 </header>
 
 
-
-<!-- =====================================================
-     CONTENIDO
-     ===================================================== -->
-
 <main class="contenedor">
 
-
-<div
-id="contenido">
-
+<div id="contenido">
 
 <div class="cargando">
 
@@ -620,9 +597,7 @@ id="contenido">
 
 </div>
 
-
 </div>
-
 
 
 <a
@@ -634,14 +609,8 @@ class="volver">
 
 </a>
 
-
 </main>
 
-
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
 
 <footer>
 
@@ -665,9 +634,8 @@ y Tecnología Automotriz.
    CONFIGURACIÓN SUPABASE
    ===================================================== */
 
-
 const SUPABASE_URL =
-"https://oeaixuxafzlotxlcbxeh.supabase.co";
+"https://oeaixuxafzlotxlcbxeh.supabase.coL";
 
 
 const SUPABASE_ANON_KEY =
@@ -684,6 +652,23 @@ supabase.createClient(
 );
 
 
+/* =====================================================
+   BUCKET
+   ===================================================== */
+
+const BUCKET =
+"material-educativo";
+
+
+/*
+   La URL firmada tendrá una duración de 1 hora.
+
+   3600 segundos = 1 hora
+*/
+
+const DURACION_URL =
+3600;
+
 
 /* =====================================================
    LISTA DE MATERIAS
@@ -691,272 +676,151 @@ supabase.createClient(
 
 const materias = {
 
-
     "electronica-digital":
     {
-        nombre:
-        "Electrónica Digital",
-
-        area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+        nombre:"Electrónica Digital",
+        area:"Electricidad y Electrónica Automotriz",
+        pagina:"electricidad-electronica-automotriz.html"
     },
-
 
     "programacion":
     {
-        nombre:
-        "Programación",
-
-        area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+        nombre:"Programación",
+        area:"Electricidad y Electrónica Automotriz",
+        pagina:"electricidad-electronica-automotriz.html"
     },
-
 
     "inyeccion-electronica":
     {
-        nombre:
-        "Sistemas de Inyección Electrónica",
-
-        area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+        nombre:"Sistemas de Inyección Electrónica",
+        area:"Electricidad y Electrónica Automotriz",
+        pagina:"electricidad-electronica-automotriz.html"
     },
-
 
     "sistemas-encendido":
     {
-        nombre:
-        "Sistemas de Encendido",
-
-        area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+        nombre:"Sistemas de Encendido",
+        area:"Electricidad y Electrónica Automotriz",
+        pagina:"electricidad-electronica-automotriz.html"
     },
-
 
     "ecus":
     {
-        nombre:
-        "ECUS",
-
-        area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+        nombre:"ECUS",
+        area:"Electricidad y Electrónica Automotriz",
+        pagina:"electricidad-electronica-automotriz.html"
     },
-
 
     "tableros-electronicos":
     {
-        nombre:
-        "Tableros Electrónicos",
-
-        area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+        nombre:"Tableros Electrónicos",
+        area:"Electricidad y Electrónica Automotriz",
+        pagina:"electricidad-electronica-automotriz.html"
     },
-
 
     "diagramas-electricos":
     {
-        nombre:
-        "Diagramas Eléctricos",
-
-        area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+        nombre:"Diagramas Eléctricos",
+        area:"Electricidad y Electrónica Automotriz",
+        pagina:"electricidad-electronica-automotriz.html"
     },
-
 
     "electronica-digital-ingenieria":
     {
-        nombre:
-        "Electrónica Digital",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Electrónica Digital",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "electromagnetismo":
     {
-        nombre:
-        "Electromagnetismo",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Electromagnetismo",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "electronica-analogica":
     {
-        nombre:
-        "Electrónica Analógica",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Electrónica Analógica",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "circuitos-electricos":
     {
-        nombre:
-        "Circuitos Eléctricos",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Circuitos Eléctricos",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "robotica":
     {
-        nombre:
-        "Robótica",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Robótica",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "sistemas-control":
     {
-        nombre:
-        "Sistemas de Control",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Sistemas de Control",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "fisica-3":
     {
-        nombre:
-        "Física 3",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Física 3",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "programacion-java":
     {
-        nombre:
-        "Programación en Java",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Programación en Java",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "microcontroladores":
     {
-        nombre:
-        "Programación de Microcontroladores",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"Programación de Microcontroladores",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "iot":
     {
-        nombre:
-        "IoT",
-
-        area:
-        "Ingeniería Electrónica",
-
-        pagina:
-        "ingenieria-electronica.html"
+        nombre:"IoT",
+        area:"Ingeniería Electrónica",
+        pagina:"ingenieria-electronica.html"
     },
-
 
     "sistemas-vehiculos-electricos":
     {
-        nombre:
-        "Sistemas",
-
-        area:
-        "Vehículos Eléctricos",
-
-        pagina:
-        "vehiculos-electricos.html"
+        nombre:"Sistemas",
+        area:"Vehículos Eléctricos",
+        pagina:"vehiculos-electricos.html"
     },
-
 
     "electricidad-vehiculos-electricos":
     {
-        nombre:
-        "Electricidad",
-
-        area:
-        "Vehículos Eléctricos",
-
-        pagina:
-        "vehiculos-electricos.html"
+        nombre:"Electricidad",
+        area:"Vehículos Eléctricos",
+        pagina:"vehiculos-electricos.html"
     },
-
 
     "diagramas-vehiculos-electricos":
     {
-        nombre:
-        "Diagramas",
-
-        area:
-        "Vehículos Eléctricos",
-
-        pagina:
-        "vehiculos-electricos.html"
+        nombre:"Diagramas",
+        area:"Vehículos Eléctricos",
+        pagina:"vehiculos-electricos.html"
     }
 
 };
 
 
-
 /* =====================================================
-   OBTENER MATERIA DE LA URL
+   OBTENER MATERIA
    ===================================================== */
 
 const parametros =
@@ -966,19 +830,12 @@ new URLSearchParams(
 
 
 const materiaID =
-parametros.get(
-    "materia"
-);
+parametros.get("materia");
 
 
 const materia =
 materias[materiaID];
 
-
-
-/* =====================================================
-   ELEMENTO PRINCIPAL
-   ===================================================== */
 
 const contenido =
 document.getElementById(
@@ -992,11 +849,9 @@ document.getElementById(
 );
 
 
-
 /* =====================================================
-   COMPROBAR ACCESO
+   COMPROBAR AUTORIZACIÓN
    ===================================================== */
-
 
 const autorizada =
 sessionStorage.getItem(
@@ -1018,31 +873,23 @@ if(
 
 }
 
-
 else{
 
     volver.href =
     materia.pagina;
-
 
     cargarMaterial();
 
 }
 
 
-
 /* =====================================================
-   CARGAR MATERIAL DESDE SUPABASE
+   CARGAR MATERIAL
    ===================================================== */
 
 async function cargarMaterial(){
 
     try{
-
-
-        /* =============================================
-           ENCABEZADO
-           ============================================= */
 
         contenido.innerHTML = `
 
@@ -1054,13 +901,11 @@ async function cargarMaterial(){
 
                 </div>
 
-
                 <h2>
 
                     ${materia.nombre}
 
                 </h2>
-
 
                 <p>
 
@@ -1072,7 +917,6 @@ async function cargarMaterial(){
 
             </section>
 
-
             <div class="cargando">
 
                 📚 Cargando materiales...
@@ -1080,7 +924,6 @@ async function cargarMaterial(){
             </div>
 
         `;
-
 
 
         /* =============================================
@@ -1096,9 +939,7 @@ async function cargarMaterial(){
 
         await supabaseClient
 
-        .from(
-            "materiales"
-        )
+        .from("materiales")
 
         .select("*")
 
@@ -1120,7 +961,6 @@ async function cargarMaterial(){
         );
 
 
-
         if(error){
 
             throw error;
@@ -1128,18 +968,15 @@ async function cargarMaterial(){
         }
 
 
-
         console.log(
-            "Materiales:",
+            "Materiales encontrados:",
             data
         );
 
 
-
-        mostrarMateriales(
+        await mostrarMateriales(
             data || []
         );
-
 
     }
 
@@ -1160,7 +997,9 @@ async function cargarMaterial(){
 
                 <br><br>
 
-                ${error.message}
+                ${escaparHTML(
+                    error.message
+                )}
 
             </div>
 
@@ -1171,19 +1010,13 @@ async function cargarMaterial(){
 }
 
 
-
 /* =====================================================
    MOSTRAR MATERIALES
    ===================================================== */
 
-function mostrarMateriales(
+async function mostrarMateriales(
     materiales
 ){
-
-
-    /* ================================================
-       ENCABEZADO
-       ================================================ */
 
     let html = `
 
@@ -1195,13 +1028,11 @@ function mostrarMateriales(
 
             </div>
 
-
             <h2>
 
                 ${materia.nombre}
 
             </h2>
-
 
             <p>
 
@@ -1214,7 +1045,6 @@ function mostrarMateriales(
         </section>
 
     `;
-
 
 
     /* ================================================
@@ -1233,16 +1063,13 @@ function mostrarMateriales(
                     📚
                 </div>
 
-
                 <h3>
 
                     No hay material publicado todavía
 
                 </h3>
 
-
                 <br>
-
 
                 <p>
 
@@ -1264,7 +1091,6 @@ function mostrarMateriales(
         return;
 
     }
-
 
 
     /* ================================================
@@ -1300,57 +1126,58 @@ function mostrarMateriales(
     );
 
 
-
     /* ================================================
        CREAR UNIDADES
        ================================================ */
 
-    Object.keys(
-        unidades
-    ).forEach(
-        function(unidad){
+    for(
+        const unidad of Object.keys(unidades)
+    ){
 
-            html += `
+        html += `
 
-                <section class="unidad">
+            <section class="unidad">
 
-                    <div class="unidad-header">
+                <div class="unidad-header">
 
-                        <h3>
+                    <h3>
 
-                            📂
-                            ${formatearUnidad(unidad)}
+                        📂
+                        ${formatearUnidad(unidad)}
 
-                        </h3>
+                    </h3>
 
-                    </div>
+                </div>
 
-            `;
+        `;
 
 
-            unidades[
-                unidad
-            ].forEach(
-                function(material){
+        /*
+           IMPORTANTE:
 
-                    html +=
-                    crearMaterial(
-                        material
-                    );
+           Esperamos a que Supabase genere
+           las URLs firmadas.
+        */
 
-                }
+        for(
+            const material of unidades[unidad]
+        ){
+
+            html +=
+            await crearMaterial(
+                material
             );
 
-
-            html += `
-
-                </section>
-
-            `;
-
         }
-    );
 
+
+        html += `
+
+            </section>
+
+        `;
+
+    }
 
 
     contenido.innerHTML =
@@ -1359,128 +1186,218 @@ function mostrarMateriales(
 }
 
 
-
 /* =====================================================
-   CREAR TARJETA DEL MATERIAL
+   CREAR MATERIAL CON URL FIRMADA
    ===================================================== */
 
-function crearMaterial(
+async function crearMaterial(
     material
 ){
 
+    try{
 
-    /* ================================================
-       URL DEL ARCHIVO
-       ================================================ */
+        /* =============================================
+           GENERAR URL FIRMADA
+           ============================================= */
 
-    const resultado =
+        const {
 
-    supabaseClient
+            data,
+            error
 
-    .storage
+        } =
 
-    .from(
-        "material-educativo"
-    )
+        await supabaseClient
 
-    .getPublicUrl(
-        material.ruta_archivo
-    );
+        .storage
 
+        .from(
+            BUCKET
+        )
 
-    const url =
-    resultado.data.publicUrl;
+        .createSignedUrl(
 
+            material.ruta_archivo,
 
+            DURACION_URL
 
-    return `
-
-        <article class="material">
-
-
-            <div class="material-info">
+        );
 
 
-                <div class="material-titulo">
+        if(error){
 
-                    ${obtenerIcono(material.tipo)}
-
-                    ${escaparHTML(
-                        material.titulo
-                    )}
-
-                </div>
+            console.error(
+                "Error creando URL:",
+                error
+            );
 
 
-                <div class="material-descripcion">
+            return `
 
-                    ${
-                        material.descripcion
-                        ?
-                        escaparHTML(
+                <article class="material">
+
+                    <div class="material-info">
+
+                        <div class="material-titulo">
+
+                            ${obtenerIcono(
+                                material.tipo
+                            )}
+
+                            ${escaparHTML(
+                                material.titulo
+                            )}
+
+                        </div>
+
+                        <div class="material-descripcion">
+
+                            No se pudo generar
+                            el enlace del archivo.
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }
+
+
+        const url =
+        data.signedUrl;
+
+
+        /* =============================================
+           TARJETA
+           ============================================= */
+
+        return `
+
+            <article class="material">
+
+                <div class="material-info">
+
+                    <div class="material-titulo">
+
+                        ${obtenerIcono(
+                            material.tipo
+                        )}
+
+                        ${escaparHTML(
+                            material.titulo
+                        )}
+
+                    </div>
+
+
+                    <div class="material-descripcion">
+
+                        ${
                             material.descripcion
-                        )
-                        :
-                        "Material educativo"
-                    }
+                            ?
+                            escaparHTML(
+                                material.descripcion
+                            )
+                            :
+                            "Material educativo"
+                        }
+
+                    </div>
+
+
+                    <span class="tipo">
+
+                        ${
+                            material.tipo
+                            ?
+                            material.tipo.toUpperCase()
+                            :
+                            "MATERIAL"
+                        }
+
+                    </span>
 
                 </div>
 
 
-                <span class="tipo">
+                <div class="botones">
 
-                    ${material.tipo
-                    ?
-                    material.tipo.toUpperCase()
-                    :
-                    "MATERIAL"}
+                    <a
 
-                </span>
+                        href="${url}"
 
+                        target="_blank"
 
-            </div>
+                        rel="noopener noreferrer"
 
+                        class="boton ver">
 
-            <div class="botones">
+                        👁 Ver
 
-
-                <a
-
-                    href="${url}"
-
-                    target="_blank"
-
-                    rel="noopener"
-
-                    class="boton ver">
-
-                    👁 Ver
-
-                </a>
+                    </a>
 
 
-                <a
+                    <a
 
-                    href="${url}"
+                        href="${url}"
 
-                    download
+                        download
 
-                    class="boton descargar">
+                        class="boton descargar">
 
-                    ⬇ Descargar
+                        ⬇ Descargar
 
-                </a>
+                    </a>
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
 
 
-            </div>
+        return `
 
+            <article class="material">
 
-        </article>
+                <div class="material-info">
 
-    `;
+                    <div class="material-titulo">
+
+                        📎
+                        ${escaparHTML(
+                            material.titulo
+                        )}
+
+                    </div>
+
+                    <div class="material-descripcion">
+
+                        Error al generar
+                        el enlace del archivo.
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
 
 }
-
 
 
 /* =====================================================
@@ -1526,7 +1443,6 @@ function formatearUnidad(
 }
 
 
-
 /* =====================================================
    ICONOS
    ===================================================== */
@@ -1561,16 +1477,18 @@ function obtenerIcono(
 }
 
 
-
 /* =====================================================
-   PROTECCIÓN CONTRA HTML
+   ESCAPAR HTML
    ===================================================== */
 
 function escaparHTML(
     texto
 ){
 
-    if(!texto){
+    if(
+        texto === null ||
+        texto === undefined
+    ){
 
         return "";
 
