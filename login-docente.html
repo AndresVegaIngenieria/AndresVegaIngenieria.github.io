@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Acceso Docente | Andres Vega Ingeniería</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #2563eb
+    );
+
+    padding:20px;
+}
+
+
+/* =====================================================
+   TARJETA
+   ===================================================== */
+
+.login{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px 35px;
+
+    box-shadow:
+    0 25px 60px
+    rgba(0,0,0,.25);
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   ICONO
+   ===================================================== */
+
+.icono{
+
+    width:75px;
+
+    height:75px;
+
+    margin:0 auto 20px;
+
+    background:#eff6ff;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:35px;
+}
+
+
+/* =====================================================
+   TÍTULOS
+   ===================================================== */
+
+h1{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:28px;
+
+    color:#0f172a;
+
+    margin-bottom:8px;
+}
+
+
+.subtitulo{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+}
+
+
+/* =====================================================
+   CAMPOS
+   ===================================================== */
+
+.campo{
+
+    text-align:left;
+
+    margin-bottom:18px;
+}
+
+
+.campo label{
+
+    display:block;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#334155;
+
+    margin-bottom:7px;
+}
+
+
+.campo input{
+
+    width:100%;
+
+    padding:13px 14px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:8px;
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    outline:none;
+
+    background:#f8fafc;
+}
+
+
+.campo input:focus{
+
+    border-color:#2563eb;
+
+    background:white;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(37,99,235,.12);
+}
+
+
+/* =====================================================
+   BOTÓN
+   ===================================================== */
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-top:8px;
+}
+
+
+button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+}
+
+
+button:disabled{
+
+    background:#94a3b8;
+
+    cursor:wait;
+
+    transform:none;
+}
+
+
+/* =====================================================
+   MENSAJE
+   ===================================================== */
+
+.mensaje{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:13px;
+
+    border-radius:8px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    line-height:1.5;
+}
+
+
+.error{
+
+    display:block;
+
+    background:#fee2e2;
+
+    color:#991b1b;
+}
+
+
+.exito{
+
+    display:block;
+
+    background:#dcfce7;
+
+    color:#166534;
+}
+
+
+/* =====================================================
+   PIE
+   ===================================================== */
+
+.footer{
+
+    margin-top:25px;
+
+    font-size:12px;
+
+    color:#94a3b8;
+
+    line-height:1.6;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login">
+
+
+<div class="icono">
+
+👨‍🏫
+
+</div>
+
+
+<h1>
+
+Acceso Docente
+
+</h1>
+
+
+<p class="subtitulo">
+
+Panel de administración de
+<br>
+
+<strong>
+Andres Vega Ingeniería
+</strong>
+
+</p>
+
+
+
+<form id="loginForm">
+
+
+<div class="campo">
+
+<label for="email">
+
+Correo electrónico
+
+</label>
+
+
+<input
+type="email"
+id="email"
+placeholder="Correo electrónico"
+required
+autocomplete="email">
+
+</div>
+
+
+
+<div class="campo">
+
+<label for="password">
+
+Contraseña
+
+</label>
+
+
+<input
+type="password"
+id="password"
+placeholder="Contraseña"
+required
+autocomplete="current-password">
+
+</div>
+
+
+
+<button
+type="submit"
+id="boton">
+
+INICIAR SESIÓN
+
+</button>
+
+
+</form>
+
+
+
+<div
+id="mensaje"
+class="mensaje">
+
+</div>
+
+
+
+<div class="footer">
+
+Andres Vega Ingeniería
+<br>
+
+Material educativo para Ingeniería
+Electrónica y Tecnología Automotriz
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   CONFIGURACIÓN SUPABASE
+   ========================================================= */
+
+
+const SUPABASE_URL =
+"https://oeaixuxafzlotxlcbxeh.supabase.co";
+
+
+const SUPABASE_ANON_KEY =
+"sb_publishable_7IIh-dLRxW6pN-gggGbI5A_VIuww2Sd
+";
+
+
+const supabaseClient =
+supabase.createClient(
+
+    SUPABASE_URL,
+
+    SUPABASE_ANON_KEY
+
+);
+
+
+
+/* =========================================================
+   ELEMENTOS
+   ========================================================= */
+
+
+const formulario =
+document.getElementById(
+    "loginForm"
+);
+
+
+const boton =
+document.getElementById(
+    "boton"
+);
+
+
+const mensaje =
+document.getElementById(
+    "mensaje"
+);
+
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+
+formulario.addEventListener(
+"submit",
+async function(event){
+
+    event.preventDefault();
+
+
+    const email =
+    document.getElementById(
+        "email"
+    ).value.trim();
+
+
+    const password =
+    document.getElementById(
+        "password"
+    ).value;
+
+
+    boton.disabled =
+    true;
+
+
+    boton.textContent =
+    "VERIFICANDO...";
+
+
+    mensaje.className =
+    "mensaje";
+
+
+    mensaje.style.display =
+    "none";
+
+
+    try{
+
+
+        /* ===============================================
+           INICIAR SESIÓN
+           =============================================== */
+
+
+        const {
+
+            data,
+            error
+
+        } =
+
+        await supabaseClient
+
+        .auth
+
+        .signInWithPassword({
+
+            email:
+                email,
+
+            password:
+                password
+
+        });
+
+
+        if(error){
+
+            throw error;
+
+        }
+
+
+        const user =
+        data.user;
+
+
+        /* ===============================================
+           COMPROBAR QUE SEA ADMINISTRADOR
+           =============================================== */
+
+
+        const {
+
+            data:
+            administrador,
+
+            error:
+            errorAdmin
+
+        } =
+
+        await supabaseClient
+
+        .from(
+            "administradores"
+        )
+
+        .select(
+            "id,nombre,activo"
+        )
+
+        .eq(
+            "id",
+            user.id
+        )
+
+        .eq(
+            "activo",
+            true
+        )
+
+        .maybeSingle();
+
+
+        if(errorAdmin){
+
+            throw errorAdmin;
+
+        }
+
+
+        if(!administrador){
+
+            await supabaseClient
+            .auth
+            .signOut();
+
+
+            throw new Error(
+                "Este usuario no tiene permisos de docente."
+            );
+
+        }
+
+
+        /* ===============================================
+           ACCESO CORRECTO
+           =============================================== */
+
+
+        mensaje.textContent =
+        "Acceso correcto. Entrando al panel...";
+
+
+        mensaje.className =
+        "mensaje exito";
+
+
+        mensaje.style.display =
+        "block";
+
+
+        setTimeout(
+
+            function(){
+
+                window.location.href =
+                "panel-docente.html";
+
+            },
+
+            800
+
+        );
+
+    }
+
+
+    catch(error){
+
+        console.error(error);
+
+
+        mensaje.textContent =
+        "No se pudo iniciar sesión. "
+        + error.message;
+
+
+        mensaje.className =
+        "mensaje error";
+
+
+        mensaje.style.display =
+        "block";
+
+
+        boton.disabled =
+        false;
+
+
+        boton.textContent =
+        "INICIAR SESIÓN";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
