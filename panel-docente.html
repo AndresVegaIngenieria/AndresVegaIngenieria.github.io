@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Panel Docente | Andres Vega Ingeniería</title>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:#f1f5f9;
+
+    color:#0f172a;
+
+    min-height:100vh;
+}
+
+
+/* =====================================================
+   ENCABEZADO
+   ===================================================== */
+
+header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #2563eb
+    );
+
+    color:white;
+
+    padding:35px 20px;
+
+    text-align:center;
+}
+
+header h1{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:32px;
+
+    margin-bottom:8px;
+}
+
+header p{
+
+    color:#dbeafe;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+   ===================================================== */
+
+.contenedor{
+
+    max-width:900px;
+
+    margin:40px auto;
+
+    padding:0 20px;
+}
+
+
+/* =====================================================
+   TARJETA
+   ===================================================== */
+
+.tarjeta{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(15,23,42,.08);
+
+    border:1px solid #e2e8f0;
+
+    margin-bottom:25px;
+}
+
+
+.tarjeta h2{
+
+    font-family:'Poppins',sans-serif;
+
+    margin-bottom:8px;
+}
+
+.descripcion{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    margin-bottom:25px;
+}
+
+
+/* =====================================================
+   FORMULARIOS
+   ===================================================== */
+
+.campo{
+
+    margin-bottom:20px;
+}
+
+.campo label{
+
+    display:block;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+    color:#334155;
+}
+
+.campo select,
+.campo input,
+.campo textarea{
+
+    width:100%;
+
+    padding:13px 14px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:8px;
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    background:#f8fafc;
+
+    outline:none;
+}
+
+.campo select:focus,
+.campo input:focus,
+.campo textarea:focus{
+
+    border-color:#2563eb;
+
+    background:white;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(37,99,235,.12);
+}
+
+.campo textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+}
+
+
+/* =====================================================
+   BOTÓN
+   ===================================================== */
+
+.boton{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.boton:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+}
+
+.boton:disabled{
+
+    background:#94a3b8;
+
+    cursor:wait;
+
+    transform:none;
+}
+
+
+/* =====================================================
+   PROGRESO
+   ===================================================== */
+
+.progreso{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    background:#eff6ff;
+
+    border-radius:8px;
+
+    color:#1d4ed8;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   MENSAJES
+   ===================================================== */
+
+.mensaje{
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border-radius:8px;
+
+    display:none;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+.exito{
+
+    background:#dcfce7;
+
+    color:#166534;
+}
+
+.error{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+}
+
+
+/* =====================================================
+   INFORMACIÓN DEL ARCHIVO
+   ===================================================== */
+
+.archivo-info{
+
+    margin-top:10px;
+
+    font-size:13px;
+
+    color:#64748b;
+}
+
+
+/* =====================================================
+   CERRAR SESIÓN
+   ===================================================== */
+
+.boton-salir{
+
+    background:#e2e8f0;
+
+    color:#334155;
+
+    width:auto;
+
+    padding:10px 18px;
+
+    margin-top:15px;
+}
+
+.boton-salir:hover{
+
+    background:#cbd5e1;
+}
+
+
+/* =====================================================
+   CARGANDO
+   ===================================================== */
+
+#cargando{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:#64748b;
+}
+
+
+/* =====================================================
+   MÓVIL
+   ===================================================== */
+
+@media(max-width:600px){
+
+    .tarjeta{
+
+        padding:25px 20px;
+    }
+
+    header h1{
+
+        font-size:26px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+Andres Vega Ingeniería
+</h1>
+
+<p>
+Panel de administración docente
+</p>
+
+</header>
+
+
+
+<div id="cargando">
+
+Verificando acceso...
+
+</div>
+
+
+
+<main
+id="panel"
+class="contenedor"
+style="display:none;">
+
+
+<!-- =====================================================
+     INFORMACIÓN
+     ===================================================== -->
+
+<section class="tarjeta">
+
+<h2>
+👨‍🏫 Panel Docente
+</h2>
+
+<p class="descripcion">
+
+Desde aquí puedes subir y administrar
+el material educativo de tus materias.
+
+</p>
+
+
+<div id="usuario">
+
+</div>
+
+
+<button
+id="cerrarSesion"
+class="boton boton-salir">
+
+Cerrar sesión
+
+</button>
+
+</section>
+
+
+
+<!-- =====================================================
+     SUBIR MATERIAL
+     ===================================================== -->
+
+<section class="tarjeta">
+
+<h2>
+📤 Subir material
+</h2>
+
+<p class="descripcion">
+
+Selecciona la materia, unidad y archivo
+que deseas publicar.
+
+</p>
+
+
+<form id="formulario">
+
+
+<!-- MATERIA -->
+
+<div class="campo">
+
+<label for="materia">
+
+Materia
+
+</label>
+
+
+<select
+id="materia"
+required>
+
+<option value="">
+
+Selecciona una materia
+
+</option>
+
+
+<option value="electronica-digital">
+
+Electrónica Digital — Automotriz
+
+</option>
+
+
+<option value="programacion">
+
+Programación — Automotriz
+
+</option>
+
+
+<option value="inyeccion-electronica">
+
+Sistemas de Inyección Electrónica
+
+</option>
+
+
+<option value="sistemas-encendido">
+
+Sistemas de Encendido
+
+</option>
+
+
+<option value="ecus">
+
+ECUS
+
+</option>
+
+
+<option value="tableros-electronicos">
+
+Tableros Electrónicos
+
+</option>
+
+
+<option value="diagramas-electricos">
+
+Diagramas Eléctricos
+
+</option>
+
+
+<option value="electronica-digital-ingenieria">
+
+Electrónica Digital — Ingeniería
+
+</option>
+
+
+<option value="electromagnetismo">
+
+Electromagnetismo
+
+</option>
+
+
+<option value="electronica-analogica">
+
+Electrónica Analógica
+
+</option>
+
+
+<option value="circuitos-electricos">
+
+Circuitos Eléctricos
+
+</option>
+
+
+<option value="robotica">
+
+Robótica
+
+</option>
+
+
+<option value="sistemas-control">
+
+Sistemas de Control
+
+</option>
+
+
+<option value="fisica-3">
+
+Física 3
+
+</option>
+
+
+<option value="programacion-java">
+
+Programación en Java
+
+</option>
+
+
+<option value="microcontroladores">
+
+Programación de Microcontroladores
+
+</option>
+
+
+<option value="iot">
+
+IoT
+
+</option>
+
+
+<option value="sistemas-vehiculos-electricos">
+
+Sistemas — Vehículos Eléctricos
+
+</option>
+
+
+<option value="electricidad-vehiculos-electricos">
+
+Electricidad — Vehículos Eléctricos
+
+</option>
+
+
+<option value="diagramas-vehiculos-electricos">
+
+Diagramas — Vehículos Eléctricos
+
+</option>
+
+</select>
+
+</div>
+
+
+
+<!-- UNIDAD -->
+
+<div class="campo">
+
+<label for="unidad">
+
+Unidad / Sección
+
+</label>
+
+
+<select
+id="unidad"
+required>
+
+<option value="">
+
+Selecciona una unidad
+
+</option>
+
+<option value="unidad-1">
+Unidad 1
+</option>
+
+<option value="unidad-2">
+Unidad 2
+</option>
+
+<option value="unidad-3">
+Unidad 3
+</option>
+
+<option value="unidad-4">
+Unidad 4
+</option>
+
+<option value="unidad-5">
+Unidad 5
+</option>
+
+<option value="practicas">
+Prácticas
+</option>
+
+<option value="material-complementario">
+Material complementario
+</option>
+
+</select>
+
+</div>
+
+
+
+<!-- TÍTULO -->
+
+<div class="campo">
+
+<label for="titulo">
+
+Título del material
+
+</label>
+
+
+<input
+type="text"
+id="titulo"
+placeholder="Ej.: Introducción a las compuertas lógicas"
+required>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN -->
+
+<div class="campo">
+
+<label for="descripcion">
+
+Descripción
+
+</label>
+
+
+<textarea
+id="descripcion"
+placeholder="Descripción breve del material...">
+</textarea>
+
+</div>
+
+
+
+<!-- TIPO -->
+
+<div class="campo">
+
+<label for="tipo">
+
+Tipo de material
+
+</label>
+
+
+<select
+id="tipo"
+required>
+
+<option value="">
+
+Selecciona el tipo
+
+</option>
+
+<option value="pdf">
+📄 PDF
+</option>
+
+<option value="video">
+🎥 Video
+</option>
+
+<option value="imagen">
+🖼️ Imagen
+</option>
+
+<option value="otro">
+📎 Otro
+</option>
+
+</select>
+
+</div>
+
+
+
+<!-- ARCHIVO -->
+
+<div class="campo">
+
+<label for="archivo">
+
+Archivo
+
+</label>
+
+
+<input
+type="file"
+id="archivo"
+required>
+
+
+<div
+id="archivoInfo"
+class="archivo-info">
+
+Selecciona un archivo.
+
+</div>
+
+</div>
+
+
+
+<!-- BOTÓN -->
+
+<button
+type="submit"
+id="botonSubir"
+class="boton">
+
+📤 SUBIR MATERIAL
+
+</button>
+
+
+<div
+id="progreso"
+class="progreso">
+
+Subiendo archivo...
+
+</div>
+
+
+<div
+id="mensaje"
+class="mensaje">
+
+</div>
+
+
+</form>
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =========================================================
+   CONFIGURACIÓN SUPABASE
+   ========================================================= */
+
+
+const SUPABASE_URL =
+"TU_PROJECT_URL";
+
+
+const SUPABASE_ANON_KEY =
+"TU_ANON_PUBLIC_KEY";
+
+
+const supabaseClient =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+
+
+/* =========================================================
+   ELEMENTOS
+   ========================================================= */
+
+
+const cargando =
+document.getElementById(
+    "cargando"
+);
+
+const panel =
+document.getElementById(
+    "panel"
+);
+
+const usuario =
+document.getElementById(
+    "usuario"
+);
+
+const cerrarSesion =
+document.getElementById(
+    "cerrarSesion"
+);
+
+const formulario =
+document.getElementById(
+    "formulario"
+);
+
+const archivo =
+document.getElementById(
+    "archivo"
+);
+
+const archivoInfo =
+document.getElementById(
+    "archivoInfo"
+);
+
+const botonSubir =
+document.getElementById(
+    "botonSubir"
+);
+
+const progreso =
+document.getElementById(
+    "progreso"
+);
+
+const mensaje =
+document.getElementById(
+    "mensaje"
+);
+
+
+
+/* =========================================================
+   VERIFICAR USUARIO
+   ========================================================= */
+
+
+async function verificarUsuario(){
+
+    try{
+
+        const {
+            data: {
+                user
+            }
+        } =
+        await supabaseClient
+        .auth
+        .getUser();
+
+
+        /* -----------------------------------------------
+           No hay sesión
+           ----------------------------------------------- */
+
+        if(!user){
+
+            window.location.href =
+            "login-docente.html";
+
+            return;
+
+        }
+
+
+        /* -----------------------------------------------
+           Comprobar administrador
+           ----------------------------------------------- */
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+
+        .from("administradores")
+
+        .select("id,nombre,activo")
+
+        .eq(
+            "id",
+            user.id
+        )
+
+        .eq(
+            "activo",
+            true
+        )
+
+        .maybeSingle();
+
+
+        if(error){
+
+            throw error;
+
+        }
+
+
+        if(!data){
+
+            await supabaseClient
+            .auth
+            .signOut();
+
+
+            window.location.href =
+            "login-docente.html";
+
+            return;
+
+        }
+
+
+        /* -----------------------------------------------
+           Mostrar panel
+           ----------------------------------------------- */
+
+        usuario.innerHTML =
+
+        `
+        <p style="
+        color:#64748b;
+        font-size:14px;
+        margin-bottom:10px;">
+
+        Sesión iniciada como:
+
+        <strong style="color:#0f172a;">
+
+        ${data.nombre}
+
+        </strong>
+
+        </p>
+        `;
+
+
+        cargando.style.display =
+        "none";
+
+        panel.style.display =
+        "block";
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        cargando.innerHTML =
+        "Error al verificar el acceso.";
+
+    }
+
+}
+
+
+
+verificarUsuario();
+
+
+
+/* =========================================================
+   MOSTRAR ARCHIVO SELECCIONADO
+   ========================================================= */
+
+
+archivo.addEventListener(
+"change",
+function(){
+
+    if(
+        archivo.files &&
+        archivo.files.length > 0
+    ){
+
+        const file =
+        archivo.files[0];
+
+
+        const tamaño =
+        (
+            file.size /
+            1024 /
+            1024
+        ).toFixed(2);
+
+
+        archivoInfo.textContent =
+        `${file.name} — ${tamaño} MB`;
+
+    }
+
+    else{
+
+        archivoInfo.textContent =
+        "Selecciona un archivo.";
+
+    }
+
+});
+
+
+
+/* =========================================================
+   CERRAR SESIÓN
+   ========================================================= */
+
+
+cerrarSesion.addEventListener(
+"click",
+async function(){
+
+    await supabaseClient
+    .auth
+    .signOut();
+
+    window.location.href =
+    "login-docente.html";
+
+});
+
+
+
+/* =========================================================
+   SUBIR MATERIAL
+   ========================================================= */
+
+
+formulario.addEventListener(
+"submit",
+async function(event){
+
+    event.preventDefault();
+
+
+    const materia =
+    document.getElementById(
+        "materia"
+    ).value;
+
+
+    const unidad =
+    document.getElementById(
+        "unidad"
+    ).value;
+
+
+    const titulo =
+    document.getElementById(
+        "titulo"
+    ).value.trim();
+
+
+    const descripcion =
+    document.getElementById(
+        "descripcion"
+    ).value.trim();
+
+
+    const tipo =
+    document.getElementById(
+        "tipo"
+    ).value;
+
+
+    if(
+        !archivo.files ||
+        archivo.files.length === 0
+    ){
+
+        mostrarMensaje(
+            "Selecciona un archivo.",
+            false
+        );
+
+        return;
+
+    }
+
+
+    const file =
+    archivo.files[0];
+
+
+    /* -----------------------------------------------------
+       Crear nombre seguro
+       ----------------------------------------------------- */
+
+
+    const extension =
+    file.name
+    .split(".")
+    .pop();
+
+
+    const nombreBase =
+    file.name
+    .replace(
+        /\.[^/.]+$/,
+        ""
+    )
+    .replace(
+        /[^a-zA-Z0-9-_]/g,
+        "-"
+    );
+
+
+    const nombreArchivo =
+
+    Date.now()
+    + "-"
+    + nombreBase
+    + "."
+    + extension;
+
+
+    /* -----------------------------------------------------
+       Ruta
+       ----------------------------------------------------- */
+
+
+    const ruta =
+
+    materia
+    + "/"
+    + unidad
+    + "/"
+    + nombreArchivo;
+
+
+
+    try{
+
+
+        botonSubir.disabled =
+        true;
+
+
+        progreso.style.display =
+        "block";
+
+
+        progreso.textContent =
+        "Subiendo archivo...";
+
+
+        mensaje.style.display =
+        "none";
+
+
+
+        /* =================================================
+           SUBIR A STORAGE
+           ================================================= */
+
+
+        const {
+            error:
+            errorStorage
+        } =
+
+        await supabaseClient
+
+        .storage
+
+        .from(
+            "material-educativo"
+        )
+
+        .upload(
+            ruta,
+            file,
+            {
+                cacheControl:
+                    "3600",
+
+                upsert:
+                    false
+            }
+        );
+
+
+        if(errorStorage){
+
+            throw errorStorage;
+
+        }
+
+
+
+        progreso.textContent =
+        "Guardando información del material...";
+
+
+
+        /* =================================================
+           GUARDAR INFORMACIÓN EN LA TABLA
+           ================================================= */
+
+
+        const {
+            error:
+            errorBD
+        } =
+
+        await supabaseClient
+
+        .from("materiales")
+
+        .insert({
+
+            materia_id:
+                materia,
+
+            unidad:
+                unidad,
+
+            titulo:
+                titulo,
+
+            tipo:
+                tipo,
+
+            nombre_archivo:
+                file.name,
+
+            ruta_archivo:
+                ruta,
+
+            descripcion:
+                descripcion,
+
+            publicado:
+                true
+
+        });
+
+
+        if(errorBD){
+
+            /*
+               Si la BD falla, intentamos eliminar
+               el archivo que acabamos de subir.
+            */
+
+            await supabaseClient
+
+            .storage
+
+            .from(
+                "material-educativo"
+            )
+
+            .remove([
+                ruta
+            ]);
+
+
+            throw errorBD;
+
+        }
+
+
+
+        /* =================================================
+           ÉXITO
+           ================================================= */
+
+
+        progreso.style.display =
+        "none";
+
+
+        mostrarMensaje(
+            "Material subido correctamente.",
+            true
+        );
+
+
+        formulario.reset();
+
+
+        archivoInfo.textContent =
+        "Selecciona un archivo.";
+
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+
+        progreso.style.display =
+        "none";
+
+
+        mostrarMensaje(
+            "No se pudo subir el material: "
+            + error.message,
+            false
+        );
+
+    }
+
+
+    finally{
+
+        botonSubir.disabled =
+        false;
+
+    }
+
+});
+
+
+
+/* =========================================================
+   MENSAJES
+   ========================================================= */
+
+
+function mostrarMensaje(
+    texto,
+    correcto
+){
+
+    mensaje.textContent =
+    texto;
+
+    mensaje.className =
+    correcto
+    ? "mensaje exito"
+    : "mensaje error";
+
+    mensaje.style.display =
+    "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
