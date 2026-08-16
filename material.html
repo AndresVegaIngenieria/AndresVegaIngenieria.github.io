@@ -3,382 +3,580 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>Material | Andres Vega Ingeniería</title>
+<title>Material | Andres Vega Ingeniería</title>
 
 
-    <!-- FUENTES -->
+<!-- =====================================================
+     SUPABASE
+     ===================================================== -->
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
-          rel="stylesheet">
+<!-- =====================================================
+     FUENTES
+     ===================================================== -->
 
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
 
-    <style>
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet">
 
 
-        body {
+<style>
 
-            font-family: 'Inter', sans-serif;
+*{
 
-            background: #f8fafc;
+    margin:0;
 
-            color: #0f172a;
+    padding:0;
 
-            min-height: 100vh;
-        }
+    box-sizing:border-box;
 
+}
 
-        /* =================================================
-           ENCABEZADO
-           ================================================= */
 
-        header {
+body{
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #0f172a,
-                    #1e3a8a,
-                    #2563eb
-                );
+    font-family:'Inter',sans-serif;
 
-            color: white;
+    background:#f8fafc;
 
-            padding: 45px 20px;
+    color:#0f172a;
 
-            text-align: center;
+    min-height:100vh;
 
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.15);
-        }
+}
 
 
-        header h1 {
+/* =====================================================
+   ENCABEZADO
+   ===================================================== */
 
-            font-family: 'Poppins', sans-serif;
+header{
 
-            font-size: 34px;
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #2563eb
+    );
 
-            font-weight: 800;
+    color:white;
 
-            margin-bottom: 10px;
-        }
+    padding:45px 20px;
 
+    text-align:center;
 
-        header p {
+    box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.15);
 
-            color: #dbeafe;
+}
 
-            font-size: 15px;
 
-            line-height: 1.6;
-        }
+header h1{
 
+    font-family:'Poppins',sans-serif;
 
-        /* =================================================
-           CONTENEDOR
-           ================================================= */
+    font-size:34px;
 
-        .contenedor {
+    font-weight:800;
 
-            max-width: 1150px;
+    margin-bottom:10px;
 
-            margin: 45px auto;
+}
 
-            padding: 0 25px;
-        }
 
+header p{
 
-        /* =================================================
-           INFORMACIÓN
-           ================================================= */
+    color:#dbeafe;
 
-        .cabecera-materia {
+    font-size:15px;
 
-            background: white;
+    line-height:1.6;
 
-            padding: 30px;
+}
 
-            border-radius: 18px;
 
-            border: 1px solid #e2e8f0;
+/* =====================================================
+   CONTENEDOR
+   ===================================================== */
 
-            box-shadow:
-                0 8px 25px rgba(15,23,42,0.07);
+.contenedor{
 
-            margin-bottom: 30px;
-        }
+    max-width:1150px;
 
+    margin:45px auto;
 
-        .area {
+    padding:0 25px;
 
-            color: #2563eb;
+}
 
-            font-size: 13px;
 
-            font-weight: 800;
+/* =====================================================
+   INFORMACIÓN DE LA MATERIA
+   ===================================================== */
 
-            text-transform: uppercase;
+.cabecera-materia{
 
-            letter-spacing: 0.5px;
+    background:white;
 
-            margin-bottom: 8px;
-        }
+    padding:30px;
 
+    border-radius:18px;
 
-        .cabecera-materia h2 {
+    border:1px solid #e2e8f0;
 
-            font-family: 'Poppins', sans-serif;
+    box-shadow:
+    0 8px 25px
+    rgba(15,23,42,.07);
 
-            font-size: 28px;
+    margin-bottom:30px;
 
-            margin-bottom: 10px;
-        }
+}
 
 
-        .cabecera-materia p {
+.area{
 
-            color: #64748b;
+    color:#2563eb;
 
-            font-size: 15px;
+    font-size:13px;
 
-            line-height: 1.6;
-        }
+    font-weight:800;
 
+    text-transform:uppercase;
 
-        /* =================================================
-           SECCIONES
-           ================================================= */
+    letter-spacing:.5px;
 
-        .secciones {
+    margin-bottom:8px;
 
-            display: grid;
+}
 
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(280px, 1fr)
-                );
 
-            gap: 25px;
-        }
+.cabecera-materia h2{
 
+    font-family:'Poppins',sans-serif;
 
-        .seccion {
+    font-size:28px;
 
-            background: white;
+    margin-bottom:10px;
 
-            border-radius: 18px;
+}
 
-            padding: 30px;
 
-            border: 1px solid #e2e8f0;
+.cabecera-materia p{
 
-            box-shadow:
-                0 8px 25px rgba(15,23,42,0.07);
+    color:#64748b;
 
-            transition: 0.3s;
-        }
+    font-size:15px;
 
+    line-height:1.6;
 
-        .seccion:hover {
+}
 
-            transform: translateY(-4px);
 
-            box-shadow:
-                0 15px 30px rgba(15,23,42,0.10);
-        }
+/* =====================================================
+   UNIDADES
+   ===================================================== */
 
+.unidad{
 
-        .icono {
+    background:white;
 
-            width: 60px;
+    border-radius:18px;
 
-            height: 60px;
+    border:1px solid #e2e8f0;
 
-            background: #eff6ff;
+    box-shadow:
+    0 8px 25px
+    rgba(15,23,42,.07);
 
-            border-radius: 15px;
+    margin-bottom:25px;
 
-            display: flex;
+    overflow:hidden;
 
-            align-items: center;
+}
 
-            justify-content: center;
 
-            font-size: 28px;
+.unidad-header{
 
-            margin-bottom: 20px;
-        }
+    background:#f8fafc;
 
+    padding:20px 25px;
 
-        .seccion h3 {
+    border-bottom:1px solid #e2e8f0;
 
-            font-family: 'Poppins', sans-serif;
+}
 
-            font-size: 20px;
 
-            margin-bottom: 10px;
-        }
+.unidad-header h3{
 
+    font-family:'Poppins',sans-serif;
 
-        .seccion p {
+    font-size:20px;
 
-            color: #64748b;
+}
 
-            font-size: 14px;
 
-            line-height: 1.6;
+/* =====================================================
+   MATERIAL
+   ===================================================== */
 
-            margin-bottom: 20px;
-        }
+.material{
 
+    padding:20px 25px;
 
-        /* =================================================
-           MENSAJE DE PRÓXIMAMENTE
-           ================================================= */
+    border-bottom:1px solid #e2e8f0;
 
-        .proximamente {
+    display:flex;
 
-            background: #f8fafc;
+    align-items:center;
 
-            border: 1px dashed #cbd5e1;
+    justify-content:space-between;
 
-            border-radius: 10px;
+    gap:20px;
 
-            padding: 15px;
+}
 
-            color: #64748b;
 
-            font-size: 13px;
+.material:last-child{
 
-            text-align: center;
-        }
+    border-bottom:none;
 
+}
 
-        /* =================================================
-           BOTÓN VOLVER
-           ================================================= */
 
-        .volver {
+.material-info{
 
-            display: block;
+    flex:1;
 
-            width: fit-content;
+}
 
-            margin: 40px auto;
 
-            padding: 12px 22px;
+.material-titulo{
 
-            background: #2563eb;
+    font-weight:700;
 
-            color: white;
+    font-size:16px;
 
-            text-decoration: none;
+    margin-bottom:7px;
 
-            border-radius: 8px;
+}
 
-            font-size: 14px;
 
-            font-weight: 700;
+.material-descripcion{
 
-            transition: 0.3s;
-        }
+    color:#64748b;
 
+    font-size:13px;
 
-        .volver:hover {
+    line-height:1.5;
 
-            background: #1d4ed8;
+}
 
-            transform: translateY(-2px);
-        }
 
+.tipo{
 
-        /* =================================================
-           FOOTER
-           ================================================= */
+    display:inline-block;
 
-        footer {
+    margin-top:9px;
 
-            background: #0f172a;
+    padding:5px 9px;
 
-            color: #94a3b8;
+    border-radius:6px;
 
-            text-align: center;
+    background:#eff6ff;
 
-            padding: 30px 20px;
+    color:#2563eb;
 
-            font-size: 13px;
+    font-size:11px;
 
-            line-height: 1.7;
+    font-weight:800;
 
-            margin-top: 50px;
-        }
+}
 
 
-        footer strong {
+/* =====================================================
+   BOTONES
+   ===================================================== */
 
-            color: white;
-        }
+.botones{
 
+    display:flex;
 
-        /* =================================================
-           MÓVIL
-           ================================================= */
+    gap:8px;
 
-        @media(max-width:600px) {
+    flex-wrap:wrap;
 
-            header {
+}
 
-                padding: 35px 20px;
-            }
 
+.boton{
 
-            header h1 {
+    display:inline-block;
 
-                font-size: 27px;
-            }
+    padding:10px 15px;
 
+    border-radius:8px;
 
-            .contenedor {
+    text-decoration:none;
 
-                margin: 30px auto;
+    font-size:13px;
 
-                padding: 0 18px;
-            }
+    font-weight:700;
 
+    transition:.2s;
 
-            .cabecera-materia {
+}
 
-                padding: 25px;
-            }
 
+.ver{
 
-            .secciones {
+    background:#2563eb;
 
-                grid-template-columns: 1fr;
-            }
+    color:white;
 
-        }
+}
 
-    </style>
+
+.ver:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+.descargar{
+
+    background:#e2e8f0;
+
+    color:#334155;
+
+}
+
+
+.descargar:hover{
+
+    background:#cbd5e1;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   CARGANDO
+   ===================================================== */
+
+.cargando{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    color:#64748b;
+
+}
+
+
+/* =====================================================
+   SIN MATERIAL
+   ===================================================== */
+
+.sin-material{
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    color:#64748b;
+
+}
+
+
+.sin-material .emoji{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+}
+
+
+/* =====================================================
+   ERROR
+   ===================================================== */
+
+.error{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    line-height:1.6;
+
+}
+
+
+/* =====================================================
+   BOTÓN VOLVER
+   ===================================================== */
+
+.volver{
+
+    display:block;
+
+    width:fit-content;
+
+    margin:40px auto;
+
+    padding:12px 22px;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+
+.volver:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer{
+
+    background:#0f172a;
+
+    color:#94a3b8;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-top:50px;
+
+}
+
+
+footer strong{
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   MÓVIL
+   ===================================================== */
+
+@media(max-width:650px){
+
+    header{
+
+        padding:35px 20px;
+
+    }
+
+
+    header h1{
+
+        font-size:27px;
+
+    }
+
+
+    .contenedor{
+
+        margin:30px auto;
+
+        padding:0 18px;
+
+    }
+
+
+    .cabecera-materia{
+
+        padding:25px;
+
+    }
+
+
+    .material{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+
+    .botones{
+
+        width:100%;
+
+    }
+
+
+    .boton{
+
+        flex:1;
+
+        text-align:center;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -392,14 +590,14 @@
 
 <header>
 
-    <h1>
-        Andres Vega Ingeniería
-    </h1>
+<h1>
+Andres Vega Ingeniería
+</h1>
 
-    <p>
-        Material educativo para Ingeniería
-        Electrónica y Tecnología Automotriz
-    </p>
+<p>
+Material educativo para Ingeniería
+Electrónica y Tecnología Automotriz
+</p>
 
 </header>
 
@@ -412,191 +610,29 @@
 <main class="contenedor">
 
 
-    <!-- INFORMACIÓN DE LA MATERIA -->
+<div
+id="contenido">
 
-    <section class="cabecera-materia">
 
-        <div
-            id="area"
-            class="area">
+<div class="cargando">
 
-            Cargando...
+📚 Cargando material...
 
-        </div>
+</div>
 
 
-        <h2
-            id="materia">
+</div>
 
-            Cargando...
 
-        </h2>
 
+<a
+href="#"
+id="volver"
+class="volver">
 
-        <p>
+← Volver al área
 
-            En esta sección encontrarás el material
-            educativo correspondiente a esta materia.
-
-        </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         SECCIONES DE MATERIAL
-         ================================================= -->
-
-    <section class="secciones">
-
-
-        <!-- PDF -->
-
-        <article class="seccion">
-
-            <div class="icono">
-                📄
-            </div>
-
-
-            <h3>
-                Documentos PDF
-            </h3>
-
-
-            <p>
-
-                Apuntes, manuales, presentaciones,
-                guías y material de estudio.
-
-            </p>
-
-
-            <div class="proximamente">
-
-                Próximamente se agregarán
-                documentos.
-
-            </div>
-
-        </article>
-
-
-
-        <!-- VIDEOS -->
-
-        <article class="seccion">
-
-            <div class="icono">
-                🎥
-            </div>
-
-
-            <h3>
-                Videos
-            </h3>
-
-
-            <p>
-
-                Clases, explicaciones, prácticas
-                y demostraciones.
-
-            </p>
-
-
-            <div class="proximamente">
-
-                Próximamente se agregarán
-                videos.
-
-            </div>
-
-        </article>
-
-
-
-        <!-- PRÁCTICAS -->
-
-        <article class="seccion">
-
-            <div class="icono">
-                🔧
-            </div>
-
-
-            <h3>
-                Prácticas
-
-            </h3>
-
-
-            <p>
-
-                Guías de laboratorio,
-                actividades y ejercicios.
-
-            </p>
-
-
-            <div class="proximamente">
-
-                Próximamente se agregarán
-                prácticas.
-
-            </div>
-
-        </article>
-
-
-
-        <!-- MATERIAL COMPLEMENTARIO -->
-
-        <article class="seccion">
-
-            <div class="icono">
-                📚
-            </div>
-
-
-            <h3>
-                Material complementario
-            </h3>
-
-
-            <p>
-
-                Recursos adicionales para
-                complementar el aprendizaje.
-
-            </p>
-
-
-            <div class="proximamente">
-
-                Próximamente se agregarán
-                recursos.
-
-            </div>
-
-        </article>
-
-
-    </section>
-
-
-
-    <!-- VOLVER -->
-
-    <a
-        href="#"
-        id="volver"
-        class="volver">
-
-        ← Volver al área
-
-    </a>
+</a>
 
 
 </main>
@@ -609,14 +645,14 @@
 
 <footer>
 
-    <strong>
-        Andres Vega Ingeniería
-    </strong>
+<strong>
+Andres Vega Ingeniería
+</strong>
 
-    <br>
+<br>
 
-    Material educativo para Ingeniería Electrónica
-    y Tecnología Automotriz.
+Material educativo para Ingeniería Electrónica
+y Tecnología Automotriz.
 
 </footer>
 
@@ -625,10 +661,33 @@
 <script>
 
 
-/* =========================================================
-   LISTA DE MATERIAS
-   ========================================================= */
+/* =====================================================
+   CONFIGURACIÓN SUPABASE
+   ===================================================== */
 
+
+const SUPABASE_URL =
+"https://oeaixuxafzlotxlcbxeh.supabase.co";
+
+
+const SUPABASE_ANON_KEY =
+"sb_publishable_7IIh-dLRxW6pN-gggGbI5A_VIuww2Sd";
+
+
+const supabaseClient =
+supabase.createClient(
+
+    SUPABASE_URL,
+
+    SUPABASE_ANON_KEY
+
+);
+
+
+
+/* =====================================================
+   LISTA DE MATERIAS
+   ===================================================== */
 
 const materias = {
 
@@ -636,365 +695,916 @@ const materias = {
     "electronica-digital":
     {
         nombre:
-            "Electrónica Digital",
+        "Electrónica Digital",
 
         area:
-            "Electricidad y Electrónica Automotriz",
+        "Electricidad y Electrónica Automotriz",
 
         pagina:
-            "electricidad-electronica-automotriz.html"
+        "electricidad-electronica-automotriz.html"
     },
 
 
     "programacion":
     {
         nombre:
-            "Programación",
+        "Programación",
 
         area:
-            "Electricidad y Electrónica Automotriz",
+        "Electricidad y Electrónica Automotriz",
 
         pagina:
-            "electricidad-electronica-automotriz.html"
+        "electricidad-electronica-automotriz.html"
     },
 
 
     "inyeccion-electronica":
     {
         nombre:
-            "Sistemas de Inyección Electrónica",
+        "Sistemas de Inyección Electrónica",
 
         area:
-            "Electricidad y Electrónica Automotriz",
+        "Electricidad y Electrónica Automotriz",
 
         pagina:
-            "electricidad-electronica-automotriz.html"
+        "electricidad-electronica-automotriz.html"
     },
 
 
     "sistemas-encendido":
     {
         nombre:
-            "Sistemas de Encendido",
+        "Sistemas de Encendido",
 
         area:
-            "Electricidad y Electrónica Automotriz",
+        "Electricidad y Electrónica Automotriz",
 
         pagina:
-            "electricidad-electronica-automotriz.html"
+        "electricidad-electronica-automotriz.html"
     },
 
 
     "ecus":
     {
         nombre:
-            "ECUS",
+        "ECUS",
 
         area:
-            "Electricidad y Electrónica Automotriz",
+        "Electricidad y Electrónica Automotriz",
 
         pagina:
-            "electricidad-electronica-automotriz.html"
+        "electricidad-electronica-automotriz.html"
     },
 
 
     "tableros-electronicos":
     {
         nombre:
-            "Tableros Electrónicos",
+        "Tableros Electrónicos",
 
         area:
-            "Electricidad y Electrónica Automotriz",
+        "Electricidad y Electrónica Automotriz",
 
         pagina:
-            "electricidad-electronica-automotriz.html"
+        "electricidad-electronica-automotriz.html"
     },
 
 
     "diagramas-electricos":
     {
         nombre:
-            "Diagramas Eléctricos",
+        "Diagramas Eléctricos",
 
         area:
-            "Electricidad y Electrónica Automotriz",
+        "Electricidad y Electrónica Automotriz",
 
         pagina:
-            "electricidad-electronica-automotriz.html"
+        "electricidad-electronica-automotriz.html"
     },
 
 
     "electronica-digital-ingenieria":
     {
         nombre:
-            "Electrónica Digital",
+        "Electrónica Digital",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "electromagnetismo":
     {
         nombre:
-            "Electromagnetismo",
+        "Electromagnetismo",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "electronica-analogica":
     {
         nombre:
-            "Electrónica Analógica",
+        "Electrónica Analógica",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "circuitos-electricos":
     {
         nombre:
-            "Circuitos Eléctricos",
+        "Circuitos Eléctricos",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "robotica":
     {
         nombre:
-            "Robótica",
+        "Robótica",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "sistemas-control":
     {
         nombre:
-            "Sistemas de Control",
+        "Sistemas de Control",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "fisica-3":
     {
         nombre:
-            "Física 3",
+        "Física 3",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "programacion-java":
     {
         nombre:
-            "Programación en Java",
+        "Programación en Java",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "microcontroladores":
     {
         nombre:
-            "Programación de Microcontroladores",
+        "Programación de Microcontroladores",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "iot":
     {
         nombre:
-            "IoT",
+        "IoT",
 
         area:
-            "Ingeniería Electrónica",
+        "Ingeniería Electrónica",
 
         pagina:
-            "ingenieria-electronica.html"
+        "ingenieria-electronica.html"
     },
 
 
     "sistemas-vehiculos-electricos":
     {
         nombre:
-            "Sistemas",
+        "Sistemas",
 
         area:
-            "Vehículos Eléctricos",
+        "Vehículos Eléctricos",
 
         pagina:
-            "vehiculos-electricos.html"
+        "vehiculos-electricos.html"
     },
 
 
     "electricidad-vehiculos-electricos":
     {
         nombre:
-            "Electricidad",
+        "Electricidad",
 
         area:
-            "Vehículos Eléctricos",
+        "Vehículos Eléctricos",
 
         pagina:
-            "vehiculos-electricos.html"
+        "vehiculos-electricos.html"
     },
 
 
     "diagramas-vehiculos-electricos":
     {
         nombre:
-            "Diagramas",
+        "Diagramas",
 
         area:
-            "Vehículos Eléctricos",
+        "Vehículos Eléctricos",
 
         pagina:
-            "vehiculos-electricos.html"
+        "vehiculos-electricos.html"
     }
 
 };
 
 
 
-/* =========================================================
-   OBTENER MATERIA
-   ========================================================= */
-
+/* =====================================================
+   OBTENER MATERIA DE LA URL
+   ===================================================== */
 
 const parametros =
-    new URLSearchParams(
-        window.location.search
-    );
+new URLSearchParams(
+    window.location.search
+);
 
 
 const materiaID =
-    parametros.get("materia");
+parametros.get(
+    "materia"
+);
 
 
 const materia =
-    materias[materiaID];
+materias[materiaID];
 
 
 
-/* =========================================================
-   ELEMENTOS
-   ========================================================= */
+/* =====================================================
+   ELEMENTO PRINCIPAL
+   ===================================================== */
 
-
-const titulo =
-    document.getElementById(
-        "materia"
-    );
-
-
-const area =
-    document.getElementById(
-        "area"
-    );
+const contenido =
+document.getElementById(
+    "contenido"
+);
 
 
 const volver =
-    document.getElementById(
-        "volver"
-    );
+document.getElementById(
+    "volver"
+);
 
 
 
-/* =========================================================
-   COMPROBAR AUTORIZACIÓN
-   ========================================================= */
+/* =====================================================
+   COMPROBAR ACCESO
+   ===================================================== */
 
 
 const autorizada =
-    sessionStorage.getItem(
-        "materia_autorizada"
+sessionStorage.getItem(
+    "materia_autorizada"
+);
+
+
+if(
+    !materia ||
+    autorizada !== materiaID
+){
+
+    window.location.href =
+    "acceso.html?materia="
+    +
+    encodeURIComponent(
+        materiaID || ""
+    );
+
+}
+
+
+else{
+
+    volver.href =
+    materia.pagina;
+
+
+    cargarMaterial();
+
+}
+
+
+
+/* =====================================================
+   CARGAR MATERIAL DESDE SUPABASE
+   ===================================================== */
+
+async function cargarMaterial(){
+
+    try{
+
+
+        /* =============================================
+           ENCABEZADO
+           ============================================= */
+
+        contenido.innerHTML = `
+
+            <section class="cabecera-materia">
+
+                <div class="area">
+
+                    ${materia.area}
+
+                </div>
+
+
+                <h2>
+
+                    ${materia.nombre}
+
+                </h2>
+
+
+                <p>
+
+                    En esta sección encontrarás
+                    el material educativo
+                    correspondiente a esta materia.
+
+                </p>
+
+            </section>
+
+
+            <div class="cargando">
+
+                📚 Cargando materiales...
+
+            </div>
+
+        `;
+
+
+
+        /* =============================================
+           CONSULTAR TABLA
+           ============================================= */
+
+        const {
+
+            data,
+            error
+
+        } =
+
+        await supabaseClient
+
+        .from(
+            "materiales"
+        )
+
+        .select("*")
+
+        .eq(
+            "materia_id",
+            materiaID
+        )
+
+        .eq(
+            "publicado",
+            true
+        )
+
+        .order(
+            "unidad",
+            {
+                ascending:true
+            }
+        );
+
+
+
+        if(error){
+
+            throw error;
+
+        }
+
+
+
+        console.log(
+            "Materiales:",
+            data
+        );
+
+
+
+        mostrarMateriales(
+            data || []
+        );
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        contenido.innerHTML = `
+
+            <div class="error">
+
+                ❌ <strong>
+                No se pudo cargar el material.
+                </strong>
+
+                <br><br>
+
+                ${error.message}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MOSTRAR MATERIALES
+   ===================================================== */
+
+function mostrarMateriales(
+    materiales
+){
+
+
+    /* ================================================
+       ENCABEZADO
+       ================================================ */
+
+    let html = `
+
+        <section class="cabecera-materia">
+
+            <div class="area">
+
+                ${materia.area}
+
+            </div>
+
+
+            <h2>
+
+                ${materia.nombre}
+
+            </h2>
+
+
+            <p>
+
+                En esta sección encontrarás
+                el material educativo
+                correspondiente a esta materia.
+
+            </p>
+
+        </section>
+
+    `;
+
+
+
+    /* ================================================
+       SIN MATERIAL
+       ================================================ */
+
+    if(
+        materiales.length === 0
+    ){
+
+        html += `
+
+            <div class="sin-material">
+
+                <div class="emoji">
+                    📚
+                </div>
+
+
+                <h3>
+
+                    No hay material publicado todavía
+
+                </h3>
+
+
+                <br>
+
+
+                <p>
+
+                    El material de esta materia
+                    aparecerá aquí automáticamente
+                    cuando sea publicado por el docente.
+
+                </p>
+
+            </div>
+
+        `;
+
+
+        contenido.innerHTML =
+        html;
+
+
+        return;
+
+    }
+
+
+
+    /* ================================================
+       AGRUPAR POR UNIDAD
+       ================================================ */
+
+    const unidades = {};
+
+
+    materiales.forEach(
+        function(material){
+
+            if(
+                !unidades[
+                    material.unidad
+                ]
+            ){
+
+                unidades[
+                    material.unidad
+                ] = [];
+
+            }
+
+
+            unidades[
+                material.unidad
+            ].push(
+                material
+            );
+
+        }
     );
 
 
-/*
-   Si alguien intenta entrar directamente
-   sin pasar por la contraseña,
-   lo devolvemos a acceso.html.
-*/
+
+    /* ================================================
+       CREAR UNIDADES
+       ================================================ */
+
+    Object.keys(
+        unidades
+    ).forEach(
+        function(unidad){
+
+            html += `
+
+                <section class="unidad">
+
+                    <div class="unidad-header">
+
+                        <h3>
+
+                            📂
+                            ${formatearUnidad(unidad)}
+
+                        </h3>
+
+                    </div>
+
+            `;
 
 
-if (
-    !materia ||
-    autorizada !== materiaID
-) {
+            unidades[
+                unidad
+            ].forEach(
+                function(material){
+
+                    html +=
+                    crearMaterial(
+                        material
+                    );
+
+                }
+            );
 
 
-    window.location.href =
-        "acceso.html?materia="
-        + encodeURIComponent(
-            materiaID || ""
+            html += `
+
+                </section>
+
+            `;
+
+        }
+    );
+
+
+
+    contenido.innerHTML =
+    html;
+
+}
+
+
+
+/* =====================================================
+   CREAR TARJETA DEL MATERIAL
+   ===================================================== */
+
+function crearMaterial(
+    material
+){
+
+
+    /* ================================================
+       URL DEL ARCHIVO
+       ================================================ */
+
+    const resultado =
+
+    supabaseClient
+
+    .storage
+
+    .from(
+        "material-educativo"
+    )
+
+    .getPublicUrl(
+        material.ruta_archivo
+    );
+
+
+    const url =
+    resultado.data.publicUrl;
+
+
+
+    return `
+
+        <article class="material">
+
+
+            <div class="material-info">
+
+
+                <div class="material-titulo">
+
+                    ${obtenerIcono(material.tipo)}
+
+                    ${escaparHTML(
+                        material.titulo
+                    )}
+
+                </div>
+
+
+                <div class="material-descripcion">
+
+                    ${
+                        material.descripcion
+                        ?
+                        escaparHTML(
+                            material.descripcion
+                        )
+                        :
+                        "Material educativo"
+                    }
+
+                </div>
+
+
+                <span class="tipo">
+
+                    ${material.tipo
+                    ?
+                    material.tipo.toUpperCase()
+                    :
+                    "MATERIAL"}
+
+                </span>
+
+
+            </div>
+
+
+            <div class="botones">
+
+
+                <a
+
+                    href="${url}"
+
+                    target="_blank"
+
+                    rel="noopener"
+
+                    class="boton ver">
+
+                    👁 Ver
+
+                </a>
+
+
+                <a
+
+                    href="${url}"
+
+                    download
+
+                    class="boton descargar">
+
+                    ⬇ Descargar
+
+                </a>
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+}
+
+
+
+/* =====================================================
+   FORMATEAR UNIDAD
+   ===================================================== */
+
+function formatearUnidad(
+    unidad
+){
+
+    const nombres = {
+
+        "unidad-1":
+        "Unidad 1",
+
+        "unidad-2":
+        "Unidad 2",
+
+        "unidad-3":
+        "Unidad 3",
+
+        "unidad-4":
+        "Unidad 4",
+
+        "unidad-5":
+        "Unidad 5",
+
+        "practicas":
+        "Prácticas",
+
+        "material-complementario":
+        "Material Complementario"
+
+    };
+
+
+    return nombres[
+        unidad
+    ]
+    ||
+    unidad;
+
+}
+
+
+
+/* =====================================================
+   ICONOS
+   ===================================================== */
+
+function obtenerIcono(
+    tipo
+){
+
+    const iconos = {
+
+        "pdf":
+        "📄",
+
+        "video":
+        "🎥",
+
+        "imagen":
+        "🖼️",
+
+        "otro":
+        "📎"
+
+    };
+
+
+    return iconos[
+        tipo
+    ]
+    ||
+    "📎";
+
+}
+
+
+
+/* =====================================================
+   PROTECCIÓN CONTRA HTML
+   ===================================================== */
+
+function escaparHTML(
+    texto
+){
+
+    if(!texto){
+
+        return "";
+
+    }
+
+
+    return String(texto)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
         );
 
 }
-
-
-
-/* =========================================================
-   MOSTRAR INFORMACIÓN
-   ========================================================= */
-
-
-else {
-
-
-    titulo.textContent =
-        materia.nombre;
-
-
-    area.textContent =
-        materia.area;
-
-
-    volver.href =
-        materia.pagina;
-
-}
-
 
 </script>
 
