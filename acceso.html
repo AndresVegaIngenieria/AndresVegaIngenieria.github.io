@@ -5,12 +5,25 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Acceso | Andres Vega Ingeniería</title>
 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- =====================================================
+         SUPABASE
+         ===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- =====================================================
+         FUENTES
+         ===================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
     <link rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -19,6 +32,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
           rel="stylesheet">
 
+
+    <!-- =====================================================
+         ESTILOS
+         ===================================================== -->
 
     <style>
 
@@ -45,9 +62,9 @@
 
             display: flex;
 
-            justify-content: center;
-
             align-items: center;
+
+            justify-content: center;
 
             padding: 20px;
         }
@@ -102,7 +119,33 @@
 
             color: #0f172a;
 
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+        }
+
+
+        .area {
+
+            color: #2563eb;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+
+        .separador {
+
+            width: 60px;
+
+            height: 4px;
+
+            background: #2563eb;
+
+            border-radius: 10px;
+
+            margin: 0 auto 25px;
         }
 
 
@@ -118,25 +161,11 @@
         }
 
 
-        .separador {
-
-            width: 60px;
-
-            height: 4px;
-
-            background: #2563eb;
-
-            border-radius: 10px;
-
-            margin: 0 auto 30px;
-        }
-
-
         .campo {
 
             text-align: left;
 
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
 
@@ -169,6 +198,8 @@
             font-size: 16px;
 
             outline: none;
+
+            transition: 0.2s;
         }
 
 
@@ -212,6 +243,16 @@
             background: #1d4ed8;
 
             transform: translateY(-2px);
+        }
+
+
+        .boton:disabled {
+
+            background: #94a3b8;
+
+            cursor: wait;
+
+            transform: none;
         }
 
 
@@ -272,6 +313,14 @@
             color: #94a3b8;
 
             font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        .informacion strong {
+
+            color: #475569;
         }
 
 
@@ -301,14 +350,33 @@
 <div class="contenedor">
 
 
+    <!-- =================================================
+         ICONO
+         ================================================= -->
+
     <div class="icono">
+
         🔐
+
     </div>
 
 
+    <!-- =================================================
+         INFORMACIÓN DE LA MATERIA
+         ================================================= -->
+
     <h1 id="tituloMateria">
-        Acceso
+
+        Cargando...
+
     </h1>
+
+
+    <div
+        id="nombreArea"
+        class="area">
+
+    </div>
 
 
     <div class="separador"></div>
@@ -327,6 +395,10 @@
     </p>
 
 
+    <!-- =================================================
+         FORMULARIO
+         ================================================= -->
+
     <form id="formulario">
 
 
@@ -343,6 +415,7 @@
                 type="password"
                 id="password"
                 placeholder="Ingresa la contraseña"
+                autocomplete="off"
                 required
             >
 
@@ -351,6 +424,7 @@
 
         <button
             type="submit"
+            id="botonIngresar"
             class="boton">
 
             INGRESAR
@@ -361,15 +435,24 @@
     </form>
 
 
+    <!-- =================================================
+         MENSAJE
+         ================================================= -->
+
     <div
         id="mensaje"
         class="mensaje">
+
     </div>
 
 
+    <!-- =================================================
+         VOLVER
+         ================================================= -->
+
     <a
-        href="#"
-        id="volver"
+        id="botonVolver"
+        href="index.html"
         class="volver">
 
         ← Volver
@@ -377,9 +460,17 @@
     </a>
 
 
+    <!-- =================================================
+         INFORMACIÓN
+         ================================================= -->
+
     <div class="informacion">
 
-        Andres Vega Ingeniería<br>
+        <strong>
+            Andres Vega Ingeniería
+        </strong>
+
+        <br>
 
         Material educativo
 
@@ -393,106 +484,281 @@
 <script>
 
 
-/* =========================================
-   MATERIAS
-   ========================================= */
+/* =========================================================
+   1. CONFIGURACIÓN DE SUPABASE
+   ========================================================= */
+
+
+/*
+   REEMPLAZA ESTOS DOS VALORES.
+
+   Project URL:
+   Ejemplo:
+
+   https://xxxxxxxx.supabase.co
+
+
+   Anon/Public Key:
+   Copia la clave pública desde:
+
+   Supabase
+   → Settings
+   → API
+*/
+
+
+const SUPABASE_URL =
+    "https://oeaixuxafzlotxlcbxeh.supabase.co";
+
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_7IIh-dLRxW6pN-gggGbI5A_VIuww2Sd";
+
+
+/*
+   Crear conexión con Supabase
+*/
+
+
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+
+/* =========================================================
+   2. LISTA DE LAS 20 MATERIAS
+   ========================================================= */
 
 
 const materias = {
 
+
+    /* =====================================================
+       ELECTRICIDAD Y ELECTRÓNICA AUTOMOTRIZ
+       ===================================================== */
+
+
     "electronica-digital":
     {
-        nombre: "Electrónica Digital",
+        nombre:
+            "Electrónica Digital",
 
         area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+            "Electricidad y Electrónica Automotriz"
     },
 
 
     "programacion":
     {
-        nombre: "Programación",
+        nombre:
+            "Programación",
 
         area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+            "Electricidad y Electrónica Automotriz"
     },
 
 
     "inyeccion-electronica":
     {
         nombre:
-        "Sistemas de Inyección Electrónica",
+            "Sistemas de Inyección Electrónica",
 
         area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+            "Electricidad y Electrónica Automotriz"
     },
 
 
     "sistemas-encendido":
     {
         nombre:
-        "Sistemas de Encendido",
+            "Sistemas de Encendido",
 
         area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+            "Electricidad y Electrónica Automotriz"
     },
 
 
     "ecus":
     {
-        nombre: "ECUS",
+        nombre:
+            "ECUS",
 
         area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+            "Electricidad y Electrónica Automotriz"
     },
 
 
     "tableros-electronicos":
     {
         nombre:
-        "Tableros Electrónicos",
+            "Tableros Electrónicos",
 
         area:
-        "Electricidad y Electrónica Automotriz",
-
-        pagina:
-        "electricidad-electronica-automotriz.html"
+            "Electricidad y Electrónica Automotriz"
     },
 
 
     "diagramas-electricos":
     {
         nombre:
-        "Diagramas Eléctricos",
+            "Diagramas Eléctricos",
 
         area:
-        "Electricidad y Electrónica Automotriz",
+            "Electricidad y Electrónica Automotriz"
+    },
 
-        pagina:
-        "electricidad-electronica-automotriz.html"
+
+
+    /* =====================================================
+       INGENIERÍA ELECTRÓNICA
+       ===================================================== */
+
+
+    "electronica-digital-ingenieria":
+    {
+        nombre:
+            "Electrónica Digital",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "electromagnetismo":
+    {
+        nombre:
+            "Electromagnetismo",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "electronica-analogica":
+    {
+        nombre:
+            "Electrónica Analógica",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "circuitos-electricos":
+    {
+        nombre:
+            "Circuitos Eléctricos",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "robotica":
+    {
+        nombre:
+            "Robótica",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "sistemas-control":
+    {
+        nombre:
+            "Sistemas de Control",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "fisica-3":
+    {
+        nombre:
+            "Física 3",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "programacion-java":
+    {
+        nombre:
+            "Programación en Java",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "microcontroladores":
+    {
+        nombre:
+            "Programación de Microcontroladores",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+    "iot":
+    {
+        nombre:
+            "IoT",
+
+        area:
+            "Ingeniería Electrónica"
+    },
+
+
+
+    /* =====================================================
+       VEHÍCULOS ELÉCTRICOS
+       ===================================================== */
+
+
+    "sistemas-vehiculos-electricos":
+    {
+        nombre:
+            "Sistemas",
+
+        area:
+            "Vehículos Eléctricos"
+    },
+
+
+    "electricidad-vehiculos-electricos":
+    {
+        nombre:
+            "Electricidad",
+
+        area:
+            "Vehículos Eléctricos"
+    },
+
+
+    "diagramas-vehiculos-electricos":
+    {
+        nombre:
+            "Diagramas",
+
+        area:
+            "Vehículos Eléctricos"
     }
 
 };
 
 
-/* =========================================
-   OBTENER MATERIA
-   ========================================= */
+
+/* =========================================================
+   3. OBTENER MATERIA DESDE LA URL
+   ========================================================= */
 
 
 const parametros =
@@ -509,75 +775,350 @@ const materia =
     materias[materiaID];
 
 
-const titulo =
+
+/* =========================================================
+   4. ELEMENTOS DE LA PÁGINA
+   ========================================================= */
+
+
+const tituloMateria =
     document.getElementById(
         "tituloMateria"
     );
 
 
-const volver =
+const nombreArea =
     document.getElementById(
-        "volver"
+        "nombreArea"
     );
 
 
-/* =========================================
-   MOSTRAR INFORMACIÓN
-   ========================================= */
+const formulario =
+    document.getElementById(
+        "formulario"
+    );
 
 
-if (materia) {
+const password =
+    document.getElementById(
+        "password"
+    );
 
-    titulo.textContent =
-        materia.nombre;
+
+const mensaje =
+    document.getElementById(
+        "mensaje"
+    );
 
 
-    volver.href =
-        materia.pagina;
+const botonIngresar =
+    document.getElementById(
+        "botonIngresar"
+    );
+
+
+const botonVolver =
+    document.getElementById(
+        "botonVolver"
+    );
+
+
+
+/* =========================================================
+   5. MOSTRAR INFORMACIÓN DE LA MATERIA
+   ========================================================= */
+
+
+if (!materia) {
+
+
+    tituloMateria.textContent =
+        "Materia no encontrada";
+
+
+    nombreArea.textContent =
+        "";
+
+
+    formulario.style.display =
+        "none";
+
+
+    mensaje.textContent =
+        "El enlace de la materia no es válido.";
+
+
+    mensaje.className =
+        "mensaje error";
+
 
 }
+
 
 else {
 
-    titulo.textContent =
-        "Materia no encontrada";
+
+    tituloMateria.textContent =
+        materia.nombre;
+
+
+    nombreArea.textContent =
+        materia.area;
+
 
 }
 
 
-/* =========================================
-   FORMULARIO
-   ========================================= */
+
+/* =========================================================
+   6. BOTÓN VOLVER
+   ========================================================= */
 
 
-document
-.getElementById("formulario")
-.addEventListener(
+botonVolver.addEventListener(
+    "click",
+    function() {
+
+        history.back();
+
+    }
+);
+
+
+
+/* =========================================================
+   7. VERIFICAR CONTRASEÑA
+   ========================================================= */
+
+
+formulario.addEventListener(
     "submit",
-    function(event) {
+    async function(event) {
+
 
         event.preventDefault();
 
 
-        const password =
-            document
-            .getElementById("password")
-            .value;
+        /* ---------------------------------------------
+           Comprobar materia
+           --------------------------------------------- */
 
 
-        const mensaje =
-            document
-            .getElementById("mensaje");
+        if (!materia) {
+
+            return;
+
+        }
 
 
-        mensaje.className =
-            "mensaje";
+        /* ---------------------------------------------
+           Obtener contraseña
+           --------------------------------------------- */
+
+
+        const clave =
+            password.value.trim();
+
+
+        if (!clave) {
+
+
+            mensaje.textContent =
+                "Ingresa una contraseña.";
+
+
+            mensaje.className =
+                "mensaje error";
+
+
+            return;
+
+        }
+
+
+        /* ---------------------------------------------
+           Estado del botón
+           --------------------------------------------- */
+
+
+        botonIngresar.disabled =
+            true;
+
+
+        botonIngresar.textContent =
+            "VERIFICANDO...";
 
 
         mensaje.textContent =
-            "El sistema de acceso se conectará con Supabase en el siguiente paso.";
+            "";
+
+
+        try {
+
+
+            /* =========================================
+               LLAMAR A LA FUNCIÓN SEGURA DE SUPABASE
+               ========================================= */
+
+
+            const { data, error } =
+                await supabaseClient.rpc(
+                    "verificar_materia",
+                    {
+                        p_materia:
+                            materiaID,
+
+                        p_password:
+                            clave
+                    }
+                );
+
+
+            /* -----------------------------------------
+               Error de Supabase
+               ----------------------------------------- */
+
+
+            if (error) {
+
+
+                console.error(
+                    "Error Supabase:",
+                    error
+                );
+
+
+                throw error;
+
+            }
+
+
+            /* =========================================
+               CONTRASEÑA CORRECTA
+               ========================================= */
+
+
+            if (
+                data &&
+                data.length > 0
+            ) {
+
+
+                mensaje.textContent =
+                    "Contraseña correcta. Ingresando...";
+
+
+                mensaje.className =
+                    "mensaje exito";
+
+
+                /*
+                   Guardar autorización temporal.
+
+                   sessionStorage se elimina cuando
+                   se cierra la pestaña.
+                */
+
+
+                sessionStorage.setItem(
+                    "materia_autorizada",
+                    materiaID
+                );
+
+
+                sessionStorage.setItem(
+                    "nombre_materia",
+                    materia.nombre
+                );
+
+
+                sessionStorage.setItem(
+                    "area_materia",
+                    materia.area
+                );
+
+
+                /*
+                   Esperar un momento para mostrar
+                   el mensaje de éxito.
+                */
+
+
+                setTimeout(
+                    function() {
+
+                        window.location.href =
+                            "material.html?materia="
+                            + encodeURIComponent(
+                                materiaID
+                            );
+
+                    },
+                    500
+                );
+
+
+            }
+
+
+            /* =========================================
+               CONTRASEÑA INCORRECTA
+               ========================================= */
+
+
+            else {
+
+
+                mensaje.textContent =
+                    "Contraseña incorrecta.";
+
+
+                mensaje.className =
+                    "mensaje error";
+
+
+                password.value =
+                    "";
+
+
+                password.focus();
+
+            }
+
+
+        }
+
+
+        catch(error) {
+
+
+            console.error(error);
+
+
+            mensaje.textContent =
+                "No se pudo conectar con el sistema de acceso.";
+
+
+            mensaje.className =
+                "mensaje error";
+
+        }
+
+
+        finally {
+
+
+            botonIngresar.disabled =
+                false;
+
+
+            botonIngresar.textContent =
+                "INGRESAR";
+
+        }
 
     }
+
 );
 
 
