@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,13 +11,7 @@ content="width=device-width, initial-scale=1.0">
 
 <title>Panel Docente | Andres Vega Ingeniería</title>
 
-
-<!-- SUPABASE -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-<!-- FUENTES -->
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
@@ -31,40 +26,20 @@ rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   GENERAL
-   ===================================================== */
-
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
 }
-
 
 body{
-
     font-family:'Inter',sans-serif;
-
     background:#f1f5f9;
-
     color:#0f172a;
-
     min-height:100vh;
-
 }
 
-
-/* =====================================================
-   ENCABEZADO
-   ===================================================== */
-
 header{
-
     background:
     linear-gradient(
         135deg,
@@ -74,59 +49,30 @@ header{
     );
 
     color:white;
-
     padding:35px 20px;
-
     text-align:center;
-
 }
-
 
 header h1{
-
     font-family:'Poppins',sans-serif;
-
     font-size:32px;
-
     margin-bottom:8px;
-
 }
-
 
 header p{
-
     color:#dbeafe;
-
     font-size:14px;
-
 }
-
-
-/* =====================================================
-   CONTENEDOR
-   ===================================================== */
 
 .contenedor{
-
     max-width:900px;
-
     margin:40px auto;
-
     padding:0 20px;
-
 }
 
-
-/* =====================================================
-   TARJETAS
-   ===================================================== */
-
 .tarjeta{
-
     background:white;
-
     border-radius:18px;
-
     padding:35px;
 
     box-shadow:
@@ -134,196 +80,135 @@ header p{
     rgba(15,23,42,.08);
 
     border:1px solid #e2e8f0;
-
     margin-bottom:25px;
-
 }
-
 
 .tarjeta h2{
-
     font-family:'Poppins',sans-serif;
-
     margin-bottom:8px;
-
 }
-
 
 .descripcion{
-
     color:#64748b;
-
     font-size:14px;
-
     line-height:1.6;
-
     margin-bottom:25px;
-
 }
-
-
-/* =====================================================
-   CAMPOS
-   ===================================================== */
 
 .campo{
-
     margin-bottom:20px;
-
 }
-
 
 .campo label{
-
     display:block;
-
     font-size:14px;
-
     font-weight:700;
-
     margin-bottom:8px;
-
     color:#334155;
-
 }
-
 
 .campo select,
 .campo input,
 .campo textarea{
 
     width:100%;
-
     padding:13px 14px;
 
     border:1px solid #cbd5e1;
-
     border-radius:8px;
 
     font-family:inherit;
-
     font-size:14px;
 
     background:#f8fafc;
-
     outline:none;
-
 }
-
 
 .campo select:focus,
 .campo input:focus,
 .campo textarea:focus{
 
     border-color:#2563eb;
-
     background:white;
 
     box-shadow:
     0 0 0 3px
     rgba(37,99,235,.12);
-
 }
-
 
 .campo textarea{
-
     min-height:90px;
-
     resize:vertical;
-
 }
-
-
-/* =====================================================
-   BOTONES
-   ===================================================== */
 
 .boton{
 
     width:100%;
-
     padding:14px;
 
     border:none;
-
     border-radius:8px;
 
     background:#2563eb;
-
     color:white;
 
     font-size:15px;
-
     font-weight:700;
 
     cursor:pointer;
-
     transition:.3s;
-
 }
-
 
 .boton:hover{
-
     background:#1d4ed8;
-
     transform:translateY(-2px);
-
 }
-
 
 .boton:disabled{
-
     background:#94a3b8;
-
     cursor:wait;
-
     transform:none;
-
 }
-
 
 .boton-salir{
 
     width:auto;
-
     padding:10px 18px;
 
     background:#e2e8f0;
-
     color:#334155;
 
     margin-top:5px;
-
 }
-
 
 .boton-salir:hover{
-
     background:#cbd5e1;
-
 }
 
-
-/* =====================================================
-   ARCHIVO
-   ===================================================== */
-
 .archivo-info{
+    margin-top:10px;
+    font-size:13px;
+    color:#64748b;
+}
+
+.info-youtube{
 
     margin-top:10px;
 
+    padding:14px;
+
+    background:#fef2f2;
+
+    border:1px solid #fecaca;
+
+    border-radius:8px;
+
+    color:#991b1b;
+
     font-size:13px;
 
-    color:#64748b;
-
+    line-height:1.6;
 }
-
-
-/* =====================================================
-   PROGRESO
-   ===================================================== */
 
 .progreso{
 
@@ -344,13 +229,7 @@ header p{
     font-weight:600;
 
     text-align:center;
-
 }
-
-
-/* =====================================================
-   MENSAJES
-   ===================================================== */
 
 .mensaje{
 
@@ -367,35 +246,23 @@ header p{
     font-weight:600;
 
     line-height:1.5;
-
 }
-
 
 .exito{
 
     display:block;
 
     background:#dcfce7;
-
     color:#166534;
-
 }
-
 
 .error{
 
     display:block;
 
     background:#fee2e2;
-
     color:#991b1b;
-
 }
-
-
-/* =====================================================
-   CARGANDO
-   ===================================================== */
 
 #cargando{
 
@@ -408,13 +275,7 @@ header p{
     text-align:center;
 
     color:#64748b;
-
 }
-
-
-/* =====================================================
-   ERROR DE ACCESO
-   ===================================================== */
 
 .error-acceso{
 
@@ -427,36 +288,23 @@ header p{
     border-radius:12px;
 
     line-height:1.6;
-
 }
-
 
 .error-acceso a{
 
     color:#1d4ed8;
 
     font-weight:bold;
-
 }
-
-
-/* =====================================================
-   MÓVIL
-   ===================================================== */
 
 @media(max-width:600px){
 
     .tarjeta{
-
         padding:25px 20px;
-
     }
 
-
     header h1{
-
         font-size:26px;
-
     }
 
 }
@@ -468,10 +316,6 @@ header p{
 
 <body>
 
-
-<!-- =====================================================
-     ENCABEZADO
-     ===================================================== -->
 
 <header>
 
@@ -486,11 +330,6 @@ Panel de administración docente
 </header>
 
 
-
-<!-- =====================================================
-     MENSAJE DE CARGA
-     ===================================================== -->
-
 <div id="cargando">
 
 Verificando acceso...
@@ -498,28 +337,17 @@ Verificando acceso...
 </div>
 
 
-
-<!-- =====================================================
-     PANEL
-     ===================================================== -->
-
 <main
 id="panel"
 class="contenedor"
 style="display:none;">
 
 
-
-<!-- =====================================================
-     INFORMACIÓN DEL DOCENTE
-     ===================================================== -->
-
 <section class="tarjeta">
 
 <h2>
 👨‍🏫 Panel Docente
 </h2>
-
 
 <p class="descripcion">
 
@@ -528,9 +356,7 @@ el material educativo de tus materias.
 
 </p>
 
-
 <div id="usuario"></div>
-
 
 <button
 id="cerrarSesion"
@@ -544,21 +370,16 @@ Cerrar sesión
 
 
 
-<!-- =====================================================
-     SUBIR MATERIAL
-     ===================================================== -->
-
 <section class="tarjeta">
 
 <h2>
 📤 Subir material
 </h2>
 
-
 <p class="descripcion">
 
-Selecciona la materia, unidad y archivo
-que deseas publicar.
+Selecciona la materia, unidad y tipo de material.
+Los videos se publicarán mediante enlaces de YouTube.
 
 </p>
 
@@ -566,168 +387,100 @@ que deseas publicar.
 <form id="formulario">
 
 
-
-<!-- ===================================================
-     MATERIA
-     =================================================== -->
+<!-- MATERIA -->
 
 <div class="campo">
 
 <label for="materia">
-
 Materia
-
 </label>
-
 
 <select
 id="materia"
 required>
 
 <option value="">
-
 Selecciona una materia
-
 </option>
-
 
 <option value="electronica-digital">
-
 Electrónica Digital — Automotriz
-
 </option>
-
 
 <option value="programacion">
-
 Programación — Automotriz
-
 </option>
-
 
 <option value="inyeccion-electronica">
-
 Sistemas de Inyección Electrónica
-
 </option>
-
 
 <option value="sistemas-encendido">
-
 Sistemas de Encendido
-
 </option>
-
 
 <option value="ecus">
-
 ECUS
-
 </option>
-
 
 <option value="tableros-electronicos">
-
 Tableros Electrónicos
-
 </option>
-
 
 <option value="diagramas-electricos">
-
 Diagramas Eléctricos
-
 </option>
-
 
 <option value="electronica-digital-ingenieria">
-
 Electrónica Digital — Ingeniería
-
 </option>
-
 
 <option value="electromagnetismo">
-
 Electromagnetismo
-
 </option>
-
 
 <option value="electronica-analogica">
-
 Electrónica Analógica
-
 </option>
-
 
 <option value="circuitos-electricos">
-
 Circuitos Eléctricos
-
 </option>
-
 
 <option value="robotica">
-
 Robótica
-
 </option>
-
 
 <option value="sistemas-control">
-
 Sistemas de Control
-
 </option>
-
 
 <option value="fisica-3">
-
 Física 3
-
 </option>
-
 
 <option value="programacion-java">
-
 Programación en Java
-
 </option>
-
 
 <option value="microcontroladores">
-
 Programación de Microcontroladores
-
 </option>
-
 
 <option value="iot">
-
 IoT
-
 </option>
-
 
 <option value="sistemas-vehiculos-electricos">
-
 Sistemas — Vehículos Eléctricos
-
 </option>
-
 
 <option value="electricidad-vehiculos-electricos">
-
 Electricidad — Vehículos Eléctricos
-
 </option>
 
-
 <option value="diagramas-vehiculos-electricos">
-
 Diagramas — Vehículos Eléctricos
-
 </option>
 
 </select>
@@ -736,59 +489,45 @@ Diagramas — Vehículos Eléctricos
 
 
 
-<!-- ===================================================
-     UNIDAD
-     =================================================== -->
+<!-- UNIDAD -->
 
 <div class="campo">
 
 <label for="unidad">
-
 Unidad / Sección
-
 </label>
-
 
 <select
 id="unidad"
 required>
 
 <option value="">
-
 Selecciona una unidad
-
 </option>
-
 
 <option value="unidad-1">
 Unidad 1
 </option>
 
-
 <option value="unidad-2">
 Unidad 2
 </option>
-
 
 <option value="unidad-3">
 Unidad 3
 </option>
 
-
 <option value="unidad-4">
 Unidad 4
 </option>
-
 
 <option value="unidad-5">
 Unidad 5
 </option>
 
-
 <option value="practicas">
 Prácticas
 </option>
-
 
 <option value="material-complementario">
 Material complementario
@@ -800,18 +539,13 @@ Material complementario
 
 
 
-<!-- ===================================================
-     TÍTULO
-     =================================================== -->
+<!-- TITULO -->
 
 <div class="campo">
 
 <label for="titulo">
-
 Título del material
-
 </label>
-
 
 <input
 type="text"
@@ -823,18 +557,13 @@ required>
 
 
 
-<!-- ===================================================
-     DESCRIPCIÓN
-     =================================================== -->
+<!-- DESCRIPCION -->
 
 <div class="campo">
 
 <label for="descripcion">
-
 Descripción
-
 </label>
-
 
 <textarea
 id="descripcion"
@@ -844,44 +573,33 @@ placeholder="Descripción breve del material..."></textarea>
 
 
 
-<!-- ===================================================
-     TIPO
-     =================================================== -->
+<!-- TIPO -->
 
 <div class="campo">
 
 <label for="tipo">
-
 Tipo de material
-
 </label>
-
 
 <select
 id="tipo"
 required>
 
 <option value="">
-
 Selecciona el tipo
-
 </option>
-
 
 <option value="pdf">
 📄 PDF
 </option>
 
-
 <option value="video">
-🎥 Video
+🎥 Video de YouTube
 </option>
-
 
 <option value="imagen">
 🖼️ Imagen
 </option>
-
 
 <option value="otro">
 📎 Otro
@@ -893,24 +611,19 @@ Selecciona el tipo
 
 
 
-<!-- ===================================================
-     ARCHIVO
-     =================================================== -->
+<!-- ARCHIVO -->
 
-<div class="campo">
+<div
+class="campo"
+id="campoArchivo">
 
 <label for="archivo">
-
 Archivo
-
 </label>
-
 
 <input
 type="file"
-id="archivo"
-required>
-
+id="archivo">
 
 <div
 id="archivoInfo"
@@ -924,16 +637,53 @@ Selecciona un archivo.
 
 
 
-<!-- ===================================================
-     SUBIR
-     =================================================== -->
+<!-- YOUTUBE -->
+
+<div
+class="campo"
+id="campoYoutube"
+style="display:none;">
+
+<label for="youtube">
+
+🔗 Enlace de YouTube
+
+</label>
+
+<input
+type="url"
+id="youtube"
+placeholder="https://www.youtube.com/watch?v=XXXXXXXXXXX">
+
+<div class="info-youtube">
+
+<strong>🎥 Importante:</strong><br>
+
+Sube primero el video a YouTube y configura
+su visibilidad como <strong>No listado</strong>.
+
+Después copia aquí el enlace del video.
+
+<br><br>
+
+Ejemplo:
+
+https://www.youtube.com/watch?v=XXXXXXXXXXX
+
+</div>
+
+</div>
+
+
+
+<!-- BOTON -->
 
 <button
 type="submit"
 id="botonSubir"
 class="boton">
 
-📤 SUBIR MATERIAL
+📤 PUBLICAR MATERIAL
 
 </button>
 
@@ -942,7 +692,7 @@ class="boton">
 id="progreso"
 class="progreso">
 
-Subiendo archivo...
+Procesando...
 
 </div>
 
@@ -958,7 +708,6 @@ class="mensaje">
 
 </section>
 
-
 </main>
 
 
@@ -970,20 +719,6 @@ class="mensaje">
    CONFIGURACIÓN SUPABASE
    ===================================================== */
 
-
-/*
-   IMPORTANTE:
-
-   Coloca aquí tus datos reales.
-
-   Project URL:
-   Supabase → Settings → API
-
-   Anon public key:
-   Supabase → Settings → API
-*/
-
-
 const SUPABASE_URL =
 "https://oeaixuxafzlotxlcbxeh.supabase.co";
 
@@ -993,7 +728,7 @@ const SUPABASE_ANON_KEY =
 
 
 /* =====================================================
-   CREAR CLIENTE SUPABASE
+   CLIENTE SUPABASE
    ===================================================== */
 
 const supabaseClient =
@@ -1015,54 +750,85 @@ document.getElementById(
     "cargando"
 );
 
-
 const panel =
 document.getElementById(
     "panel"
 );
-
 
 const usuario =
 document.getElementById(
     "usuario"
 );
 
-
 const cerrarSesion =
 document.getElementById(
     "cerrarSesion"
 );
-
 
 const formulario =
 document.getElementById(
     "formulario"
 );
 
+const materia =
+document.getElementById(
+    "materia"
+);
+
+const unidad =
+document.getElementById(
+    "unidad"
+);
+
+const titulo =
+document.getElementById(
+    "titulo"
+);
+
+const descripcion =
+document.getElementById(
+    "descripcion"
+);
+
+const tipo =
+document.getElementById(
+    "tipo"
+);
 
 const archivo =
 document.getElementById(
     "archivo"
 );
 
-
 const archivoInfo =
 document.getElementById(
     "archivoInfo"
 );
 
+const campoArchivo =
+document.getElementById(
+    "campoArchivo"
+);
+
+const campoYoutube =
+document.getElementById(
+    "campoYoutube"
+);
+
+const youtube =
+document.getElementById(
+    "youtube"
+);
 
 const botonSubir =
 document.getElementById(
     "botonSubir"
 );
 
-
 const progreso =
 document.getElementById(
     "progreso"
 );
-
 
 const mensaje =
 document.getElementById(
@@ -1072,7 +838,88 @@ document.getElementById(
 
 
 /* =====================================================
-   VERIFICAR SESIÓN Y ADMINISTRADOR
+   CAMBIAR INTERFAZ SEGÚN TIPO
+   ===================================================== */
+
+tipo.addEventListener(
+    "change",
+    function(){
+
+        const valor =
+        tipo.value;
+
+
+        if(valor === "video"){
+
+            /* Ocultar archivo */
+
+            campoArchivo.style.display =
+            "none";
+
+
+            /* Mostrar YouTube */
+
+            campoYoutube.style.display =
+            "block";
+
+
+            /* El archivo ya no es obligatorio */
+
+            archivo.required =
+            false;
+
+
+            youtube.required =
+            true;
+
+
+            archivo.value =
+            "";
+
+
+            archivoInfo.textContent =
+            "Los videos utilizan enlaces de YouTube.";
+
+        }
+
+        else{
+
+            /* Mostrar archivo */
+
+            campoArchivo.style.display =
+            "block";
+
+
+            /* Ocultar YouTube */
+
+            campoYoutube.style.display =
+            "none";
+
+
+            archivo.required =
+            true;
+
+
+            youtube.required =
+            false;
+
+
+            youtube.value =
+            "";
+
+
+            archivoInfo.textContent =
+            "Selecciona un archivo.";
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   VERIFICAR SESIÓN
    ===================================================== */
 
 async function verificarUsuario(){
@@ -1083,10 +930,6 @@ async function verificarUsuario(){
             "Iniciando verificación..."
         );
 
-
-        /* =============================================
-           OBTENER SESIÓN
-           ============================================= */
 
         const {
 
@@ -1105,12 +948,6 @@ async function verificarUsuario(){
         .getSession();
 
 
-        console.log(
-            "Sesión:",
-            sessionData
-        );
-
-
         if(sessionError){
 
             throw sessionError;
@@ -1122,29 +959,15 @@ async function verificarUsuario(){
         sessionData.session;
 
 
-        /* =============================================
-           NO EXISTE SESIÓN
-           ============================================= */
-
         if(!session){
-
-            console.log(
-                "No existe sesión."
-            );
-
 
             window.location.href =
             "login-docente.html";
-
 
             return;
 
         }
 
-
-        /* =============================================
-           USUARIO
-           ============================================= */
 
         const user =
         session.user;
@@ -1155,10 +978,6 @@ async function verificarUsuario(){
             user.id
         );
 
-
-        /* =============================================
-           COMPROBAR ADMINISTRADOR
-           ============================================= */
 
         const {
 
@@ -1188,12 +1007,6 @@ async function verificarUsuario(){
         .maybeSingle();
 
 
-        console.log(
-            "Administrador:",
-            administrador
-        );
-
-
         if(adminError){
 
             throw adminError;
@@ -1201,16 +1014,10 @@ async function verificarUsuario(){
         }
 
 
-        /* =============================================
-           NO ES ADMINISTRADOR
-           ============================================= */
-
         if(!administrador){
 
             await supabaseClient
-
             .auth
-
             .signOut();
 
 
@@ -1223,18 +1030,12 @@ async function verificarUsuario(){
         }
 
 
-        /* =============================================
-           ADMINISTRADOR DESACTIVADO
-           ============================================= */
-
         if(
             administrador.activo !== true
         ){
 
             await supabaseClient
-
             .auth
-
             .signOut();
 
 
@@ -1246,10 +1047,6 @@ async function verificarUsuario(){
 
         }
 
-
-        /* =============================================
-           MOSTRAR PANEL
-           ============================================= */
 
         usuario.innerHTML = `
 
@@ -1277,11 +1074,6 @@ async function verificarUsuario(){
 
         panel.style.display =
         "block";
-
-
-        console.log(
-            "Panel mostrado correctamente."
-        );
 
 
     }
@@ -1322,10 +1114,6 @@ async function verificarUsuario(){
 
 }
 
-
-/* =====================================================
-   EJECUTAR VERIFICACIÓN
-   ===================================================== */
 
 verificarUsuario();
 
@@ -1402,7 +1190,53 @@ cerrarSesion.addEventListener(
 
 
 /* =====================================================
-   SUBIR MATERIAL
+   VALIDAR URL DE YOUTUBE
+   ===================================================== */
+
+function esYoutube(url){
+
+    try{
+
+        const direccion =
+        new URL(url);
+
+
+        return (
+
+            direccion.hostname ===
+            "www.youtube.com"
+
+            ||
+
+            direccion.hostname ===
+            "youtube.com"
+
+            ||
+
+            direccion.hostname ===
+            "youtu.be"
+
+            ||
+
+            direccion.hostname ===
+            "www.youtu.be"
+
+        );
+
+    }
+
+    catch{
+
+        return false;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SUBIR / PUBLICAR MATERIAL
    ===================================================== */
 
 formulario.addEventListener(
@@ -1412,66 +1246,89 @@ formulario.addEventListener(
         event.preventDefault();
 
 
-        const materia =
-        document.getElementById(
-            "materia"
-        ).value;
+        const materiaValor =
+        materia.value;
 
 
-        const unidad =
-        document.getElementById(
-            "unidad"
-        ).value;
+        const unidadValor =
+        unidad.value;
 
 
-        const titulo =
-        document.getElementById(
-            "titulo"
-        ).value.trim();
+        const tituloValor =
+        titulo.value.trim();
 
 
-        const descripcion =
-        document.getElementById(
-            "descripcion"
-        ).value.trim();
+        const descripcionValor =
+        descripcion.value.trim();
 
 
-        const tipo =
-        document.getElementById(
-            "tipo"
-        ).value;
+        const tipoValor =
+        tipo.value;
 
 
-        /* =============================================
-           COMPROBAR ARCHIVO
-           ============================================= */
-
-        if(
-            !archivo.files ||
-            archivo.files.length === 0
-        ){
-
-            mostrarMensaje(
-                "Selecciona un archivo.",
-                false
-            );
+        const youtubeValor =
+        youtube.value.trim();
 
 
-            return;
+
+        /* =================================================
+           VALIDACIÓN VIDEO
+           ================================================= */
+
+        if(tipoValor === "video"){
+
+            if(!youtubeValor){
+
+                mostrarMensaje(
+                    "Pega el enlace de YouTube.",
+                    false
+                );
+
+                return;
+
+            }
+
+
+            if(!esYoutube(youtubeValor)){
+
+                mostrarMensaje(
+                    "El enlace no parece ser un enlace válido de YouTube.",
+                    false
+                );
+
+                return;
+
+            }
 
         }
 
 
-        const file =
-        archivo.files[0];
+
+        /* =================================================
+           VALIDACIÓN ARCHIVOS
+           ================================================= */
+
+        if(tipoValor !== "video"){
+
+            if(
+                !archivo.files ||
+                archivo.files.length === 0
+            ){
+
+                mostrarMensaje(
+                    "Selecciona un archivo.",
+                    false
+                );
+
+                return;
+
+            }
+
+        }
+
 
 
         try{
-
-
-            /* =========================================
-               DESACTIVAR BOTÓN
-               ========================================= */
 
             botonSubir.disabled =
             true;
@@ -1481,17 +1338,126 @@ formulario.addEventListener(
             "block";
 
 
-            progreso.textContent =
-            "Subiendo archivo...";
-
-
             mensaje.style.display =
             "none";
 
 
-            /* =========================================
-               EXTENSIÓN
-               ========================================= */
+
+            /* =================================================
+               VIDEO DE YOUTUBE
+               ================================================= */
+
+            if(tipoValor === "video"){
+
+                progreso.textContent =
+                "Guardando enlace de YouTube...";
+
+
+                const {
+
+                    error:
+                    errorBD
+
+                } =
+
+                await supabaseClient
+
+                .from(
+                    "materiales"
+                )
+
+                .insert({
+
+                    materia_id:
+                    materiaValor,
+
+                    unidad:
+                    unidadValor,
+
+                    titulo:
+                    tituloValor,
+
+                    tipo:
+                    "video",
+
+                    nombre_archivo:
+                    "Video de YouTube",
+
+                    ruta_archivo:
+                    youtubeValor,
+
+                    descripcion:
+                    descripcionValor,
+
+                    publicado:
+                    true
+
+                });
+
+
+                if(errorBD){
+
+                    throw errorBD;
+
+                }
+
+
+                progreso.style.display =
+                "none";
+
+
+                mostrarMensaje(
+
+                    "✅ Video de YouTube publicado correctamente.",
+
+                    true
+
+                );
+
+
+                formulario.reset();
+
+
+                campoYoutube.style.display =
+                "none";
+
+
+                campoArchivo.style.display =
+                "block";
+
+
+                archivo.required =
+                true;
+
+
+                youtube.required =
+                false;
+
+
+                archivoInfo.textContent =
+                "Selecciona un archivo.";
+
+
+                return;
+
+            }
+
+
+
+            /* =================================================
+               ARCHIVO NORMAL
+               ================================================= */
+
+            const file =
+            archivo.files[0];
+
+
+            progreso.textContent =
+            "Preparando archivo...";
+
+
+
+            /* EXTENSIÓN */
 
             const extension =
 
@@ -1500,9 +1466,8 @@ formulario.addEventListener(
             .pop();
 
 
-            /* =========================================
-               NOMBRE SEGURO
-               ========================================= */
+
+            /* NOMBRE SEGURO */
 
             const nombreBase =
 
@@ -1519,6 +1484,7 @@ formulario.addEventListener(
             );
 
 
+
             const nombreArchivo =
 
             Date.now()
@@ -1532,21 +1498,21 @@ formulario.addEventListener(
             extension;
 
 
-            /* =========================================
-               RUTA
-               ========================================= */
+
+            /* RUTA */
 
             const ruta =
 
-            materia
+            materiaValor
             +
             "/"
             +
-            unidad
+            unidadValor
             +
             "/"
             +
             nombreArchivo;
+
 
 
             console.log(
@@ -1555,9 +1521,14 @@ formulario.addEventListener(
             );
 
 
-            /* =========================================
+
+            /* =================================================
                SUBIR STORAGE
-               ========================================= */
+               ================================================= */
+
+            progreso.textContent =
+            "Subiendo archivo...";
+
 
             const {
 
@@ -1575,8 +1546,11 @@ formulario.addEventListener(
             )
 
             .upload(
+
                 ruta,
+
                 file,
+
                 {
 
                     cacheControl:
@@ -1586,6 +1560,7 @@ formulario.addEventListener(
                     false
 
                 }
+
             );
 
 
@@ -1596,12 +1571,12 @@ formulario.addEventListener(
             }
 
 
-            /* =========================================
-               GUARDAR EN TABLA
-               ========================================= */
+
+            /* =================================================
+               GUARDAR BD
+               ================================================= */
 
             progreso.textContent =
-
             "Guardando información...";
 
 
@@ -1621,16 +1596,16 @@ formulario.addEventListener(
             .insert({
 
                 materia_id:
-                materia,
+                materiaValor,
 
                 unidad:
-                unidad,
+                unidadValor,
 
                 titulo:
-                titulo,
+                tituloValor,
 
                 tipo:
-                tipo,
+                tipoValor,
 
                 nombre_archivo:
                 file.name,
@@ -1639,7 +1614,7 @@ formulario.addEventListener(
                 ruta,
 
                 descripcion:
-                descripcion,
+                descripcionValor,
 
                 publicado:
                 true
@@ -1647,9 +1622,10 @@ formulario.addEventListener(
             });
 
 
-            /* =========================================
-               SI FALLA LA BD
-               ========================================= */
+
+            /* =================================================
+               SI FALLA BD
+               ================================================= */
 
             if(errorBD){
 
@@ -1671,21 +1647,41 @@ formulario.addEventListener(
             }
 
 
-            /* =========================================
+
+            /* =================================================
                ÉXITO
-               ========================================= */
+               ================================================= */
 
             progreso.style.display =
             "none";
 
 
             mostrarMensaje(
+
                 "✅ Material subido correctamente.",
+
                 true
+
             );
 
 
             formulario.reset();
+
+
+            campoYoutube.style.display =
+            "none";
+
+
+            campoArchivo.style.display =
+            "block";
+
+
+            archivo.required =
+            true;
+
+
+            youtube.required =
+            false;
 
 
             archivoInfo.textContent =
@@ -1697,7 +1693,7 @@ formulario.addEventListener(
         catch(error){
 
             console.error(
-                "Error subiendo:",
+                "Error:",
                 error
             );
 
@@ -1708,7 +1704,7 @@ formulario.addEventListener(
 
             mostrarMensaje(
 
-                "❌ No se pudo subir el material: "
+                "❌ No se pudo publicar el material: "
                 +
                 error.message,
 
@@ -1763,3 +1759,4 @@ function mostrarMensaje(
 </body>
 
 </html>
+```
