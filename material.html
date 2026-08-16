@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Material | Andres Vega Ingeniería</title>
+
+
+    <!-- FUENTES -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+            background: #f8fafc;
+
+            color: #0f172a;
+
+            min-height: 100vh;
+        }
+
+
+        /* =================================================
+           ENCABEZADO
+           ================================================= */
+
+        header {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e3a8a,
+                    #2563eb
+                );
+
+            color: white;
+
+            padding: 45px 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.15);
+        }
+
+
+        header h1 {
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 34px;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+
+        header p {
+
+            color: #dbeafe;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =================================================
+           CONTENEDOR
+           ================================================= */
+
+        .contenedor {
+
+            max-width: 1150px;
+
+            margin: 45px auto;
+
+            padding: 0 25px;
+        }
+
+
+        /* =================================================
+           INFORMACIÓN
+           ================================================= */
+
+        .cabecera-materia {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            border: 1px solid #e2e8f0;
+
+            box-shadow:
+                0 8px 25px rgba(15,23,42,0.07);
+
+            margin-bottom: 30px;
+        }
+
+
+        .area {
+
+            color: #2563eb;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .cabecera-materia h2 {
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .cabecera-materia p {
+
+            color: #64748b;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =================================================
+           SECCIONES
+           ================================================= */
+
+        .secciones {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(280px, 1fr)
+                );
+
+            gap: 25px;
+        }
+
+
+        .seccion {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            border: 1px solid #e2e8f0;
+
+            box-shadow:
+                0 8px 25px rgba(15,23,42,0.07);
+
+            transition: 0.3s;
+        }
+
+
+        .seccion:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 30px rgba(15,23,42,0.10);
+        }
+
+
+        .icono {
+
+            width: 60px;
+
+            height: 60px;
+
+            background: #eff6ff;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .seccion h3 {
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .seccion p {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =================================================
+           MENSAJE DE PRÓXIMAMENTE
+           ================================================= */
+
+        .proximamente {
+
+            background: #f8fafc;
+
+            border: 1px dashed #cbd5e1;
+
+            border-radius: 10px;
+
+            padding: 15px;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            text-align: center;
+        }
+
+
+        /* =================================================
+           BOTÓN VOLVER
+           ================================================= */
+
+        .volver {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 40px auto;
+
+            padding: 12px 22px;
+
+            background: #2563eb;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+
+        .volver:hover {
+
+            background: #1d4ed8;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =================================================
+           FOOTER
+           ================================================= */
+
+        footer {
+
+            background: #0f172a;
+
+            color: #94a3b8;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-top: 50px;
+        }
+
+
+        footer strong {
+
+            color: white;
+        }
+
+
+        /* =================================================
+           MÓVIL
+           ================================================= */
+
+        @media(max-width:600px) {
+
+            header {
+
+                padding: 35px 20px;
+            }
+
+
+            header h1 {
+
+                font-size: 27px;
+            }
+
+
+            .contenedor {
+
+                margin: 30px auto;
+
+                padding: 0 18px;
+            }
+
+
+            .cabecera-materia {
+
+                padding: 25px;
+            }
+
+
+            .secciones {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ENCABEZADO
+     ===================================================== -->
+
+<header>
+
+    <h1>
+        Andres Vega Ingeniería
+    </h1>
+
+    <p>
+        Material educativo para Ingeniería
+        Electrónica y Tecnología Automotriz
+    </p>
+
+</header>
+
+
+
+<!-- =====================================================
+     CONTENIDO
+     ===================================================== -->
+
+<main class="contenedor">
+
+
+    <!-- INFORMACIÓN DE LA MATERIA -->
+
+    <section class="cabecera-materia">
+
+        <div
+            id="area"
+            class="area">
+
+            Cargando...
+
+        </div>
+
+
+        <h2
+            id="materia">
+
+            Cargando...
+
+        </h2>
+
+
+        <p>
+
+            En esta sección encontrarás el material
+            educativo correspondiente a esta materia.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SECCIONES DE MATERIAL
+         ================================================= -->
+
+    <section class="secciones">
+
+
+        <!-- PDF -->
+
+        <article class="seccion">
+
+            <div class="icono">
+                📄
+            </div>
+
+
+            <h3>
+                Documentos PDF
+            </h3>
+
+
+            <p>
+
+                Apuntes, manuales, presentaciones,
+                guías y material de estudio.
+
+            </p>
+
+
+            <div class="proximamente">
+
+                Próximamente se agregarán
+                documentos.
+
+            </div>
+
+        </article>
+
+
+
+        <!-- VIDEOS -->
+
+        <article class="seccion">
+
+            <div class="icono">
+                🎥
+            </div>
+
+
+            <h3>
+                Videos
+            </h3>
+
+
+            <p>
+
+                Clases, explicaciones, prácticas
+                y demostraciones.
+
+            </p>
+
+
+            <div class="proximamente">
+
+                Próximamente se agregarán
+                videos.
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PRÁCTICAS -->
+
+        <article class="seccion">
+
+            <div class="icono">
+                🔧
+            </div>
+
+
+            <h3>
+                Prácticas
+
+            </h3>
+
+
+            <p>
+
+                Guías de laboratorio,
+                actividades y ejercicios.
+
+            </p>
+
+
+            <div class="proximamente">
+
+                Próximamente se agregarán
+                prácticas.
+
+            </div>
+
+        </article>
+
+
+
+        <!-- MATERIAL COMPLEMENTARIO -->
+
+        <article class="seccion">
+
+            <div class="icono">
+                📚
+            </div>
+
+
+            <h3>
+                Material complementario
+            </h3>
+
+
+            <p>
+
+                Recursos adicionales para
+                complementar el aprendizaje.
+
+            </p>
+
+
+            <div class="proximamente">
+
+                Próximamente se agregarán
+                recursos.
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- VOLVER -->
+
+    <a
+        href="#"
+        id="volver"
+        class="volver">
+
+        ← Volver al área
+
+    </a>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <strong>
+        Andres Vega Ingeniería
+    </strong>
+
+    <br>
+
+    Material educativo para Ingeniería Electrónica
+    y Tecnología Automotriz.
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================================================
+   LISTA DE MATERIAS
+   ========================================================= */
+
+
+const materias = {
+
+
+    "electronica-digital":
+    {
+        nombre:
+            "Electrónica Digital",
+
+        area:
+            "Electricidad y Electrónica Automotriz",
+
+        pagina:
+            "electricidad-electronica-automotriz.html"
+    },
+
+
+    "programacion":
+    {
+        nombre:
+            "Programación",
+
+        area:
+            "Electricidad y Electrónica Automotriz",
+
+        pagina:
+            "electricidad-electronica-automotriz.html"
+    },
+
+
+    "inyeccion-electronica":
+    {
+        nombre:
+            "Sistemas de Inyección Electrónica",
+
+        area:
+            "Electricidad y Electrónica Automotriz",
+
+        pagina:
+            "electricidad-electronica-automotriz.html"
+    },
+
+
+    "sistemas-encendido":
+    {
+        nombre:
+            "Sistemas de Encendido",
+
+        area:
+            "Electricidad y Electrónica Automotriz",
+
+        pagina:
+            "electricidad-electronica-automotriz.html"
+    },
+
+
+    "ecus":
+    {
+        nombre:
+            "ECUS",
+
+        area:
+            "Electricidad y Electrónica Automotriz",
+
+        pagina:
+            "electricidad-electronica-automotriz.html"
+    },
+
+
+    "tableros-electronicos":
+    {
+        nombre:
+            "Tableros Electrónicos",
+
+        area:
+            "Electricidad y Electrónica Automotriz",
+
+        pagina:
+            "electricidad-electronica-automotriz.html"
+    },
+
+
+    "diagramas-electricos":
+    {
+        nombre:
+            "Diagramas Eléctricos",
+
+        area:
+            "Electricidad y Electrónica Automotriz",
+
+        pagina:
+            "electricidad-electronica-automotriz.html"
+    },
+
+
+    "electronica-digital-ingenieria":
+    {
+        nombre:
+            "Electrónica Digital",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "electromagnetismo":
+    {
+        nombre:
+            "Electromagnetismo",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "electronica-analogica":
+    {
+        nombre:
+            "Electrónica Analógica",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "circuitos-electricos":
+    {
+        nombre:
+            "Circuitos Eléctricos",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "robotica":
+    {
+        nombre:
+            "Robótica",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "sistemas-control":
+    {
+        nombre:
+            "Sistemas de Control",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "fisica-3":
+    {
+        nombre:
+            "Física 3",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "programacion-java":
+    {
+        nombre:
+            "Programación en Java",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "microcontroladores":
+    {
+        nombre:
+            "Programación de Microcontroladores",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "iot":
+    {
+        nombre:
+            "IoT",
+
+        area:
+            "Ingeniería Electrónica",
+
+        pagina:
+            "ingenieria-electronica.html"
+    },
+
+
+    "sistemas-vehiculos-electricos":
+    {
+        nombre:
+            "Sistemas",
+
+        area:
+            "Vehículos Eléctricos",
+
+        pagina:
+            "vehiculos-electricos.html"
+    },
+
+
+    "electricidad-vehiculos-electricos":
+    {
+        nombre:
+            "Electricidad",
+
+        area:
+            "Vehículos Eléctricos",
+
+        pagina:
+            "vehiculos-electricos.html"
+    },
+
+
+    "diagramas-vehiculos-electricos":
+    {
+        nombre:
+            "Diagramas",
+
+        area:
+            "Vehículos Eléctricos",
+
+        pagina:
+            "vehiculos-electricos.html"
+    }
+
+};
+
+
+
+/* =========================================================
+   OBTENER MATERIA
+   ========================================================= */
+
+
+const parametros =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const materiaID =
+    parametros.get("materia");
+
+
+const materia =
+    materias[materiaID];
+
+
+
+/* =========================================================
+   ELEMENTOS
+   ========================================================= */
+
+
+const titulo =
+    document.getElementById(
+        "materia"
+    );
+
+
+const area =
+    document.getElementById(
+        "area"
+    );
+
+
+const volver =
+    document.getElementById(
+        "volver"
+    );
+
+
+
+/* =========================================================
+   COMPROBAR AUTORIZACIÓN
+   ========================================================= */
+
+
+const autorizada =
+    sessionStorage.getItem(
+        "materia_autorizada"
+    );
+
+
+/*
+   Si alguien intenta entrar directamente
+   sin pasar por la contraseña,
+   lo devolvemos a acceso.html.
+*/
+
+
+if (
+    !materia ||
+    autorizada !== materiaID
+) {
+
+
+    window.location.href =
+        "acceso.html?materia="
+        + encodeURIComponent(
+            materiaID || ""
+        );
+
+}
+
+
+
+/* =========================================================
+   MOSTRAR INFORMACIÓN
+   ========================================================= */
+
+
+else {
+
+
+    titulo.textContent =
+        materia.nombre;
+
+
+    area.textContent =
+        materia.area;
+
+
+    volver.href =
+        materia.pagina;
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
