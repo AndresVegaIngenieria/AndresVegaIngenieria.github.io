@@ -1,34 +1,710 @@
-<!-- ELECTRÓNICA DIGITAL -->
-<a href="acceso-electronica-digital.html" class="boton">
-    Ingresar
-</a>
+<!DOCTYPE html>
+<html lang="es">
 
-<!-- PROGRAMACIÓN -->
-<a href="acceso-programacion.html" class="boton">
-    Ingresar
-</a>
+<head>
 
-<!-- SISTEMAS DE INYECCIÓN ELECTRÓNICA -->
-<a href="acceso-inyeccion-electronica.html" class="boton">
-    Ingresar
-</a>
+    <meta charset="UTF-8">
 
-<!-- SISTEMAS DE ENCENDIDO -->
-<a href="acceso-sistemas-encendido.html" class="boton">
-    Ingresar
-</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ECUS -->
-<a href="acceso-ecus.html" class="boton">
-    Ingresar
-</a>
+    <title>Electricidad y Electrónica Automotriz | Andres Vega Ingeniería</title>
 
-<!-- TABLEROS ELECTRÓNICOS -->
-<a href="acceso-tableros-electronicos.html" class="boton">
-    Ingresar
-</a>
 
-<!-- DIAGRAMAS ELÉCTRICOS -->
-<a href="acceso-diagramas-electricos.html" class="boton">
-    Ingresar
-</a>
+    <!-- FUENTES -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8fafc,
+                    #e0f2fe
+                );
+
+            min-height: 100vh;
+
+            color: #0f172a;
+        }
+
+
+        /* =========================
+           ENCABEZADO
+           ========================= */
+
+        header {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e3a8a,
+                    #2563eb
+                );
+
+            color: white;
+
+            padding: 55px 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.15);
+        }
+
+
+        header h1 {
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 36px;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+        }
+
+
+        header p {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color: #dbeafe;
+        }
+
+
+        /* =========================
+           CONTENEDOR
+           ========================= */
+
+        .contenedor {
+
+            max-width: 1200px;
+
+            margin: 50px auto;
+
+            padding: 0 25px;
+        }
+
+
+        .titulo-seccion {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .titulo-seccion h2 {
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .titulo-seccion p {
+
+            color: #64748b;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           GRID
+           ========================= */
+
+        .materias {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(270px, 1fr)
+                );
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           TARJETAS
+           ========================= */
+
+        .materia {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 8px 25px rgba(15,23,42,0.08);
+
+            border: 1px solid #e2e8f0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            transition: 0.3s;
+        }
+
+
+        .materia:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 18px 35px rgba(15,23,42,0.13);
+        }
+
+
+        /* =========================
+           ICONO
+           ========================= */
+
+        .icono {
+
+            width: 65px;
+
+            height: 65px;
+
+            border-radius: 16px;
+
+            background: #eff6ff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           TITULO MATERIA
+           ========================= */
+
+        .materia h3 {
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 20px;
+
+            margin-bottom: 12px;
+
+            color: #0f172a;
+        }
+
+
+        /* =========================
+           DESCRIPCION
+           ========================= */
+
+        .materia p {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+
+            flex-grow: 1;
+        }
+
+
+        /* =========================
+           BOTON
+           ========================= */
+
+        .boton {
+
+            display: block;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 12px 18px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+
+        .boton:hover {
+
+            background: #1d4ed8;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           VOLVER
+           ========================= */
+
+        .volver {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 45px auto 0;
+
+            text-decoration: none;
+
+            color: #475569;
+
+            font-weight: 600;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .volver:hover {
+
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           PIE
+           ========================= */
+
+        footer {
+
+            margin-top: 60px;
+
+            background: #0f172a;
+
+            color: #94a3b8;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        footer strong {
+
+            color: white;
+        }
+
+
+        /* =========================
+           MOVIL
+           ========================= */
+
+        @media(max-width:600px) {
+
+            header {
+
+                padding: 40px 20px;
+            }
+
+
+            header h1 {
+
+                font-size: 28px;
+            }
+
+
+            .contenedor {
+
+                margin: 35px auto;
+
+                padding: 0 18px;
+            }
+
+
+            .materias {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     ENCABEZADO
+     ========================= -->
+
+<header>
+
+    <h1>
+        Electricidad y Electrónica Automotriz
+    </h1>
+
+    <p>
+
+        Material educativo para el estudio de sistemas
+        eléctricos, electrónicos y de control aplicados
+        a la tecnología automotriz.
+
+    </p>
+
+</header>
+
+
+
+<!-- =========================
+     CONTENIDO
+     ========================= -->
+
+<main class="contenedor">
+
+
+    <div class="titulo-seccion">
+
+        <h2>
+            Materias
+        </h2>
+
+        <p>
+            Selecciona una materia para acceder
+            al material educativo.
+        </p>
+
+    </div>
+
+
+
+    <section class="materias">
+
+
+        <!-- =========================
+             ELECTRÓNICA DIGITAL
+             ========================= -->
+
+        <article class="materia">
+
+            <div class="icono">
+                ⚡
+            </div>
+
+            <h3>
+                Electrónica Digital
+            </h3>
+
+            <p>
+
+                Sistemas de numeración, lógica digital,
+                compuertas lógicas, tablas de verdad,
+                circuitos combinacionales y secuenciales.
+
+            </p>
+
+            <a
+                href="acceso.html?materia=electronica-digital"
+                class="boton">
+
+                Ingresar
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =========================
+             PROGRAMACIÓN
+             ========================= -->
+
+        <article class="materia">
+
+            <div class="icono">
+                💻
+            </div>
+
+            <h3>
+                Programación
+            </h3>
+
+            <p>
+
+                Fundamentos de programación aplicados
+                a sistemas eléctricos y electrónicos
+                automotrices.
+
+            </p>
+
+            <a
+                href="acceso.html?materia=programacion"
+                class="boton">
+
+                Ingresar
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =========================
+             INYECCIÓN ELECTRÓNICA
+             ========================= -->
+
+        <article class="materia">
+
+            <div class="icono">
+                🚗
+            </div>
+
+            <h3>
+                Sistemas de Inyección Electrónica
+            </h3>
+
+            <p>
+
+                Sensores, actuadores, ECU, sistemas
+                de inyección electrónica y diagnóstico
+                automotriz.
+
+            </p>
+
+            <a
+                href="acceso.html?materia=inyeccion-electronica"
+                class="boton">
+
+                Ingresar
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =========================
+             SISTEMAS DE ENCENDIDO
+             ========================= -->
+
+        <article class="materia">
+
+            <div class="icono">
+                🔥
+            </div>
+
+            <h3>
+                Sistemas de Encendido
+            </h3>
+
+            <p>
+
+                Sistemas de encendido convencional,
+                electrónico, DIS, COP y diagnóstico
+                de señales de encendido.
+
+            </p>
+
+            <a
+                href="acceso.html?materia=sistemas-encendido"
+                class="boton">
+
+                Ingresar
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =========================
+             ECUS
+             ========================= -->
+
+        <article class="materia">
+
+            <div class="icono">
+                🧠
+            </div>
+
+            <h3>
+                ECUS
+            </h3>
+
+            <p>
+
+                Unidades de control electrónico,
+                arquitectura, señales, sensores,
+                actuadores y diagnóstico.
+
+            </p>
+
+            <a
+                href="acceso.html?materia=ecus"
+                class="boton">
+
+                Ingresar
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =========================
+             TABLEROS
+             ========================= -->
+
+        <article class="materia">
+
+            <div class="icono">
+                📊
+            </div>
+
+            <h3>
+                Tableros Electrónicos
+            </h3>
+
+            <p>
+
+                Sistemas electrónicos de
+                instrumentación, indicadores,
+                comunicación y diagnóstico.
+
+            </p>
+
+            <a
+                href="acceso.html?materia=tableros-electronicos"
+                class="boton">
+
+                Ingresar
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =========================
+             DIAGRAMAS
+             ========================= -->
+
+        <article class="materia">
+
+            <div class="icono">
+                📐
+            </div>
+
+            <h3>
+                Diagramas Eléctricos
+            </h3>
+
+            <p>
+
+                Interpretación de diagramas,
+                simbología eléctrica, conexiones,
+                circuitos y diagnóstico.
+
+            </p>
+
+            <a
+                href="acceso.html?materia=diagramas-electricos"
+                class="boton">
+
+                Ingresar
+
+            </a>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- VOLVER -->
+
+    <a
+        href="index.html"
+        class="volver">
+
+        ← Volver a Andres Vega Ingeniería
+
+    </a>
+
+
+</main>
+
+
+
+<!-- =========================
+     PIE DE PÁGINA
+     ========================= -->
+
+<footer>
+
+    <strong>
+        Andres Vega Ingeniería
+    </strong>
+
+    <br>
+
+    Material educativo para Ingeniería Electrónica
+    y Tecnología Automotriz.
+
+</footer>
+
+
+</body>
+
+</html>
