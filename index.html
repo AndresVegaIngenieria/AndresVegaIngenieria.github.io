@@ -1,510 +1,1752 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
 
-    <title>Andres Vega Ingeniería</title>
+<title>Andres Vega Ingeniería | Material Educativo</title>
 
-    <!-- Fuente moderna -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description"
+   content="Plataforma educativa de Andres Vega Ingeniería. Material de Ingeniería Electrónica, Electricidad y Electrónica Automotriz y Vehículos Eléctricos.">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo-av.png">
 
-    <style>
+<!-- FUENTES -->
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
 
-        body {
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
-            font-family: 'Inter', sans-serif;
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet">
 
-            background: #f5f7fa;
+<style>
 
-            color: #1e293b;
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
 
-            line-height: 1.6;
-        }
+*{
 
+    margin:0;
 
-        /* =========================
-           ENCABEZADO
-        ========================= */
+    padding:0;
 
-        header {
+    box-sizing:border-box;
 
-            background: linear-gradient(
-                135deg,
-                #0f172a,
-                #1e3a8a
-            );
+}
 
-            color: white;
 
-            padding: 65px 20px 55px;
+html{
 
-            text-align: center;
-        }
+    scroll-behavior:smooth;
 
+}
 
-        .titulo {
 
-            font-family: 'Poppins', sans-serif;
+body{
 
-            font-size: clamp(36px, 6vw, 64px);
+    font-family:'Inter',sans-serif;
 
-            font-weight: 800;
+    background:#f8fafc;
 
-            letter-spacing: -1.5px;
+    color:#0f172a;
 
-            margin-bottom: 12px;
-        }
+    line-height:1.6;
 
+    overflow-x:hidden;
 
-        .subtitulo {
+}
 
-            font-size: clamp(16px, 2vw, 21px);
 
-            font-weight: 400;
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-            color: #dbeafe;
+:root{
 
-            max-width: 800px;
+    --azul:#2563eb;
 
-            margin: auto;
-        }
+    --azul-oscuro:#1e3a8a;
 
+    --azul-profundo:#0f172a;
 
-        /* =========================
-           MENU
-        ========================= */
+    --azul-claro:#60a5fa;
 
-        nav {
+    --gris:#64748b;
 
-            background: #ffffff;
+    --borde:#e2e8f0;
 
-            padding: 17px;
+    --blanco:#ffffff;
 
-            display: flex;
+}
 
-            justify-content: center;
 
-            gap: 40px;
+/* =====================================================
+   NAVEGACIÓN
+===================================================== */
 
-            border-bottom: 1px solid #e2e8f0;
+nav{
 
-            position: sticky;
+    position:sticky;
 
-            top: 0;
+    top:0;
 
-            z-index: 100;
-        }
+    z-index:1000;
 
+    background:rgba(255,255,255,.94);
 
-        nav a {
+    backdrop-filter:blur(14px);
 
-            text-decoration: none;
+    -webkit-backdrop-filter:blur(14px);
 
-            color: #334155;
+    border-bottom:1px solid rgba(226,232,240,.8);
 
-            font-weight: 600;
+    box-shadow:
+    0 4px 20px rgba(15,23,42,.05);
 
-            transition: 0.3s;
-        }
+}
 
 
-        nav a:hover {
+.nav-contenedor{
 
-            color: #2563eb;
-        }
+    max-width:1200px;
 
+    margin:auto;
 
-        /* =========================
-           PRESENTACIÓN
-        ========================= */
+    padding:13px 25px;
 
-        .bienvenida {
+    display:flex;
 
-            text-align: center;
+    align-items:center;
 
-            padding: 70px 20px 40px;
+    justify-content:space-between;
 
-            max-width: 900px;
+    gap:25px;
 
-            margin: auto;
-        }
+}
 
 
-        .bienvenida h2 {
+.nav-marca{
 
-            font-family: 'Poppins', sans-serif;
+    display:flex;
 
-            font-size: 34px;
+    align-items:center;
 
-            margin-bottom: 15px;
+    gap:10px;
 
-            color: #0f172a;
-        }
+    text-decoration:none;
 
+    color:#0f172a;
 
-        .bienvenida p {
+    font-family:'Poppins',sans-serif;
 
-            font-size: 17px;
+    font-weight:800;
 
-            color: #64748b;
-        }
+    font-size:16px;
 
+}
 
-        /* =========================
-           ÁREAS
-        ========================= */
 
-        .areas {
+.nav-marca img{
 
-            max-width: 1200px;
+    width:42px;
 
-            margin: auto;
+    height:42px;
 
-            padding: 30px 20px 80px;
-        }
+    object-fit:contain;
 
+    border-radius:50%;
 
-        .areas-grid {
+}
 
-            display: grid;
 
-            grid-template-columns:
-            repeat(auto-fit, minmax(280px, 1fr));
+.nav-enlaces{
 
-            gap: 30px;
-        }
+    display:flex;
 
+    align-items:center;
 
-        /* =========================
-           TARJETAS
-        ========================= */
+    gap:30px;
 
-        .area {
+}
 
-            background: white;
 
-            border-radius: 18px;
+.nav-enlaces a{
 
-            padding: 38px 30px;
+    color:#334155;
 
-            text-align: center;
+    text-decoration:none;
 
-            border: 1px solid #e2e8f0;
+    font-size:14px;
 
-            box-shadow:
-            0 10px 30px rgba(15, 23, 42, 0.06);
+    font-weight:700;
 
-            transition:
-            transform 0.3s,
-            box-shadow 0.3s;
-        }
+    transition:.25s;
 
+}
 
-        .area:hover {
 
-            transform: translateY(-7px);
+.nav-enlaces a:hover{
 
-            box-shadow:
-            0 18px 40px rgba(15, 23, 42, 0.12);
-        }
+    color:var(--azul);
 
+}
 
-        .icono {
 
-            font-size: 52px;
+/* =====================================================
+   HERO
+===================================================== */
 
-            margin-bottom: 18px;
-        }
+.hero{
 
+    position:relative;
 
-        .area h3 {
+    min-height:650px;
 
-            font-family: 'Poppins', sans-serif;
+    display:flex;
 
-            font-size: 22px;
+    align-items:center;
 
-            color: #0f172a;
+    justify-content:center;
 
-            margin-bottom: 12px;
-        }
+    text-align:center;
 
+    overflow:hidden;
 
-        .area p {
+    color:white;
 
-            color: #64748b;
+    background:
 
-            font-size: 15px;
+    radial-gradient(
+        circle at 50% 30%,
+        rgba(37,99,235,.30),
+        transparent 35%
+    ),
 
-            margin-bottom: 25px;
-        }
+    linear-gradient(
+        135deg,
+        #020617 0%,
+        #0f172a 45%,
+        #1e3a8a 100%
+    );
 
+}
 
-        .boton {
 
-            display: inline-block;
+/* LUCES DE FONDO */
 
-            background: #2563eb;
+.hero::before{
 
-            color: white;
+    content:"";
 
-            text-decoration: none;
+    position:absolute;
 
-            padding: 11px 25px;
+    width:500px;
 
-            border-radius: 8px;
+    height:500px;
 
-            font-weight: 600;
+    border-radius:50%;
 
-            transition: 0.3s;
-        }
+    background:rgba(37,99,235,.15);
 
+    filter:blur(80px);
 
-        .boton:hover {
+    top:-180px;
 
-            background: #1d4ed8;
+    left:-150px;
 
-            transform: translateY(-2px);
-        }
+}
 
 
-        /* =========================
-           PIE
-        ========================= */
+.hero::after{
 
-        footer {
+    content:"";
 
-            background: #0f172a;
+    position:absolute;
 
-            color: #94a3b8;
+    width:450px;
 
-            text-align: center;
+    height:450px;
 
-            padding: 30px 20px;
+    border-radius:50%;
 
-            font-size: 14px;
-        }
+    background:rgba(59,130,246,.12);
 
+    filter:blur(90px);
 
-        /* =========================
-           CELULAR
-        ========================= */
+    bottom:-180px;
 
-        @media (max-width: 600px) {
+    right:-100px;
 
-            nav {
+}
 
-                gap: 20px;
 
-                font-size: 14px;
-            }
+.hero-contenido{
 
-            .bienvenida {
+    position:relative;
 
-                padding-top: 50px;
-            }
+    z-index:2;
 
-            .area {
+    max-width:1000px;
 
-                padding: 30px 22px;
-            }
+    padding:70px 25px;
 
-        }
+}
 
-    </style>
+
+/* LOGO */
+
+.logo-hero{
+
+    width:230px;
+
+    height:230px;
+
+    object-fit:contain;
+
+    margin:0 auto 25px;
+
+    display:block;
+
+    filter:
+    drop-shadow(0 20px 30px rgba(0,0,0,.45));
+
+    animation:
+    aparecerLogo 1s ease forwards;
+
+}
+
+
+@keyframes aparecerLogo{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.75)
+        translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        translateY(0);
+
+    }
+
+}
+
+
+/* TÍTULO */
+
+.hero h1{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:
+    clamp(38px,6vw,72px);
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+    margin-bottom:18px;
+
+}
+
+
+.hero h1 span{
+
+    color:#60a5fa;
+
+}
+
+
+.hero-subtitulo{
+
+    max-width:850px;
+
+    margin:0 auto 30px;
+
+    color:#dbeafe;
+
+    font-size:
+    clamp(16px,2vw,21px);
+
+    line-height:1.7;
+
+}
+
+
+.hero-frase{
+
+    font-size:15px;
+
+    color:#93c5fd;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:35px;
+
+}
+
+
+/* BOTONES HERO */
+
+.hero-botones{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.boton-principal,
+.boton-secundario{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 25px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+
+.boton-principal{
+
+    background:#2563eb;
+
+    color:white;
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,.3);
+
+}
+
+
+.boton-principal:hover{
+
+    background:#3b82f6;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 30px rgba(37,99,235,.4);
+
+}
+
+
+.boton-secundario{
+
+    border:1px solid rgba(255,255,255,.25);
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    backdrop-filter:blur(10px);
+
+}
+
+
+.boton-secundario:hover{
+
+    background:rgba(255,255,255,.15);
+
+    transform:translateY(-3px);
+
+}
+
+
+/* =====================================================
+   PRESENTACIÓN
+===================================================== */
+
+.presentacion{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:85px 25px 55px;
+
+    text-align:center;
+
+}
+
+
+.etiqueta{
+
+    display:inline-block;
+
+    padding:7px 13px;
+
+    border-radius:50px;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom:15px;
+
+}
+
+
+.presentacion h2{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:
+    clamp(28px,4vw,42px);
+
+    margin-bottom:18px;
+
+}
+
+
+.presentacion p{
+
+    color:#64748b;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+}
+
+
+/* =====================================================
+   ÁREAS
+===================================================== */
+
+.areas{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:35px 25px 100px;
+
+}
+
+
+.areas-cabecera{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+
+.areas-cabecera h2{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+
+.areas-cabecera p{
+
+    color:#64748b;
+
+}
+
+
+.areas-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:28px;
+
+}
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+.area{
+
+    position:relative;
+
+    background:white;
+
+    border:1px solid var(--borde);
+
+    border-radius:22px;
+
+    padding:38px 30px 32px;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 35px rgba(15,23,42,.06);
+
+    transition:
+    transform .35s,
+    box-shadow .35s,
+    border-color .35s;
+
+}
+
+
+.area::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    top:0;
+
+    height:4px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #1e3a8a,
+        #2563eb,
+        #60a5fa
+    );
+
+}
+
+
+.area:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#bfdbfe;
+
+    box-shadow:
+    0 20px 45px rgba(15,23,42,.12);
+
+}
+
+
+.area-icono{
+
+    width:78px;
+
+    height:78px;
+
+    margin:0 auto 22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:20px;
+
+    background:#eff6ff;
+
+    font-size:38px;
+
+}
+
+
+.area h3{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:21px;
+
+    line-height:1.3;
+
+    margin-bottom:13px;
+
+}
+
+
+.area p{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    min-height:72px;
+
+    margin-bottom:25px;
+
+}
+
+
+.area-boton{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:11px 21px;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    transition:.3s;
+
+}
+
+
+.area-boton:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   BANNER INFERIOR
+===================================================== */
+
+.banner{
+
+    max-width:1150px;
+
+    margin:0 auto 90px;
+
+    padding:45px 35px;
+
+    border-radius:24px;
+
+    color:white;
+
+    text-align:center;
+
+    background:
+
+    radial-gradient(
+        circle at top right,
+        rgba(96,165,250,.25),
+        transparent 40%
+    ),
+
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a
+    );
+
+    box-shadow:
+    0 20px 45px rgba(15,23,42,.15);
+
+}
+
+
+.banner h2{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+
+.banner p{
+
+    color:#dbeafe;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+   CONTACTO
+===================================================== */
+
+.contacto{
+
+    background:#eef4ff;
+
+    padding:85px 25px;
+
+    text-align:center;
+
+}
+
+
+.contacto-contenido{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+.contacto h2{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:32px;
+
+    margin-bottom:12px;
+
+}
+
+
+.contacto-descripcion{
+
+    color:#64748b;
+
+    margin-bottom:35px;
+
+}
+
+
+.contacto-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:20px;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+.contacto-item{
+
+    background:white;
+
+    border:1px solid #dbeafe;
+
+    border-radius:15px;
+
+    padding:22px;
+
+    box-shadow:
+    0 8px 25px rgba(15,23,42,.05);
+
+}
+
+
+.contacto-icono{
+
+    font-size:27px;
+
+    margin-bottom:8px;
+
+}
+
+
+.contacto-item strong{
+
+    display:block;
+
+    font-size:13px;
+
+    color:#64748b;
+
+    margin-bottom:5px;
+
+}
+
+
+.contacto-item a{
+
+    color:#1d4ed8;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    word-break:break-word;
+
+}
+
+
+.contacto-item a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#020617;
+
+    color:#94a3b8;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+}
+
+
+.footer-logo{
+
+    width:75px;
+
+    height:75px;
+
+    object-fit:contain;
+
+    margin-bottom:12px;
+
+    opacity:.95;
+
+}
+
+
+footer h3{
+
+    font-family:'Poppins',sans-serif;
+
+    color:white;
+
+    font-size:18px;
+
+    margin-bottom:7px;
+
+}
+
+
+footer p{
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+
+.footer-linea{
+
+    width:80px;
+
+    height:2px;
+
+    background:#2563eb;
+
+    margin:20px auto;
+
+}
+
+
+/* =====================================================
+   BOTÓN ARRIBA
+===================================================== */
+
+.arriba{
+
+    position:fixed;
+
+    right:22px;
+
+    bottom:22px;
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:50%;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    box-shadow:
+    0 8px 20px rgba(37,99,235,.3);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+
+.arriba.visible{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+
+.arriba:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+
+/* =====================================================
+   ANIMACIÓN DE ENTRADA
+===================================================== */
+
+.area{
+
+    animation:
+    aparecerTarjeta .7s ease both;
+
+}
+
+
+.area:nth-child(2){
+
+    animation-delay:.1s;
+
+}
+
+
+.area:nth-child(3){
+
+    animation-delay:.2s;
+
+}
+
+
+@keyframes aparecerTarjeta{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .areas-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .nav-contenedor{
+
+        justify-content:center;
+
+    }
+
+
+    .nav-marca{
+
+        display:none;
+
+    }
+
+
+    .nav-enlaces{
+
+        gap:20px;
+
+    }
+
+
+    .nav-enlaces a{
+
+        font-size:13px;
+
+    }
+
+
+    .hero{
+
+        min-height:600px;
+
+    }
+
+
+    .logo-hero{
+
+        width:180px;
+
+        height:180px;
+
+    }
+
+
+    .hero h1{
+
+        letter-spacing:-1px;
+
+    }
+
+
+    .hero-subtitulo{
+
+        font-size:15px;
+
+    }
+
+
+    .hero-frase{
+
+        font-size:11px;
+
+    }
+
+
+    .areas-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .area p{
+
+        min-height:auto;
+
+    }
+
+
+    .banner{
+
+        margin:
+        0 18px 70px;
+
+        padding:35px 22px;
+
+    }
+
+
+    .banner h2{
+
+        font-size:25px;
+
+    }
+
+
+    .contacto-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .contacto{
+
+        padding:65px 20px;
+
+    }
+
+
+    .arriba{
+
+        right:15px;
+
+        bottom:15px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
+<body id="inicio">
 
-<body>
-
-
-<!-- =========================
-     ENCABEZADO
-========================= -->
-
-<header>
-
-    <h1 class="titulo">
-        Andres Vega Ingeniería
-    </h1>
-
-    <p class="subtitulo">
-        Material educativo para ingeniería Electrónica y tecnología automotriz
-    </p>
-
-</header>
-
-
-<!-- =========================
-     MENU
-========================= -->
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
 
 <nav>
 
-    <a href="#">
-        Inicio
-    </a>
+<div class="nav-contenedor">
 
-    <a href="#areas">
-        Áreas
-    </a>
+<a
+href="#inicio"
+class="nav-marca">
 
-    <a href="#contacto">
-        Contacto
-    </a>
+<img
+src="logo-av.png"
+alt="Logo AV">
+
+<span>
+Andres Vega Ingeniería
+</span>
+
+</a>
+
+<div class="nav-enlaces">
+
+<a href="#inicio">
+Inicio
+</a>
+
+<a href="#areas">
+Áreas
+</a>
+
+<a href="#contacto">
+Contacto
+</a>
+
+</div>
+
+</div>
 
 </nav>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<!-- =========================
-     BIENVENIDA
-========================= -->
+<header class="hero">
 
-<section class="bienvenida">
+<div class="hero-contenido">
 
-    <h2>
-        Plataforma educativa
-    </h2>
+<img
+src="logo-av.png"
+alt="Logo Andres Vega Ingeniería"
+class="logo-hero">
 
-    <p>
-        Espacio destinado al aprendizaje, consulta y
-        desarrollo de material educativo relacionado con
-        la ingeniería electrónica y la tecnología automotriz.
-    </p>
+<div class="hero-frase">
 
-</section>
+INGENIERÍA · ELECTRÓNICA · AUTOMOTRIZ · INNOVACIÓN
 
+</div>
 
-<!-- =========================
-     ÁREAS PRINCIPALES
-========================= -->
+<h1>
 
-<section class="areas" id="areas">
+Andres Vega <span>Ingeniería</span>
 
-    <div class="areas-grid">
+</h1>
 
+<p class="hero-subtitulo">
 
-        <!-- ELECTRICIDAD Y ELECTRÓNICA AUTOMOTRIZ -->
+Material educativo para Ingeniería Electrónica,
+Electricidad y Electrónica Automotriz y
+Vehículos Eléctricos.
 
-        <div class="area">
+</p>
 
-            <div class="icono">
-                🚗
-            </div>
+<div class="hero-botones">
 
-            <h3>
-                Electricidad y Electrónica Automotriz
-            </h3>
+<a
+href="#areas"
+class="boton-principal">
 
-            <p>
-                Material relacionado con sistemas eléctricos,
-                electrónicos y de control del automóvil.
-            </p>
+Explorar material →
 
-            <a
-                href="electricidad-electronica-automotriz.html"
-                class="boton">
+</a>
 
-                Ingresar
+<a
+href="#contacto"
+class="boton-secundario">
 
-            </a>
+Contacto
 
-        </div>
+</a>
 
+</div>
 
+</div>
 
-        <!-- INGENIERÍA ELECTRÓNICA -->
+</header>
 
-        <div class="area">
+<!-- =====================================================
+     PRESENTACIÓN
+===================================================== -->
 
-            <div class="icono">
-                ⚡
-            </div>
+<section class="presentacion">
 
-            <h3>
-                Ingeniería Electrónica
-            </h3>
+<span class="etiqueta">
 
-            <p>
-                Electrónica, circuitos, control, robótica,
-                programación y sistemas digitales.
-            </p>
+Plataforma educativa
 
-            <a
-                href="ingenieria-electronica.html"
-                class="boton">
+</span>
 
-                Ingresar
+<h2>
 
-            </a>
+Aprende. Experimenta. Diagnostica. Innova.
 
-        </div>
+</h2>
 
+<p>
 
+Este espacio reúne material educativo diseñado para
+apoyar el aprendizaje de estudiantes y profesionales
+en las áreas de ingeniería electrónica y tecnología
+automotriz.
 
-        <!-- VEHÍCULOS ELÉCTRICOS -->
+Aquí encontrarás apuntes, documentos PDF, imágenes,
+videos educativos y material complementario organizado
+por materias y unidades.
 
-        <div class="area">
-
-            <div class="icono">
-                🔋
-            </div>
-
-            <h3>
-                Vehículos Eléctricos
-            </h3>
-
-            <p>
-                Sistemas eléctricos, componentes,
-                funcionamiento y diagramas de vehículos eléctricos.
-            </p>
-
-            <a
-                href="vehiculos-electricos.html"
-                class="boton">
-
-                Ingresar
-
-            </a>
-
-        </div>
-
-
-    </div>
+</p>
 
 </section>
 
+<!-- =====================================================
+     ÁREAS
+===================================================== -->
 
-<!-- =========================
-     PIE DE PÁGINA
-========================= -->
+<section
+class="areas"
+id="areas">
 
-<footer id="contacto">
+<div class="areas-cabecera">
 
-    <p>
-        © 2026 Andres Vega Ingeniería
-    </p>
+<span class="etiqueta">
 
-    <p>
-        Material educativo para ingeniería Electrónica
-        y tecnología automotriz
-    </p>
+Áreas de formación
+
+</span>
+
+<h2>
+
+Explora las áreas
+
+</h2>
+
+<p>
+
+Selecciona un área para acceder al material educativo.
+
+</p>
+
+</div>
+
+<div class="areas-grid">
+
+<!-- =================================================
+     AUTOMOTRIZ
+================================================= -->
+
+<article class="area">
+
+<div class="area-icono">
+
+🚗
+
+</div>
+
+<h3>
+
+Electricidad y
+Electrónica Automotriz
+
+</h3>
+
+<p>
+
+Sistemas eléctricos, electrónica digital,
+inyección electrónica, ECUs, encendido,
+tableros y diagramas eléctricos.
+
+</p>
+
+<a
+href="electricidad-electronica-automotriz.html"
+class="area-boton">
+
+Ingresar al área →
+
+</a>
+
+</article>
+
+<!-- =================================================
+     INGENIERÍA ELECTRÓNICA
+================================================= -->
+
+<article class="area">
+
+<div class="area-icono">
+
+⚡
+
+</div>
+
+<h3>
+
+Ingeniería Electrónica
+
+</h3>
+
+<p>
+
+Electrónica digital y analógica, circuitos,
+electromagnetismo, control, robótica,
+programación, microcontroladores e IoT.
+
+</p>
+
+<a
+href="ingenieria-electronica.html"
+class="area-boton">
+
+Ingresar al área →
+
+</a>
+
+</article>
+
+<!-- =================================================
+     VEHÍCULOS ELÉCTRICOS
+================================================= -->
+
+<article class="area">
+
+<div class="area-icono">
+
+🔋
+
+</div>
+
+<h3>
+
+Vehículos Eléctricos
+
+</h3>
+
+<p>
+
+Sistemas, electricidad y diagramas relacionados
+con vehículos eléctricos y sus principales
+componentes.
+
+</p>
+
+<a
+href="vehiculos-electricos.html"
+class="area-boton">
+
+Ingresar al área →
+
+</a>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     BANNER
+===================================================== -->
+
+<section class="banner">
+
+<h2>
+
+Conocimiento aplicado a la ingeniería
+
+</h2>
+
+<p>
+
+Material organizado para facilitar el estudio,
+la práctica y la comprensión de sistemas
+electrónicos y automotrices.
+
+</p>
+
+</section>
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section
+class="contacto"
+id="contacto">
+
+<div class="contacto-contenido">
+
+<span class="etiqueta">
+
+Contacto
+
+</span>
+
+<h2>
+
+¿Necesitas comunicarte?
+
+</h2>
+
+<p class="contacto-descripcion">
+
+Puedes contactarme para consultas relacionadas
+con el material educativo y actividades académicas.
+
+</p>
+
+<div class="contacto-grid">
+
+<div class="contacto-item">
+
+<div class="contacto-icono">
+
+📱
+
+</div>
+
+<strong>
+
+TELÉFONO
+
+</strong>
+
+<a
+href="tel:+59177455190">
+
++591 77455190
+
+</a>
+
+</div>
+
+<div class="contacto-item">
+
+<div class="contacto-icono">
+
+✉️
+
+</div>
+
+<strong>
+
+CORREO ELECTRÓNICO
+
+</strong>
+
+<a
+href="mailto:zetaandrew45@gmail.com">
+
+[zetaandrew45@gmail.com](mailto:zetaandrew45@gmail.com)
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<img
+src="logo-av.png"
+alt="Logo AV"
+class="footer-logo">
+
+<h3>
+
+Andres Vega Ingeniería
+
+</h3>
+
+<p>
+
+Material educativo para Ingeniería Electrónica
+y Tecnología Automotriz.
+
+</p>
+
+<div class="footer-linea"></div>
+
+<p>
+
+© 2026 Andres Vega Ingeniería ·
+Todos los derechos reservados.
+
+</p>
+
+<p>
+
+Electrónica · Automotriz · Innovación
+
+</p>
 
 </footer>
 
+<!-- =====================================================
+     BOTÓN ARRIBA
+===================================================== -->
+
+<a
+href="#inicio"
+class="arriba"
+id="botonArriba"
+aria-label="Volver arriba">
+
+↑
+
+</a>
+
+<script>
+
+/* =====================================================
+   BOTÓN VOLVER ARRIBA
+===================================================== */
+
+const botonArriba =
+document.getElementById(
+    "botonArriba"
+);
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(
+            window.scrollY > 400
+        ){
+
+            botonArriba.classList.add(
+                "visible"
+            );
+
+        }
+
+        else{
+
+            botonArriba.classList.remove(
+                "visible"
+            );
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 
